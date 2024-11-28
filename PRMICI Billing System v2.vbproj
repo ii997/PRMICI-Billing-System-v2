@@ -332,6 +332,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\4c8759fe-eeaa-4423-b446-cd458b5b4cb3 %281%29.jpg" />
     <None Include="Resources\icons8-school-96.png" />
     <EmbeddedResource Include="Components\FormSettingsForm.resx">
       <DependentUpon>FormSettingsForm.vb</DependentUpon>

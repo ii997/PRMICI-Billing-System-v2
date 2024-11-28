@@ -27,9 +27,9 @@ Partial Class MainForm
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.CuiButton3 = New CuoreUI.Controls.cuiButton()
         Me.CuiButton5 = New CuoreUI.Controls.cuiButton()
         Me.CuiButton8 = New CuoreUI.Controls.cuiButton()
@@ -57,7 +57,7 @@ Partial Class MainForm
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(248, 690)
+        Me.Panel1.Size = New System.Drawing.Size(248, 665)
         Me.Panel1.TabIndex = 0
         '
         'Panel4
@@ -83,14 +83,6 @@ Partial Class MainForm
         Me.Panel2.Size = New System.Drawing.Size(248, 199)
         Me.Panel2.TabIndex = 0
         '
-        'Panel3
-        '
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(248, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(944, 690)
-        Me.Panel3.TabIndex = 1
-        '
         'Timer1
         '
         Me.Timer1.Interval = 5
@@ -98,6 +90,16 @@ Partial Class MainForm
         'Timer2
         '
         Me.Timer2.Interval = 5
+        '
+        'Panel3
+        '
+        Me.Panel3.BackgroundImage = Global.PRMICI_Billing_System_v2.My.Resources.Resources._4c8759fe_eeaa_4423_b446_cd458b5b4cb3__1_
+        Me.Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(248, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(976, 665)
+        Me.Panel3.TabIndex = 1
         '
         'CuiButton3
         '
@@ -284,7 +286,7 @@ Partial Class MainForm
         Me.CuiButton6.ImageExpand = New System.Drawing.Point(2, 2)
         Me.CuiButton6.ImageOffset = New System.Drawing.Point(20, 0)
         Me.CuiButton6.ImageTint = System.Drawing.Color.White
-        Me.CuiButton6.Location = New System.Drawing.Point(0, 638)
+        Me.CuiButton6.Location = New System.Drawing.Point(0, 613)
         Me.CuiButton6.Name = "CuiButton6"
         Me.CuiButton6.NormalBackground = System.Drawing.Color.White
         Me.CuiButton6.NormalOutline = System.Drawing.Color.Empty
@@ -378,7 +380,7 @@ Partial Class MainForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(13, Byte), Integer), CType(CType(78, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1192, 690)
+        Me.ClientSize = New System.Drawing.Size(1224, 665)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

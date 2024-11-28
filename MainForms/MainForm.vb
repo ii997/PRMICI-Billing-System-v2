@@ -112,10 +112,8 @@
         If MsgBox("Are you sure you want to logout?", vbYesNo + vbQuestion) = vbYes Then
             cn.Close()
             MsgBox("Successfully logged out!", vbInformation, "Logged out!")
-            Dispose()
+            Me.Dispose()
             Form1.ShowDialog()
-
-
         End If
     End Sub
 
