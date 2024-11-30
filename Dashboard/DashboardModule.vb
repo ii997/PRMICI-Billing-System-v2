@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Windows.Forms.DataVisualization.Charting
 Module DashboardModule
     Sub RetrieveTotalPayments()
         Try
@@ -106,6 +107,44 @@ Module DashboardModule
         End Try
     End Sub
 
+    Sub LoadMiscsChart()
+        Try
+            cn.Open()
+            Using cm As New MySqlCommand("SELECT m.id,mc.misc,m.studentId,SUM(m.amount) AS totalPaid,m.paymentDate,m.paymentStatus, m.schoolYearId, sy.schoolYear FROM misc_payments m INNER JOIN miscellaneous mc ON m.miscId = mc.id INNER JOIN school_year sy ON m.schoolYearId = sy.id WHERE sy.isActive = 1 GROUP BY MONTH(m.paymentDate) ", cn)
+                Using dr As MySqlDataReader = cm.ExecuteReader()
+
+                    ' Clear existing series
+                    DashboardForm.Chart1.Series.Clear()
+
+                    ' Add a new series
+                    Dim series1 As New Series("Miscellaneous")
+                    series1.ChartType = SeriesChartType.Pie ' Change to desired chart type
+                    series1.IsValueShownAsLabel = True
+                    series1.Font = New Drawing.Font("Poppins", 10, FontStyle.Bold)
+
+                    ' Populate the series with data from the database
+                    While dr.Read()
+                        Dim month As String = CDate(dr("paymentDate")).ToString("MMMM")
+                        Dim sales As Integer = Convert.ToInt32(dr("totalPaid"))
+                        series1.Points.AddXY(month, sales)
+                    End While
+
+
+                    ' Add the series to the chart
+                    DashboardForm.Chart1.Series.Add(series1)
+                    DashboardForm.Chart1.Titles.Add("Miscs Data")
+
+                    DashboardForm.Chart1.BackColor = Drawing.Color.AliceBlue
+
+                End Using
+            End Using
+            cn.Close()
+        Catch ex As Exception
+            cn.Close()
+            MsgBox(ex.Message, vbExclamation, "Error!")
+        End Try
+    End Sub
+
     Sub RetrieveCurrentSchoolYear()
 
         Try
@@ -120,7 +159,6 @@ Module DashboardModule
                     Else
                         currentSchoolYear = "No Active School Year"
                     End If
-                    DashboardForm.txtSY.Text = currentSchoolYear
                 End Using
             End Using
             cn.Close()

@@ -22,6 +22,9 @@ Partial Class DashboardForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -33,11 +36,12 @@ Partial Class DashboardForm
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.txtTuitionTotal = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtSY = New System.Windows.Forms.Label()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -63,7 +67,7 @@ Partial Class DashboardForm
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(23, 55)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(4)
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(912, 269)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(912, 154)
         Me.FlowLayoutPanel1.TabIndex = 1
         '
         'Panel1
@@ -162,16 +166,21 @@ Partial Class DashboardForm
         Me.Label4.TabIndex = 2
         Me.Label4.Text = "Tuition Accumulated"
         '
-        'txtSY
+        'Chart1
         '
-        Me.txtSY.AutoSize = True
-        Me.txtSY.Font = New System.Drawing.Font("Poppins SemiBold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSY.ForeColor = System.Drawing.Color.White
-        Me.txtSY.Location = New System.Drawing.Point(24, 327)
-        Me.txtSY.Name = "txtSY"
-        Me.txtSY.Size = New System.Drawing.Size(124, 34)
-        Me.txtSY.TabIndex = 2
-        Me.txtSY.Text = "Dashboard"
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(30, 257)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(563, 326)
+        Me.Chart1.TabIndex = 2
+        Me.Chart1.Text = "Chart1"
         '
         'DashboardForm
         '
@@ -179,7 +188,7 @@ Partial Class DashboardForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(13, Byte), Integer), CType(CType(78, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(955, 595)
-        Me.Controls.Add(Me.txtSY)
+        Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -193,6 +202,7 @@ Partial Class DashboardForm
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -209,5 +219,5 @@ Partial Class DashboardForm
     Friend WithEvents txtSumStudents As Label
     Friend WithEvents txtMiscTotal As Label
     Friend WithEvents txtTuitionTotal As Label
-    Friend WithEvents txtSY As Label
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 End Class
