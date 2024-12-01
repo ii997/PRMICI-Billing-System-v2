@@ -333,6 +333,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\00b3a85f-2e29-42f7-a019-0ab5a33109b4-removebg-preview %281%291.png" />
+    <None Include="Resources\00b3a85f-2e29-42f7-a019-0ab5a33109b4-removebg-preview %281%29.png" />
+    <None Include="Resources\00b3a85f-2e29-42f7-a019-0ab5a33109b4-removebg-preview.png" />
+    <None Include="Resources\00b3a85f-2e29-42f7-a019-0ab5a33109b4.jpg" />
     <None Include="Resources\sadddddd.jpg" />
     <None Include="Resources\4c8759fe-eeaa-4423-b446-cd458b5b4cb3 %281%29.jpg" />
     <None Include="Resources\icons8-school-96.png" />
