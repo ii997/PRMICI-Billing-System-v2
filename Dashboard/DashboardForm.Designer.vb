@@ -25,6 +25,9 @@ Partial Class DashboardForm
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -37,11 +40,13 @@ Partial Class DashboardForm
         Me.txtTuitionTotal = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -67,7 +72,7 @@ Partial Class DashboardForm
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(23, 55)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(4)
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(912, 154)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(963, 307)
         Me.FlowLayoutPanel1.TabIndex = 1
         '
         'Panel1
@@ -172,22 +177,39 @@ Partial Class DashboardForm
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(30, 257)
+        Me.Chart1.Location = New System.Drawing.Point(23, 379)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(563, 326)
+        Me.Chart1.Size = New System.Drawing.Size(477, 305)
         Me.Chart1.TabIndex = 2
         Me.Chart1.Text = "Chart1"
+        '
+        'Chart2
+        '
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend2)
+        Me.Chart2.Location = New System.Drawing.Point(509, 379)
+        Me.Chart2.Name = "Chart2"
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.Chart2.Series.Add(Series2)
+        Me.Chart2.Size = New System.Drawing.Size(477, 305)
+        Me.Chart2.TabIndex = 3
+        Me.Chart2.Text = "Chart2"
         '
         'DashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(13, Byte), Integer), CType(CType(78, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(955, 595)
+        Me.ClientSize = New System.Drawing.Size(1006, 748)
+        Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.Label1)
@@ -203,6 +225,7 @@ Partial Class DashboardForm
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -220,4 +243,5 @@ Partial Class DashboardForm
     Friend WithEvents txtMiscTotal As Label
     Friend WithEvents txtTuitionTotal As Label
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents Chart2 As DataVisualization.Charting.Chart
 End Class

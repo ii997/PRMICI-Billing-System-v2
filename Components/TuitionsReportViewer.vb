@@ -11,7 +11,7 @@ Public Class TuitionsReportViewer
 
         Try
             With ReportViewer1.LocalReport
-                .ReportPath = "C:\Users\Marshmellow\source\repos\PRMICI Billing System v2\Reports\TuitionsReport.rdlc"
+                .ReportPath = $"{Application.StartupPath}\Reports\TuitionsReport.rdlc"
                 .DataSources.Clear()
             End With
 

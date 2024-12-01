@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class StudentsList
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class StudentsList
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -39,8 +39,6 @@ Partial Class StudentsList
         Me.ViewQRCodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerateStudentPaymentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TuitionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MiscellaneousToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -205,22 +203,9 @@ Partial Class StudentsList
         '
         'GenerateStudentPaymentsToolStripMenuItem
         '
-        Me.GenerateStudentPaymentsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TuitionsToolStripMenuItem, Me.MiscellaneousToolStripMenuItem})
         Me.GenerateStudentPaymentsToolStripMenuItem.Name = "GenerateStudentPaymentsToolStripMenuItem"
         Me.GenerateStudentPaymentsToolStripMenuItem.Size = New System.Drawing.Size(246, 26)
         Me.GenerateStudentPaymentsToolStripMenuItem.Text = "Generate Student Payments"
-        '
-        'TuitionsToolStripMenuItem
-        '
-        Me.TuitionsToolStripMenuItem.Name = "TuitionsToolStripMenuItem"
-        Me.TuitionsToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
-        Me.TuitionsToolStripMenuItem.Text = "Tuitions"
-        '
-        'MiscellaneousToolStripMenuItem
-        '
-        Me.MiscellaneousToolStripMenuItem.Name = "MiscellaneousToolStripMenuItem"
-        Me.MiscellaneousToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
-        Me.MiscellaneousToolStripMenuItem.Text = "Miscellaneous"
         '
         'DataGridView1
         '
@@ -419,6 +404,4 @@ Partial Class StudentsList
     Friend WithEvents CuiButton3 As CuoreUI.Controls.cuiButton
     Friend WithEvents OptionsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GenerateStudentPaymentsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TuitionsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MiscellaneousToolStripMenuItem As ToolStripMenuItem
 End Class

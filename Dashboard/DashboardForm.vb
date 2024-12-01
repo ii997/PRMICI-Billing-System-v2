@@ -3,8 +3,7 @@
         DashboardModule.RetrieveTotalPayments()
         DashboardModule.RetrieveTotalStudents()
         DashboardModule.RetrieveTotalTuitions()
+        DashboardModule.LoadTuitionsChart()
         DashboardModule.LoadMiscsChart()
     End Sub
-
-
 End Class

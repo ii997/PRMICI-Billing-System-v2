@@ -120,7 +120,7 @@ Module DashboardModule
                     Dim series1 As New Series("Miscellaneous")
                     series1.ChartType = SeriesChartType.Pie ' Change to desired chart type
                     series1.IsValueShownAsLabel = True
-                    series1.Font = New Drawing.Font("Poppins", 10, FontStyle.Bold)
+                    series1.Font = New Drawing.Font("Poppins", 10, FontStyle.Regular)
 
                     ' Populate the series with data from the database
                     While dr.Read()
@@ -132,9 +132,50 @@ Module DashboardModule
 
                     ' Add the series to the chart
                     DashboardForm.Chart1.Series.Add(series1)
-                    DashboardForm.Chart1.Titles.Add("Miscs Data")
+                    DashboardForm.Chart1.Titles.Add("Miscs Chart Data")
 
                     DashboardForm.Chart1.BackColor = Drawing.Color.AliceBlue
+
+                End Using
+            End Using
+            cn.Close()
+        Catch ex As Exception
+            cn.Close()
+            MsgBox(ex.Message, vbExclamation, "Error!")
+        End Try
+    End Sub
+
+    Sub LoadTuitionsChart()
+        Try
+            cn.Open()
+            Using cm As New MySqlCommand("SELECT t.id, t.studentId, SUM(t.amountPaid) AS totalPaid, t.balance, t.paymentDate, t.schoolYearId FROM tuition t INNER JOIN
+                         school_year sy ON t.schoolYearId = sy.id INNER JOIN
+                         students s ON t.studentId = s.id INNER JOIN
+                         sections ss ON s.classSectionId = ss.id INNER JOIN
+                         years y ON s.yearId = y.id
+WHERE       sy.isActive = 1 GROUP BY MONTH(t.paymentDate); ", cn)
+                Using dr As MySqlDataReader = cm.ExecuteReader()
+
+                    ' Clear existing series
+                    DashboardForm.Chart2.Series.Clear()
+
+                    ' Add a new series
+                    Dim series1 As New Series("Tuitions")
+                    series1.ChartType = SeriesChartType.Pie ' Change to desired chart type
+                    series1.IsValueShownAsLabel = True
+                    series1.Font = New Drawing.Font("Poppins", 10, FontStyle.Regular)
+
+                    ' Populate the series with data from the database
+                    While dr.Read()
+                        Dim month As String = CDate(dr("paymentDate")).ToString("MMMM")
+                        Dim sales As Integer = Convert.ToInt32(dr("totalPaid"))
+                        series1.Points.AddXY(month, sales)
+                    End While
+
+                    ' Add the series to the chart
+                    DashboardForm.Chart2.Series.Add(series1)
+                    DashboardForm.Chart2.Titles.Add("Tuitions Chart Data")
+                    DashboardForm.Chart2.BackColor = Drawing.Color.AliceBlue
 
                 End Using
             End Using
