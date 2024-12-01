@@ -25,20 +25,20 @@ Partial Class MainForm
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.CuiButton3 = New CuoreUI.Controls.cuiButton()
         Me.CuiButton5 = New CuoreUI.Controls.cuiButton()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.CuiButton8 = New CuoreUI.Controls.cuiButton()
         Me.CuiButton7 = New CuoreUI.Controls.cuiButton()
         Me.CuiButton4 = New CuoreUI.Controls.cuiButton()
         Me.CuiButton6 = New CuoreUI.Controls.cuiButton()
         Me.CuiButton2 = New CuoreUI.Controls.cuiButton()
         Me.CuiButton1 = New CuoreUI.Controls.cuiButton()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.CuiPictureBox1 = New CuoreUI.Controls.cuiPictureBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -60,47 +60,6 @@ Partial Class MainForm
         Me.Panel1.Size = New System.Drawing.Size(248, 665)
         Me.Panel1.TabIndex = 0
         '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.Transparent
-        Me.Panel4.Controls.Add(Me.CuiButton8)
-        Me.Panel4.Controls.Add(Me.CuiButton7)
-        Me.Panel4.Controls.Add(Me.CuiButton4)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel4.Location = New System.Drawing.Point(0, 303)
-        Me.Panel4.MaximumSize = New System.Drawing.Size(248, 156)
-        Me.Panel4.MinimumSize = New System.Drawing.Size(248, 52)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(248, 52)
-        Me.Panel4.TabIndex = 7
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.CuiPictureBox1)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(248, 199)
-        Me.Panel2.TabIndex = 0
-        '
-        'Timer1
-        '
-        Me.Timer1.Interval = 5
-        '
-        'Timer2
-        '
-        Me.Timer2.Interval = 5
-        '
-        'Panel3
-        '
-        Me.Panel3.BackgroundImage = Global.PRMICI_Billing_System_v2.My.Resources.Resources._4c8759fe_eeaa_4423_b446_cd458b5b4cb3__1_
-        Me.Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(248, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(976, 665)
-        Me.Panel3.TabIndex = 1
-        '
         'CuiButton3
         '
         Me.CuiButton3.CheckButton = False
@@ -110,6 +69,7 @@ Partial Class MainForm
         Me.CuiButton3.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.CuiButton3.Content = "Settings"
         Me.CuiButton3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CuiButton3.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton3.Dock = System.Windows.Forms.DockStyle.Top
         Me.CuiButton3.Font = New System.Drawing.Font("Poppins", 9.75!)
         Me.CuiButton3.ForeColor = System.Drawing.Color.Black
@@ -143,6 +103,7 @@ Partial Class MainForm
         Me.CuiButton5.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.CuiButton5.Content = "School Year"
         Me.CuiButton5.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CuiButton5.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton5.Dock = System.Windows.Forms.DockStyle.Top
         Me.CuiButton5.Font = New System.Drawing.Font("Poppins", 9.75!)
         Me.CuiButton5.ForeColor = System.Drawing.Color.Black
@@ -167,6 +128,20 @@ Partial Class MainForm
         Me.CuiButton5.TabIndex = 5
         Me.CuiButton5.TextOffset = New System.Drawing.Point(0, 0)
         '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.Transparent
+        Me.Panel4.Controls.Add(Me.CuiButton8)
+        Me.Panel4.Controls.Add(Me.CuiButton7)
+        Me.Panel4.Controls.Add(Me.CuiButton4)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel4.Location = New System.Drawing.Point(0, 303)
+        Me.Panel4.MaximumSize = New System.Drawing.Size(248, 156)
+        Me.Panel4.MinimumSize = New System.Drawing.Size(248, 52)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(248, 52)
+        Me.Panel4.TabIndex = 7
+        '
         'CuiButton8
         '
         Me.CuiButton8.CheckButton = False
@@ -176,6 +151,7 @@ Partial Class MainForm
         Me.CuiButton8.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.CuiButton8.Content = "Tuition"
         Me.CuiButton8.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CuiButton8.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton8.Dock = System.Windows.Forms.DockStyle.Top
         Me.CuiButton8.Font = New System.Drawing.Font("Poppins", 9.75!)
         Me.CuiButton8.ForeColor = System.Drawing.Color.Black
@@ -209,6 +185,7 @@ Partial Class MainForm
         Me.CuiButton7.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.CuiButton7.Content = "Miscellaneous"
         Me.CuiButton7.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CuiButton7.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton7.Dock = System.Windows.Forms.DockStyle.Top
         Me.CuiButton7.Font = New System.Drawing.Font("Poppins", 9.75!)
         Me.CuiButton7.ForeColor = System.Drawing.Color.Black
@@ -242,6 +219,7 @@ Partial Class MainForm
         Me.CuiButton4.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.CuiButton4.Content = "Payments"
         Me.CuiButton4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CuiButton4.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton4.Dock = System.Windows.Forms.DockStyle.Top
         Me.CuiButton4.Font = New System.Drawing.Font("Poppins", 9.75!)
         Me.CuiButton4.ForeColor = System.Drawing.Color.Black
@@ -275,6 +253,7 @@ Partial Class MainForm
         Me.CuiButton6.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.CuiButton6.Content = "Log-out"
         Me.CuiButton6.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CuiButton6.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton6.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.CuiButton6.Font = New System.Drawing.Font("Poppins", 9.75!)
         Me.CuiButton6.ForeColor = System.Drawing.Color.Black
@@ -308,6 +287,7 @@ Partial Class MainForm
         Me.CuiButton2.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.CuiButton2.Content = "Students"
         Me.CuiButton2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CuiButton2.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton2.Dock = System.Windows.Forms.DockStyle.Top
         Me.CuiButton2.Font = New System.Drawing.Font("Poppins", 9.75!)
         Me.CuiButton2.ForeColor = System.Drawing.Color.Black
@@ -341,6 +321,7 @@ Partial Class MainForm
         Me.CuiButton1.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(155, Byte), Integer))
         Me.CuiButton1.Content = "Dashboard"
         Me.CuiButton1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CuiButton1.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton1.Dock = System.Windows.Forms.DockStyle.Top
         Me.CuiButton1.Font = New System.Drawing.Font("Poppins", 9.75!)
         Me.CuiButton1.ForeColor = System.Drawing.Color.Black
@@ -365,6 +346,15 @@ Partial Class MainForm
         Me.CuiButton1.TabIndex = 1
         Me.CuiButton1.TextOffset = New System.Drawing.Point(0, 0)
         '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.CuiPictureBox1)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(248, 199)
+        Me.Panel2.TabIndex = 0
+        '
         'CuiPictureBox1
         '
         Me.CuiPictureBox1.Content = Global.PRMICI_Billing_System_v2.My.Resources.Resources.image_removebg_preview_pzA2SrKPy_transformed
@@ -374,6 +364,24 @@ Partial Class MainForm
         Me.CuiPictureBox1.Name = "CuiPictureBox1"
         Me.CuiPictureBox1.Size = New System.Drawing.Size(146, 146)
         Me.CuiPictureBox1.TabIndex = 0
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 5
+        '
+        'Timer2
+        '
+        Me.Timer2.Interval = 5
+        '
+        'Panel3
+        '
+        Me.Panel3.BackgroundImage = Global.PRMICI_Billing_System_v2.My.Resources.Resources.sadddddd
+        Me.Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(248, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(976, 665)
+        Me.Panel3.TabIndex = 1
         '
         'MainForm
         '
