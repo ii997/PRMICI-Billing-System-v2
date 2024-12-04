@@ -42,10 +42,9 @@ Partial Class Form1
         '
         Me.Label1.Font = New System.Drawing.Font("Poppins SemiBold", 18.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label1.Location = New System.Drawing.Point(46, 29)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(31, 19)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(452, 180)
+        Me.Label1.Size = New System.Drawing.Size(301, 117)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "PRMICI Billing System with QR Code"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -74,8 +73,7 @@ Partial Class Form1
         Me.CuiButton1.ImageExpand = New System.Drawing.Point(0, 0)
         Me.CuiButton1.ImageOffset = New System.Drawing.Point(0, 0)
         Me.CuiButton1.ImageTint = System.Drawing.Color.White
-        Me.CuiButton1.Location = New System.Drawing.Point(57, 432)
-        Me.CuiButton1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.CuiButton1.Location = New System.Drawing.Point(38, 281)
         Me.CuiButton1.Name = "CuiButton1"
         Me.CuiButton1.NormalBackground = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(194, Byte), Integer))
         Me.CuiButton1.NormalOutline = System.Drawing.Color.Empty
@@ -84,7 +82,7 @@ Partial Class Form1
         Me.CuiButton1.PressedImageTint = System.Drawing.Color.White
         Me.CuiButton1.PressedOutline = System.Drawing.Color.Empty
         Me.CuiButton1.Rounding = New System.Windows.Forms.Padding(8)
-        Me.CuiButton1.Size = New System.Drawing.Size(450, 69)
+        Me.CuiButton1.Size = New System.Drawing.Size(300, 45)
         Me.CuiButton1.TabIndex = 3
         Me.CuiButton1.TextOffset = New System.Drawing.Point(0, 0)
         '
@@ -94,10 +92,10 @@ Partial Class Form1
         Me.CuiLabel1.Font = New System.Drawing.Font("Poppins", 10.0!)
         Me.CuiLabel1.ForeColor = System.Drawing.Color.White
         Me.CuiLabel1.HorizontalAlignment = CuoreUI.Controls.cuiLabel.HorizontalAlignments.Center
-        Me.CuiLabel1.Location = New System.Drawing.Point(57, 182)
-        Me.CuiLabel1.Margin = New System.Windows.Forms.Padding(6, 8, 6, 8)
+        Me.CuiLabel1.Location = New System.Drawing.Point(38, 118)
+        Me.CuiLabel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CuiLabel1.Name = "CuiLabel1"
-        Me.CuiLabel1.Size = New System.Drawing.Size(450, 35)
+        Me.CuiLabel1.Size = New System.Drawing.Size(300, 23)
         Me.CuiLabel1.TabIndex = 4
         '
         'CheckBox1
@@ -105,10 +103,9 @@ Partial Class Form1
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Poppins", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox1.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.CheckBox1.Location = New System.Drawing.Point(57, 382)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.CheckBox1.Location = New System.Drawing.Point(38, 248)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(179, 35)
+        Me.CheckBox1.Size = New System.Drawing.Size(123, 26)
         Me.CheckBox1.TabIndex = 6
         Me.CheckBox1.Text = "Show Password"
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -129,13 +126,13 @@ Partial Class Form1
         Me.Guna2TextBox1.Font = New System.Drawing.Font("Poppins", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2TextBox1.ForeColor = System.Drawing.Color.White
         Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(57, 230)
-        Me.Guna2TextBox1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Guna2TextBox1.Location = New System.Drawing.Point(38, 149)
+        Me.Guna2TextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Guna2TextBox1.Name = "Guna2TextBox1"
         Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Guna2TextBox1.PlaceholderText = "Username"
         Me.Guna2TextBox1.SelectedText = ""
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(450, 65)
+        Me.Guna2TextBox1.Size = New System.Drawing.Size(300, 42)
         Me.Guna2TextBox1.TabIndex = 7
         '
         'Guna2TextBox2
@@ -154,13 +151,13 @@ Partial Class Form1
         Me.Guna2TextBox2.Font = New System.Drawing.Font("Poppins", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2TextBox2.ForeColor = System.Drawing.Color.White
         Me.Guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox2.Location = New System.Drawing.Point(57, 307)
-        Me.Guna2TextBox2.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Guna2TextBox2.Location = New System.Drawing.Point(38, 200)
+        Me.Guna2TextBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Guna2TextBox2.Name = "Guna2TextBox2"
         Me.Guna2TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Guna2TextBox2.PlaceholderText = "Password"
         Me.Guna2TextBox2.SelectedText = ""
-        Me.Guna2TextBox2.Size = New System.Drawing.Size(450, 65)
+        Me.Guna2TextBox2.Size = New System.Drawing.Size(300, 42)
         Me.Guna2TextBox2.TabIndex = 8
         '
         'CuiPictureBox1
@@ -168,10 +165,10 @@ Partial Class Form1
         Me.CuiPictureBox1.Content = Global.PRMICI_Billing_System_v2.My.Resources.Resources._00b3a85f_2e29_42f7_a019_0ab5a33109b4_removebg_preview__1_1
         Me.CuiPictureBox1.CornerRadius = 8
         Me.CuiPictureBox1.ImageTint = System.Drawing.Color.White
-        Me.CuiPictureBox1.Location = New System.Drawing.Point(51, 108)
-        Me.CuiPictureBox1.Margin = New System.Windows.Forms.Padding(6, 8, 6, 8)
+        Me.CuiPictureBox1.Location = New System.Drawing.Point(34, 70)
+        Me.CuiPictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CuiPictureBox1.Name = "CuiPictureBox1"
-        Me.CuiPictureBox1.Size = New System.Drawing.Size(350, 347)
+        Me.CuiPictureBox1.Size = New System.Drawing.Size(233, 226)
         Me.CuiPictureBox1.TabIndex = 5
         '
         'Panel1
@@ -181,17 +178,18 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.CuiPictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(542, 4)
+        Me.Panel1.Location = New System.Drawing.Point(361, 3)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(452, 553)
+        Me.Panel1.Size = New System.Drawing.Size(301, 359)
         Me.Panel1.TabIndex = 0
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(994, 552)
+        Me.ClientSize = New System.Drawing.Size(663, 359)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Guna2TextBox2)
         Me.Controls.Add(Me.Guna2TextBox1)
@@ -201,7 +199,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"

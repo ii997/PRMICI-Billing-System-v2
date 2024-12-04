@@ -42,4 +42,11 @@ Public Class Form1
     Private Sub Guna2TextBox1_TextChanged(sender As Object, e As EventArgs) Handles Guna2TextBox1.TextChanged
 
     End Sub
+
+    Private Sub Guna2TextBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles Guna2TextBox2.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            currentUser = Guna2TextBox1.Text.Trim()
+            loginUser(username:=Guna2TextBox1.Text.ToString, password:=Guna2TextBox2.Text.ToString)
+        End If
+    End Sub
 End Class
