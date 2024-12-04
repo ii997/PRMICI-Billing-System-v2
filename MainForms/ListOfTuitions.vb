@@ -39,6 +39,7 @@ Public Class ListOfTuitions
     End Sub
 
     Private Sub CuiButton1_Click(sender As Object, e As EventArgs) Handles CuiButton1.Click
+        LoadTuition()
         currentPaymentType = PaymentType.TuitionFee
         QRVerification.ShowDialog()
     End Sub

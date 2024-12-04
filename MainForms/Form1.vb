@@ -5,6 +5,7 @@ Public Class Form1
             If ConnectToDB() = False Then
                 Application.Exit()
             Else
+                LoadTuition()
                 Guna2TextBox2.UseSystemPasswordChar = True
             End If
         Catch ex As Exception

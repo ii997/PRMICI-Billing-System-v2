@@ -333,6 +333,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TuitionData.txt" />
     <None Include="Resources\00b3a85f-2e29-42f7-a019-0ab5a33109b4-removebg-preview %281%291.png" />
     <None Include="Resources\00b3a85f-2e29-42f7-a019-0ab5a33109b4-removebg-preview %281%29.png" />
     <None Include="Resources\00b3a85f-2e29-42f7-a019-0ab5a33109b4-removebg-preview.png" />

@@ -1,5 +1,5 @@
 ﻿Public Class NewTuitionPayment
-    Public tuitionFee As Integer = 12000
+
     Private Sub NewTuitionPayment_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         StudentPaymentInfo.Show()
     End Sub

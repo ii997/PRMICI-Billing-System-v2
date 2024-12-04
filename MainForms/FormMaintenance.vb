@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.IO
 Public Class FormMaintenance
     Private oldpass As String
     Private newpass As String = ""
@@ -25,7 +26,11 @@ Public Class FormMaintenance
 
     End Sub
 
+
+
     Private Sub FormMaintenance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadTuition()
+
         Try
             cn.Open()
             cm = New MySqlCommand($"SELECT password FROM users WHERE username = '{currentUser}' ", cn)
@@ -102,5 +107,20 @@ Public Class FormMaintenance
         Finally
             cn.Close()
         End Try
+    End Sub
+
+    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+        Dim NewTuitionData As String = $"C:\Users\Marshmellow\source\repos\PRMICI Billing System v2\TuitionData.txt"
+        If File.Exists(NewTuitionData) = True Then
+            Dim objWriter As New StreamWriter(NewTuitionData, False)
+            objWriter.WriteLine(tbtuitionfee.Text)
+            objWriter.Close()
+        End If
+        MsgBox("Successfully updated tuition fee!", vbInformation, "Success!")
+        LoadTuition()
+    End Sub
+
+    Private Sub FormMaintenance_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Dispose()
     End Sub
 End Class
