@@ -591,6 +591,8 @@
                                   <Style>
                                     <FontFamily>poppins</FontFamily>
                                     <FontSize>9pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -603,6 +605,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>Tomato</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -624,7 +627,9 @@
                                   <Style>
                                     <FontFamily>poppins</FontFamily>
                                     <FontSize>9pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
                                     <Format>N2</Format>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -639,6 +644,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>Tomato</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -660,6 +666,8 @@
                                   <Style>
                                     <FontFamily>poppins</FontFamily>
                                     <FontSize>9pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -674,6 +682,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>Tomato</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -918,6 +927,8 @@
                                     <Style>
                                       <FontFamily>poppins</FontFamily>
                                       <FontSize>9pt</FontSize>
+                                      <FontWeight>Normal</FontWeight>
+                                      <Color>White</Color>
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
@@ -930,6 +941,7 @@
                                 <Color>LightGrey</Color>
                                 <Style>Solid</Style>
                               </Border>
+                              <BackgroundColor>Tomato</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
@@ -994,7 +1006,7 @@
             <Top>2.33333in</Top>
             <Left>0.34375in</Left>
             <Height>1in</Height>
-            <Width>7.48611in</Width>
+            <Width>7.4861in</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
