@@ -25,9 +25,10 @@ FROM            misc_payments mp INNER JOIN
                          sections ss ON s.classSectionId = ss.id INNER JOIN
                          years y ON s.yearId = y.id
 WHERE        (sy.isActive = 1)  
-AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate "
+AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate AND m.misc LIKE @misc"
 
             Dim cmd As New MySqlCommand(query, cn)
+            cmd.Parameters.AddWithValue("@misc", "%" & ComboBox1.Text & "%")
             cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@endDate", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
 
@@ -57,7 +58,7 @@ AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate "
     End Sub
 
     Private Sub ReportViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        loadMiscs()
     End Sub
 
     Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
@@ -67,4 +68,37 @@ AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate "
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
 
     End Sub
+
+    Private Sub loadMiscs()
+
+        ' Define the query to retrieve data
+        Dim query As String = "SELECT id, misc FROM miscellaneous"
+
+        Try
+            ' Open the connection
+            cn.Open()
+
+            ' Create a command to execute the query
+            Using command As New MySqlCommand(query, cn)
+                ' Execute the command and retrieve the data into a DataReader
+                Using reader As MySqlDataReader = command.ExecuteReader()
+                    ' Create a DataTable to hold the data
+                    Dim table As New DataTable()
+                    table.Load(reader)
+
+                    ' Bind the ComboBox to the data
+                    ComboBox1.DataSource = table
+                    ComboBox1.ValueMember = "id"
+                    ComboBox1.DisplayMember = "misc"
+                End Using
+            End Using
+        Catch ex As Exception
+            ' Handle exceptions (e.g., log the error or show a message to the user)
+            MessageBox.Show("Error loading data: " & ex.Message)
+        Finally
+            cn.Close()
+        End Try
+
+    End Sub
+
 End Class

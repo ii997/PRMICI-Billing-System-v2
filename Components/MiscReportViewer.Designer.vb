@@ -27,6 +27,7 @@ Partial Class ReportViewer
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'ReportViewer1
@@ -56,18 +57,27 @@ Partial Class ReportViewer
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(424, 10)
+        Me.Button1.Location = New System.Drawing.Point(610, 10)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(122, 22)
         Me.Button1.TabIndex = 40
         Me.Button1.Text = "Filter Data"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(424, 11)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(180, 21)
+        Me.ComboBox1.TabIndex = 41
+        '
         'ReportViewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(826, 723)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DateTimePicker2)
         Me.Controls.Add(Me.DateTimePicker1)
@@ -84,4 +94,5 @@ Partial Class ReportViewer
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents DateTimePicker2 As DateTimePicker
     Friend WithEvents Button1 As Button
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

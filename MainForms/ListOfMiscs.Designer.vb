@@ -32,8 +32,6 @@ Partial Class ListOfMiscs
         Me.tbSearch = New CuoreUI.Controls.cuiTextBox2()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.CuiButton3 = New CuoreUI.Controls.cuiButton()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,6 +42,8 @@ Partial Class ListOfMiscs
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CuiButton3 = New CuoreUI.Controls.cuiButton()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -99,7 +99,7 @@ Partial Class ListOfMiscs
         Me.CuiButton2.ImageExpand = New System.Drawing.Point(0, 0)
         Me.CuiButton2.ImageOffset = New System.Drawing.Point(0, 0)
         Me.CuiButton2.ImageTint = System.Drawing.Color.White
-        Me.CuiButton2.Location = New System.Drawing.Point(1004, 20)
+        Me.CuiButton2.Location = New System.Drawing.Point(1181, 20)
         Me.CuiButton2.Name = "CuiButton2"
         Me.CuiButton2.NormalBackground = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
         Me.CuiButton2.NormalOutline = System.Drawing.Color.Empty
@@ -123,7 +123,7 @@ Partial Class ListOfMiscs
         Me.tbSearch.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.tbSearch.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbSearch.ForeColor = System.Drawing.Color.Gray
-        Me.tbSearch.Location = New System.Drawing.Point(696, 20)
+        Me.tbSearch.Location = New System.Drawing.Point(873, 20)
         Me.tbSearch.Margin = New System.Windows.Forms.Padding(4)
         Me.tbSearch.Multiline = False
         Me.tbSearch.Name = "tbSearch"
@@ -143,7 +143,7 @@ Partial Class ListOfMiscs
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(24, 600)
+        Me.Label2.Location = New System.Drawing.Point(24, 645)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(107, 23)
         Me.Label2.TabIndex = 14
@@ -197,51 +197,8 @@ Partial Class ListOfMiscs
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 45
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1075, 535)
+        Me.DataGridView1.Size = New System.Drawing.Size(1252, 580)
         Me.DataGridView1.TabIndex = 13
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Poppins SemiBold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(22, 15)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(319, 34)
-        Me.Label1.TabIndex = 12
-        Me.Label1.Text = "Student Miscellaneous Records"
-        '
-        'CuiButton3
-        '
-        Me.CuiButton3.CheckButton = False
-        Me.CuiButton3.Checked = False
-        Me.CuiButton3.CheckedBackground = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CuiButton3.CheckedImageTint = System.Drawing.Color.White
-        Me.CuiButton3.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CuiButton3.Content = "Generate Report"
-        Me.CuiButton3.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.CuiButton3.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CuiButton3.ForeColor = System.Drawing.Color.Black
-        Me.CuiButton3.HoverBackground = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CuiButton3.HoveredImageTint = System.Drawing.Color.White
-        Me.CuiButton3.HoverOutline = System.Drawing.Color.Empty
-        Me.CuiButton3.Image = Nothing
-        Me.CuiButton3.ImageAutoCenter = True
-        Me.CuiButton3.ImageExpand = New System.Drawing.Point(0, 0)
-        Me.CuiButton3.ImageOffset = New System.Drawing.Point(0, 0)
-        Me.CuiButton3.ImageTint = System.Drawing.Color.White
-        Me.CuiButton3.Location = New System.Drawing.Point(485, 18)
-        Me.CuiButton3.Name = "CuiButton3"
-        Me.CuiButton3.NormalBackground = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(110, Byte), Integer))
-        Me.CuiButton3.NormalOutline = System.Drawing.Color.Empty
-        Me.CuiButton3.OutlineThickness = 1.6!
-        Me.CuiButton3.PressedBackground = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CuiButton3.PressedImageTint = System.Drawing.Color.White
-        Me.CuiButton3.PressedOutline = System.Drawing.Color.Empty
-        Me.CuiButton3.Rounding = New System.Windows.Forms.Padding(8)
-        Me.CuiButton3.Size = New System.Drawing.Size(132, 29)
-        Me.CuiButton3.TabIndex = 18
-        Me.CuiButton3.TextOffset = New System.Drawing.Point(0, 0)
         '
         'Column1
         '
@@ -309,12 +266,55 @@ Partial Class ListOfMiscs
         Me.Column9.Name = "Column9"
         Me.Column9.ReadOnly = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Poppins SemiBold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(22, 15)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(319, 34)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "Student Miscellaneous Records"
+        '
+        'CuiButton3
+        '
+        Me.CuiButton3.CheckButton = False
+        Me.CuiButton3.Checked = False
+        Me.CuiButton3.CheckedBackground = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CuiButton3.CheckedImageTint = System.Drawing.Color.White
+        Me.CuiButton3.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CuiButton3.Content = "Generate Report"
+        Me.CuiButton3.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.CuiButton3.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CuiButton3.ForeColor = System.Drawing.Color.Black
+        Me.CuiButton3.HoverBackground = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CuiButton3.HoveredImageTint = System.Drawing.Color.White
+        Me.CuiButton3.HoverOutline = System.Drawing.Color.Empty
+        Me.CuiButton3.Image = Nothing
+        Me.CuiButton3.ImageAutoCenter = True
+        Me.CuiButton3.ImageExpand = New System.Drawing.Point(0, 0)
+        Me.CuiButton3.ImageOffset = New System.Drawing.Point(0, 0)
+        Me.CuiButton3.ImageTint = System.Drawing.Color.White
+        Me.CuiButton3.Location = New System.Drawing.Point(485, 18)
+        Me.CuiButton3.Name = "CuiButton3"
+        Me.CuiButton3.NormalBackground = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(110, Byte), Integer))
+        Me.CuiButton3.NormalOutline = System.Drawing.Color.Empty
+        Me.CuiButton3.OutlineThickness = 1.6!
+        Me.CuiButton3.PressedBackground = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CuiButton3.PressedImageTint = System.Drawing.Color.White
+        Me.CuiButton3.PressedOutline = System.Drawing.Color.Empty
+        Me.CuiButton3.Rounding = New System.Windows.Forms.Padding(8)
+        Me.CuiButton3.Size = New System.Drawing.Size(132, 29)
+        Me.CuiButton3.TabIndex = 18
+        Me.CuiButton3.TextOffset = New System.Drawing.Point(0, 0)
+        '
         'ListOfMiscs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(13, Byte), Integer), CType(CType(78, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1124, 639)
+        Me.ClientSize = New System.Drawing.Size(1301, 684)
         Me.Controls.Add(Me.CuiButton3)
         Me.Controls.Add(Me.CuiButton1)
         Me.Controls.Add(Me.CuiButton2)
