@@ -315,7 +315,7 @@ ORDER BY t.id ASC;"
                                     "LIMIT 1;"
 
             ' Fixed tuition amount if no previous balance exists in the active school year
-            Dim fixedTuition As Decimal = 12000
+            Dim fixedTuition As Decimal = tuitionFee
             Dim inactiveBalance As Decimal = 0
             Dim activeBalance As Decimal = 0
             Dim amountPaid As Decimal = 0
@@ -376,11 +376,35 @@ ORDER BY t.id ASC;"
     Sub RetrieveTuitionStudentsData()
         Try
             cn.Open()
-            Using cm As New MySqlCommand("SELECT t.id, s.name, y.year, ss.classSection, t.amountPaid, t.balance, t.paymentDate, sy.schoolYear, sy.isActive FROM tuition t JOIN students s ON t.studentId = s.id JOIN school_year sy ON t.schoolYearId = sy.id JOIN sections ss ON s.classSectionId = ss.id JOIN years y ON s.yearId = y.id AND sy.isActive = 1;", cn)
+            Using cm As New MySqlCommand("SELECT 
+    t.id AS TuitionID,
+    s.name AS StudentName,
+    y.year AS YearLevel,
+    ss.classSection AS Section,
+    COALESCE(t.amountPaid, 0) AS AmountPaid,
+    COALESCE(t.balance, 0) AS RemainingBalance,
+    t.paymentDate AS PaymentDate,
+    sy.schoolYear AS AcademicYear,
+    CASE 
+        WHEN t.balance = 0 THEN 'Fully Paid'
+        WHEN t.balance > 0 AND t.amountPaid > 0 THEN 'Partially Paid'
+        ELSE 'Unpaid'
+    END AS PaymentStatus
+FROM 
+    tuition t
+    INNER JOIN students s ON t.studentId = s.id
+    INNER JOIN school_year sy ON t.schoolYearId = sy.id
+    INNER JOIN sections ss ON s.classSectionId = ss.id
+    INNER JOIN years y ON s.yearId = y.id
+WHERE 
+    sy.isActive = 1
+ORDER BY 
+    s.name ASC,
+    t.paymentDate DESC", cn)
+                ListOfTuitions.DataGridView1.Rows.Clear() ' Clear existing data
                 Using dr As MySqlDataReader = cm.ExecuteReader()
-                    ListOfTuitions.DataGridView1.Rows.Clear() ' Clear existing rows
                     While dr.Read()
-                        ListOfTuitions.DataGridView1.Rows.Add(dr("id"), dr("name"), dr("year"), dr("classSection"), dr("amountPaid"), dr("balance"), dr("paymentDate"), dr("schoolYear"), dr("isActive"))
+                        ListOfTuitions.DataGridView1.Rows.Add(dr("TuitionID"), dr("StudentName"), dr("YearLevel"), dr("Section"), dr("AmountPaid"), dr("RemainingBalance"), dr("PaymentDate"), dr("AcademicYear"), dr("PaymentStatus"))
                     End While
                 End Using
                 Dim recordCount As Integer = ListOfTuitions.DataGridView1.Rows.Count
