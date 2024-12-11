@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class QRCodeListViewer
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,46 +20,26 @@ Partial Class QRCodeListViewer
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(QRCodeListViewer))
-        Me.StudentInfoQRBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet1 = New PRMICI_Billing_System_v2.DataSet1()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.StudentInfoQRTableAdapter = New PRMICI_Billing_System_v2.DataSet1TableAdapters.StudentInfoQRTableAdapter()
-        CType(Me.StudentInfoQRBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'StudentInfoQRBindingSource
-        '
-        Me.StudentInfoQRBindingSource.DataMember = "StudentInfoQR"
-        Me.StudentInfoQRBindingSource.DataSource = Me.DataSet1
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.StudentInfoQRBindingSource
+        ReportDataSource1.Value = Nothing
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PRMICI_Billing_System_v2.QRCodes.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
         Me.ReportViewer1.Size = New System.Drawing.Size(1001, 653)
-        Me.ReportViewer1.TabIndex = 38
+        Me.ReportViewer1.TabIndex = 39
         Me.ReportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage
-        '
-        'StudentInfoQRTableAdapter
-        '
-        Me.StudentInfoQRTableAdapter.ClearBeforeFill = True
         '
         'QRCodeListViewer
         '
@@ -71,14 +51,9 @@ Partial Class QRCodeListViewer
         Me.Name = "QRCodeListViewer"
         Me.Text = "QR Codes"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.StudentInfoQRBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents StudentInfoQRBindingSource As BindingSource
-    Friend WithEvents DataSet1 As DataSet1
-    Friend WithEvents StudentInfoQRTableAdapter As DataSet1TableAdapters.StudentInfoQRTableAdapter
 End Class

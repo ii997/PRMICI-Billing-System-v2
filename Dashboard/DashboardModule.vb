@@ -113,7 +113,7 @@ Module DashboardModule
 
             ' SQL query to retrieve data
             Dim query As String = "
-            SELECT m.id,mc.misc,m.studentId,SUM(m.amount) AS totalPaid,m.paymentDate,m.paymentStatus, m.schoolYearId, sy.schoolYear FROM misc_payments m INNER JOIN miscellaneous mc ON m.miscId = mc.id INNER JOIN school_year sy ON m.schoolYearId = sy.id WHERE sy.isActive = 1 GROUP BY MONTH(m.paymentDate)"
+            SELECT m.id,mc.misc,m.studentId,SUM(m.amount) AS totalPaid,m.paymentDate, m.schoolYearId, sy.schoolYear FROM misc_payments m INNER JOIN miscellaneous mc ON m.miscId = mc.id INNER JOIN school_year sy ON m.schoolYearId = sy.id WHERE sy.isActive = 1 GROUP BY MONTH(m.paymentDate)"
 
             Using cm As New MySqlCommand(query, cn)
                 Using dr As MySqlDataReader = cm.ExecuteReader()

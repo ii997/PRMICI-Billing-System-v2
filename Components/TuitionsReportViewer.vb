@@ -15,7 +15,7 @@ Public Class TuitionsReportViewer
                 .DataSources.Clear()
             End With
 
-            Dim ds As New DataSet1
+            Dim ds As New DataSet2
             Dim da As New MySqlDataAdapter
 
             cn.Open()

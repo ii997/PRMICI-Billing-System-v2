@@ -3,7 +3,7 @@ Imports System.IO
 
 Public Class NewStudentForm
     Private Sub CuiButton1_Click(sender As Object, e As EventArgs) Handles CuiButton1.Click
-        createQRCode(CuiTextBox21.Content.Trim)
+        createQRCode(Guna2TextBox1.Text.Trim)
         txtStudentId.Text = CuiTextBox22.Content.ToString
     End Sub
 
@@ -18,7 +18,7 @@ Public Class NewStudentForm
 
     Private Sub CuiButton2_Click(sender As Object, e As EventArgs) Handles CuiButton2.Click
 
-        If CuiTextBox21.Content.Length < 9 Then
+        If Guna2TextBox1.Text.Length < 9 Then
             MsgBox("School ID must be ", vbExclamation, "Error!")
             Return
         Else
@@ -35,7 +35,7 @@ Public Class NewStudentForm
                     ms.Close()
 
                     SaveStudentInformation(
-                   studid:=CuiTextBox21.Content.Trim,
+                   studid:=Guna2TextBox1.Text.Trim,
                name:=CuiTextBox22.Content.Trim,
                birthdate:=CuiDateTimePicker1.Value.Date.ToString("yyyy-MM-dd"),
            age:=CuiTextBox23.Content.Trim,

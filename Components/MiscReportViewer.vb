@@ -12,7 +12,7 @@ Public Class ReportViewer
                 .DataSources.Clear()
             End With
 
-            Dim ds As New DataSet1
+            Dim ds As New DataSet2
             Dim da As New MySqlDataAdapter
 
             cn.Open()
@@ -32,12 +32,12 @@ AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate "
             cmd.Parameters.AddWithValue("@endDate", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
 
             da.SelectCommand = cmd
-            da.Fill(ds.Tables("MiscsReport"))
+            da.Fill(ds.Tables("MiscReport"))
 
             cn.Close()
 
 
-            rptDS = New ReportDataSource("DataSet1", ds.Tables("MiscsReport"))
+            rptDS = New ReportDataSource("DataSet1", ds.Tables("MiscReport"))
             ReportViewer1.LocalReport.DataSources.Add(rptDS)
             ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
             ReportViewer1.ZoomMode = ZoomMode.Percent

@@ -9,24 +9,31 @@ Public Class FormSettingsForm
     End Sub
 
     ' Function to retrieve school years from the database and create radio buttons
+    ' Function to retrieve school years from the database and create radio buttons
     Sub PopulateSchoolYearRadioButtons(flowLayoutPanel As FlowLayoutPanel)
-        Try
-            ' Clear any existing controls in the FlowLayoutPanel
-            flowLayoutPanel.Controls.Clear()
+        ' Clear existing controls in the FlowLayoutPanel
+        flowLayoutPanel.Controls.Clear()
 
+        Try
+            ' Open database connection
             cn.Open()
-            Using cm As New MySqlCommand("SELECT id, schoolYear FROM school_year", cn)
+
+            Using cm As New MySqlCommand("SELECT id, schoolYear FROM school_year ORDER BY schoolYear ASC", cn)
                 Using reader As MySqlDataReader = cm.ExecuteReader()
                     While reader.Read()
                         ' Create a new radio button for each school year
-                        ' Customize the appearance of the radio button
                         Dim rb As New RadioButton With {
-                            .Text = reader("schoolYear").ToString(),
-                            .Tag = reader("id"), ' Store the associated ID in the Tag property
-                            .ForeColor = Color.White,  ' Set the text color
-                            .Font = New Font("Poppins", 10, FontStyle.Regular), ' Set the font, size, and style
-                            .BackColor = Color.Transparent ' Set the background color
-                            }
+                        .Text = reader("schoolYear").ToString(),
+                        .Tag = reader("id"), ' Store the ID in the Tag property
+                        .ForeColor = Color.White,  ' Text color
+                        .Font = New Font("Poppins", 10, FontStyle.Regular), ' Font settings
+                        .BackColor = Color.Transparent, ' Background color
+                        .AutoSize = True ' Ensure proper resizing
+                    }
+
+                        ' Add a tooltip for user guidance
+                        Dim toolTip As New ToolTip()
+                        toolTip.SetToolTip(rb, $"Select the school year: {reader("schoolYear")}")
 
                         ' Add an event handler for when the radio button is checked
                         AddHandler rb.CheckedChanged, AddressOf RadioButton_CheckedChanged
@@ -36,11 +43,15 @@ Public Class FormSettingsForm
                     End While
                 End Using
             End Using
-            cn.Close()
+
+        Catch ex As MySqlException
+            ' Show detailed database-related error
+            MsgBox($"Database error: {ex.Message}", vbExclamation, "Database Error")
         Catch ex As Exception
-            MsgBox($"An error occurred: {ex.Message}", vbExclamation, "Error!")
+            ' Show generic error message
+            MsgBox($"An unexpected error occurred: {ex.Message}", vbExclamation, "Error")
         Finally
-            ' Ensure the connection is closed properly
+            ' Ensure database connection is properly closed
             If cn IsNot Nothing AndAlso cn.State = ConnectionState.Open Then
                 cn.Close()
             End If

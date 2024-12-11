@@ -30,48 +30,30 @@ Public Class StudentPaymentsReportViewer
                 .DataSources.Clear()
             End With
 
-            Dim ds As New DataSet1
+            Dim ds As New DataSet2
             Dim da As New MySqlDataAdapter
 
             cn.Open()
 
-            Dim query As String = $"SELECT 
-    mp.id, 
-    mp.studentId, 
-    s.name, 
-    ss.classSection, 
-    y.year, 
-    m.misc, 
-    m.amount AS misc_amount, 
-    COALESCE(mp.amount, 0) AS amount, 
-    COALESCE(mp.balance, 0) AS balance, 
-    mp.paymentDate, 
-    sy.schoolYear
-FROM 
-    misc_payments mp
-LEFT JOIN 
-    miscellaneous m ON mp.miscId = m.id
-LEFT JOIN 
-    school_year sy ON mp.schoolYearId = sy.id
-LEFT JOIN 
-    students s ON mp.studentId = s.id
-LEFT JOIN 
-    sections ss ON s.classSectionId = ss.id
-LEFT JOIN 
-    years y ON s.yearId = y.id
-WHERE 
-    mp.studentId = @studentId;
+            Dim query As String = $"SELECT        mp.id, mp.studentId, s.name, ss.classSection, y.year, m.misc, m.amount AS misc_amount, mp.amount, mp.balance, mp.paymentDate, sy.schoolYear
+FROM            misc_payments mp INNER JOIN
+                         miscellaneous m ON mp.miscId = m.id INNER JOIN
+                         school_year sy ON mp.schoolYearId = sy.id INNER JOIN
+                         students s ON mp.studentId = s.id INNER JOIN
+                         sections ss ON s.classSectionId = ss.id INNER JOIN
+                         years y ON s.yearId = y.id
+WHERE  mp.studentId = @studentId AND mp.paymentDate BETWEEN @startDate AND @endDate AND sy.isActive = 1
 "
             Dim cmd As New MySqlCommand(query, cn)
             cmd.Parameters.AddWithValue("@studentId", StudentsList.DataGridView1.CurrentRow.Cells(0).Value)
             cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@endDate", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
             da.SelectCommand = cmd
-            da.Fill(ds.Tables("DataTable1"))
+            da.Fill(ds.Tables("StudentMiscsSummary"))
             cn.Close()
 
 
-            rptDS = New ReportDataSource("DataSet1", ds.Tables("DataTable1"))
+            rptDS = New ReportDataSource("DataSet1", ds.Tables("StudentMiscsSummary"))
             ReportViewer1.LocalReport.DataSources.Add(rptDS)
             ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
             ReportViewer1.ZoomMode = ZoomMode.Percent
@@ -93,7 +75,7 @@ WHERE
                 .DataSources.Clear()
             End With
 
-            Dim ds As New DataSet1
+            Dim ds As New DataSet2
             Dim da As New MySqlDataAdapter
 
             cn.Open()
@@ -115,11 +97,11 @@ GROUP BY
             Dim cmd As New MySqlCommand(query, cn)
             cmd.Parameters.AddWithValue("@studentId", StudentsList.DataGridView1.CurrentRow.Cells(0).Value)
             da.SelectCommand = cmd
-            da.Fill(ds.Tables("DataTable3"))
+            da.Fill(ds.Tables("UnpaidMiscs"))
             cn.Close()
 
 
-            rptDS = New ReportDataSource("DataSet1", ds.Tables("DataTable3"))
+            rptDS = New ReportDataSource("DataSet1", ds.Tables("UnpaidMiscs"))
             ReportViewer1.LocalReport.DataSources.Add(rptDS)
             ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
             ReportViewer1.ZoomMode = ZoomMode.Percent
@@ -141,7 +123,7 @@ GROUP BY
                 .DataSources.Clear()
             End With
 
-            Dim ds As New DataSet1
+            Dim ds As New DataSet2
             Dim da As New MySqlDataAdapter
 
             cn.Open()
@@ -151,16 +133,17 @@ FROM            tuition t INNER JOIN
                          years y ON t.schoolYearId = y.id INNER JOIN
                          students s ON t.studentId = s.id INNER JOIN
                          sections sc ON s.classSectionId = sc.id INNER JOIN
-                         school_year sy ON t.schoolYearId = sy.id WHERE t.studentId ={StudentsList.DataGridView1.CurrentRow.Cells(0).Value} AND DATE(t.paymentDate) BETWEEN @startDate AND @endDate AND sy.isActive = 1"
+                         school_year sy ON t.schoolYearId = sy.id WHERE t.studentId = @studentId AND t.paymentDate BETWEEN @startDate AND @endDate AND sy.isActive = 1"
             Dim cmd As New MySqlCommand(query, cn)
+            cmd.Parameters.AddWithValue("@studentId", StudentsList.DataGridView1.CurrentRow.Cells(0).Value)
             cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@endDate", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
             da.SelectCommand = cmd
-            da.Fill(ds.Tables("DataTable2"))
+            da.Fill(ds.Tables("StudentTuitionsSummary"))
             cn.Close()
 
 
-            rptDS = New ReportDataSource("DataSet1", ds.Tables("DataTable2"))
+            rptDS = New ReportDataSource("DataSet1", ds.Tables("StudentTuitionsSummary"))
             ReportViewer1.LocalReport.DataSources.Add(rptDS)
             ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
             ReportViewer1.ZoomMode = ZoomMode.Percent
