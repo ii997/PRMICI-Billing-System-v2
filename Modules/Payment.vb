@@ -6,8 +6,7 @@ Module Payment
         StudentPaymentInfo.DataGridView1.Rows.Clear()
         Try
             cn.Open()
-            Dim query As String = "SELECT s.id, s.studentID, s.name, ss.id, ss.classSection, s.yearId, y.year, m.misc, mp.amount, mp.paymentDate, mp.paymentStatus
-                             FROM misc_payments mp
+            Dim query As String = "SELECT s.id, s.studentID, s.name, ss.id, ss.classSection, s.yearId, y.year, m.misc, mp.amount, mp.paymentDate FROM misc_payments mp
                               INNER JOIN miscellaneous m ON mp.miscId = m.id
                               RIGHT JOIN students s ON mp.studentId = s.id
                               INNER JOIN sections ss ON s.classSectionId = ss.id 
@@ -69,33 +68,61 @@ Module Payment
             End If
         End Try
     End Function
+
     Sub RetrieveMiscs(ByVal studentId)
         cn.Close()
         Try
+            ' Clear previous items in the ComboBox
             NewMiscPayment.ComboBox1.Items.Clear()
+
             cn.Open()
-            ' SQL query to retrieve only items from miscellaneous that are not in misc_payments for the given studentId
-            Dim query As String = "SELECT m.*, sy.schoolYear 
-FROM miscellaneous m
-CROSS JOIN school_year sy
-LEFT JOIN misc_payments mp ON m.id = mp.miscId 
-    AND mp.studentId = @studentId
-    AND mp.schoolYearId = sy.id
-WHERE mp.miscId IS NULL 
-    AND sy.isActive = 1"
+
+            ' Updated SQL query
+            Dim query As String = "
+           SELECT 
+    m.id, 
+    m.misc, 
+    CASE 
+        WHEN mp.studentId = @studentId 
+             AND COALESCE(mp.balance, 0) > 0 
+             AND sy.isActive = 1 THEN mp.balance 
+        WHEN mp.studentId = @studentId 
+             AND COALESCE(mp.balance, 0) = 0 
+             AND sy.isActive = 1 THEN 0
+        ELSE m.amount 
+    END AS amount 
+FROM 
+    miscellaneous m
+LEFT JOIN 
+    misc_payments mp ON m.id = mp.miscId
+LEFT JOIN 
+    school_year sy ON mp.schoolYearId = sy.id;
+
+
+
+
+
+
+        "
 
             Using cm As New MySqlCommand(query, cn)
-                cm.Parameters.AddWithValue("@studentId", studentId)
+                cm.Parameters.AddWithValue("@studentId", Payment.currentStudentId)
                 Using dr As MySqlDataReader = cm.ExecuteReader()
-                    ' Read and add each item that has no matching record in misc_payments to the ComboBox
-                    While dr.Read()
-                        NewMiscPayment.ComboBox1.Items.Add(dr("id").ToString() & "-" & dr("misc").ToString())
-                    End While
+                    ' Create a DataTable to hold the data
+                    Dim dt As New DataTable()
+                    dt.Load(dr)
+
+                    ' Bind the ComboBox with the DataTable
+                    With NewMiscPayment.ComboBox1
+                        .DataSource = dt
+                        .DisplayMember = "misc"   ' The name to show in the ComboBox
+                        .ValueMember = "id"       ' The unique identifier for the selected item
+                    End With
                 End Using
             End Using
+
             cn.Close()
             StudentPaymentInfo.Hide()
-
             Task.Delay(1000)
             NewMiscPayment.ShowDialog()
         Catch ex As Exception
@@ -106,6 +133,7 @@ WHERE mp.miscId IS NULL
             End If
         End Try
     End Sub
+
     Sub RetrieveTuitions()
         cn.Close()
         Try
@@ -143,14 +171,14 @@ ORDER BY t.id ASC;"
             StudentPaymentInfo.DataGridView1.Rows.Clear()
             cn.Open()
             ' SQL query to retrieve only items from miscellaneous that are not in misc_payments for the given studentId
-            Dim query As String = "SELECT mp.id, mp.studentId,m.misc, mp.amount, mp.paymentStatus, mp.paymentDate FROM misc_payments mp INNER JOIN miscellaneous m ON mp.miscId = m.id INNER JOIN school_year sy ON mp.schoolYearId = sy.id WHERE studentId = @studentId AND sy.isActive = 1 ORDER BY mp.id ASC"
+            Dim query As String = "SELECT mp.id, mp.studentId,m.misc, mp.amount, mp.balance, mp.paymentDate FROM misc_payments mp INNER JOIN miscellaneous m ON mp.miscId = m.id INNER JOIN school_year sy ON mp.schoolYearId = sy.id WHERE studentId = @studentId AND sy.isActive = 1 ORDER BY mp.id ASC"
 
             Using cm As New MySqlCommand(query, cn)
                 cm.Parameters.AddWithValue("@studentId", currentStudentId)
                 Using dr As MySqlDataReader = cm.ExecuteReader()
                     ' Read and add each item that has no matching record in misc_payments to the ComboBox
                     While dr.Read()
-                        StudentPaymentInfo.DataGridView1.Rows.Add(dr.Item(0).ToString, dr.Item(1).ToString, dr.Item(2).ToString, dr.Item(3).ToString, dr.Item(5), dr.Item(4))
+                        StudentPaymentInfo.DataGridView1.Rows.Add(dr.Item(0).ToString, dr.Item(1).ToString, dr.Item(2).ToString, dr.Item(3).ToString, dr.Item(4), dr.Item(5))
                     End While
                 End Using
             End Using
@@ -165,8 +193,45 @@ ORDER BY t.id ASC;"
     End Sub
     Sub CreateNewPayment(ByVal miscId, studentId, amount, paymentDate)
         Try
+            ' Validate input values
+            If String.IsNullOrWhiteSpace(NewMiscPayment.TextBox1.Text) Then
+                MsgBox("The balance field cannot be empty.", vbExclamation, "Validation Error")
+                Exit Sub
+            End If
+
+            If Not IsNumeric(NewMiscPayment.TextBox1.Text) Then
+                MsgBox("The balance must be a numeric value.", vbExclamation, "Validation Error")
+                Exit Sub
+            End If
+
+            ' Retrieve the user's input from the TextBox for the initial value
+            Dim initialAmount As Double = CDbl(NewMiscPayment.TextBox1.Text) ' Assuming TextBoxBalance is the TextBox containing the user's input
+
+            ' Check if the balance is already zero
+            If initialAmount <= 0 Then
+                MsgBox("This item has already been paid in full.", vbInformation, "Payment Complete")
+                Exit Sub
+            End If
+
+            If amount <= 0 Then
+                MsgBox("The payment amount must be greater than zero.", vbExclamation, "Validation Error")
+                Exit Sub
+            End If
+
+            ' Calculate the new balance
+            Dim balance As Double = initialAmount - amount
+
+            If balance < 0 Then
+                MsgBox("The payment amount exceeds the available balance.", vbExclamation, "Validation Error")
+                Exit Sub
+            End If
+
             cn.Open()
-            Dim query As String = "INSERT INTO misc_payments (miscId,studentId,amount,paymentDate,schoolYearId)VALUES(@miscId,@studentId,@amount,@paymentDate,@schoolYearId)"
+
+            ' Insert query with balance
+            Dim query As String = "INSERT INTO misc_payments (miscId, studentId, amount, paymentDate, schoolYearId, balance) 
+                               VALUES (@miscId, @studentId, @amount, @paymentDate, @schoolYearId, @balance)"
+
             Using cm As New MySqlCommand(query, cn)
                 With cm.Parameters
                     .AddWithValue("@miscId", miscId)
@@ -174,21 +239,24 @@ ORDER BY t.id ASC;"
                     .AddWithValue("@amount", amount)
                     .AddWithValue("@paymentDate", paymentDate)
                     .AddWithValue("@schoolYearId", syId)
+                    .AddWithValue("@balance", balance) ' Include the calculated balance
                 End With
                 cm.ExecuteNonQuery()
             End Using
+
             cn.Close()
-            MsgBox("New Payment has been made", vbInformation, vbOK)
+            MsgBox("New Payment has been made. Remaining Balance: " & balance.ToString("C2"), vbInformation, "Payment Successful")
             NewMiscPayment.Dispose()
         Catch ex As Exception
             MsgBox(ex.Message, vbExclamation, "Error!")
-            Return
         Finally
             If cn IsNot Nothing AndAlso cn.State = ConnectionState.Open Then
                 cn.Close()
             End If
         End Try
     End Sub
+
+
     Sub CreateNewTuitionPayment(ByVal studentId, amount, balance, paymentDate)
         Dim newBalance = balance - amount
         ' Check if the new balance is negative

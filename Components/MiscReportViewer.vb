@@ -17,15 +17,15 @@ Public Class ReportViewer
 
             cn.Open()
 
-            Dim query As String = "SELECT        mp.id, mp.studentId, s.name, ss.classSection, y.year, m.misc, mp.amount, mp.paymentStatus, mp.paymentDate, sy.schoolYear
+            Dim query As String = "SELECT        mp.id, mp.studentId, s.name, ss.classSection, y.year, m.misc, m.amount AS misc_amount, mp.amount, mp.balance, mp.paymentDate, sy.schoolYear
 FROM            misc_payments mp INNER JOIN
                          miscellaneous m ON mp.miscId = m.id INNER JOIN
                          school_year sy ON mp.schoolYearId = sy.id INNER JOIN
                          students s ON mp.studentId = s.id INNER JOIN
                          sections ss ON s.classSectionId = ss.id INNER JOIN
                          years y ON s.yearId = y.id
-WHERE        (sy.isActive = 1)
-AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate"
+WHERE        (sy.isActive = 1)  
+AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate "
 
             Dim cmd As New MySqlCommand(query, cn)
             cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))

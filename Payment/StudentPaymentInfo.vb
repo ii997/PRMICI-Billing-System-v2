@@ -24,7 +24,7 @@ Public Class StudentPaymentInfo
     End Sub
 
     Private Sub CuiButton1_Click(sender As Object, e As EventArgs) Handles btnMisc.Click
-        RetrieveMiscs(Payment.currentStudentId)
+        RetrieveMiscs(studentId:=Payment.currentStudentId)
     End Sub
 
     Private Sub btnTuition_Click(sender As Object, e As EventArgs) Handles btnTuition.Click

@@ -5,11 +5,11 @@ Public Class ListOfMiscs
     Private Sub RetrieveMiscStudentsData()
         Try
             cn.Open()
-            Using cm As New MySqlCommand("SELECT mp.id, mp.studentId, s.name, ss.classSection, y.year, m.misc, mp.amount, mp.paymentStatus, mp.paymentDate FROM misc_payments mp INNER JOIN miscellaneous m ON mp.miscId = m.id INNER JOIN school_year sy ON mp.schoolYearId = sy.id JOIN students s ON mp.studentId = s.id JOIN sections ss ON s.classSectionId = ss.id JOIN years y ON s.yearId = y.id WHERE sy.isActive = 1 ORDER BY mp.id ASC;", cn)
+            Using cm As New MySqlCommand("SELECT mp.id, mp.studentId, s.name, ss.classSection, y.year, m.misc, mp.amount, mp.balance, mp.paymentDate FROM misc_payments mp INNER JOIN miscellaneous m ON mp.miscId = m.id INNER JOIN school_year sy ON mp.schoolYearId = sy.id JOIN students s ON mp.studentId = s.id JOIN sections ss ON s.classSectionId = ss.id JOIN years y ON s.yearId = y.id WHERE sy.isActive = 1 ORDER BY mp.id ASC;", cn)
                 DataGridView1.Rows.Clear() ' Clear existing data
                 Using dr As MySqlDataReader = cm.ExecuteReader()
                     While dr.Read()
-                        DataGridView1.Rows.Add(dr("id"), dr("studentId"), dr("name"), dr("classSection"), dr("year"), dr("misc"), dr("amount"), dr("paymentDate"), dr("paymentStatus"))
+                        DataGridView1.Rows.Add(dr("id"), dr("studentId"), dr("name"), dr("classSection"), dr("year"), dr("misc"), dr("amount"), dr("balance"), dr("paymentDate"))
                     End While
                 End Using
             End Using

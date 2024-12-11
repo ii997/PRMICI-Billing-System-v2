@@ -30,6 +30,7 @@ Partial Class NewMiscPayment
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.tbamount = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label4
@@ -49,7 +50,7 @@ Partial Class NewMiscPayment
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Poppins Medium", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(296, 8)
+        Me.Label1.Location = New System.Drawing.Point(364, 8)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(18, 23)
         Me.Label1.TabIndex = 27
@@ -71,7 +72,7 @@ Partial Class NewMiscPayment
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Poppins Medium", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(20, 116)
+        Me.Label3.Location = New System.Drawing.Point(20, 166)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(67, 23)
         Me.Label3.TabIndex = 31
@@ -85,6 +86,7 @@ Partial Class NewMiscPayment
         Me.CuiButton1.CheckedImageTint = System.Drawing.Color.White
         Me.CuiButton1.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.CuiButton1.Content = "Save Payment"
+        Me.CuiButton1.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton1.Font = New System.Drawing.Font("Poppins", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CuiButton1.ForeColor = System.Drawing.Color.White
         Me.CuiButton1.HoverBackground = System.Drawing.Color.FromArgb(CType(CType(23, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(156, Byte), Integer))
@@ -95,7 +97,7 @@ Partial Class NewMiscPayment
         Me.CuiButton1.ImageExpand = New System.Drawing.Point(0, 0)
         Me.CuiButton1.ImageOffset = New System.Drawing.Point(0, 0)
         Me.CuiButton1.ImageTint = System.Drawing.Color.White
-        Me.CuiButton1.Location = New System.Drawing.Point(20, 193)
+        Me.CuiButton1.Location = New System.Drawing.Point(20, 236)
         Me.CuiButton1.Name = "CuiButton1"
         Me.CuiButton1.NormalBackground = System.Drawing.Color.Transparent
         Me.CuiButton1.NormalOutline = System.Drawing.Color.White
@@ -104,7 +106,7 @@ Partial Class NewMiscPayment
         Me.CuiButton1.PressedImageTint = System.Drawing.Color.White
         Me.CuiButton1.PressedOutline = System.Drawing.Color.Empty
         Me.CuiButton1.Rounding = New System.Windows.Forms.Padding(8)
-        Me.CuiButton1.Size = New System.Drawing.Size(273, 44)
+        Me.CuiButton1.Size = New System.Drawing.Size(338, 44)
         Me.CuiButton1.TabIndex = 32
         Me.CuiButton1.TextOffset = New System.Drawing.Point(0, 0)
         '
@@ -118,17 +120,17 @@ Partial Class NewMiscPayment
         Me.ComboBox1.ForeColor = System.Drawing.Color.White
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.IntegralHeight = False
-        Me.ComboBox1.Location = New System.Drawing.Point(20, 79)
+        Me.ComboBox1.Location = New System.Drawing.Point(20, 82)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(273, 31)
+        Me.ComboBox1.Size = New System.Drawing.Size(338, 31)
         Me.ComboBox1.TabIndex = 33
         '
         'tbamount
         '
         Me.tbamount.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbamount.Location = New System.Drawing.Point(20, 139)
+        Me.tbamount.Location = New System.Drawing.Point(20, 189)
         Me.tbamount.Name = "tbamount"
-        Me.tbamount.Size = New System.Drawing.Size(273, 27)
+        Me.tbamount.Size = New System.Drawing.Size(338, 27)
         Me.tbamount.TabIndex = 34
         '
         'Label5
@@ -136,18 +138,28 @@ Partial Class NewMiscPayment
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Poppins Medium", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(102, 87)
+        Me.Label5.Location = New System.Drawing.Point(125, 193)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(148, 23)
         Me.Label5.TabIndex = 35
         Me.Label5.Text = "New Misc Payment"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Enabled = False
+        Me.TextBox1.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(20, 126)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(338, 27)
+        Me.TextBox1.TabIndex = 36
         '
         'NewMiscPayment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(321, 256)
+        Me.ClientSize = New System.Drawing.Size(389, 303)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.tbamount)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.CuiButton1)
@@ -174,4 +186,5 @@ Partial Class NewMiscPayment
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents tbamount As TextBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents TextBox1 As TextBox
 End Class

@@ -75,6 +75,7 @@ Partial Class StudentsList
         Me.CuiButton1.CheckedImageTint = System.Drawing.Color.White
         Me.CuiButton1.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.CuiButton1.Content = "New Student"
+        Me.CuiButton1.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton1.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CuiButton1.ForeColor = System.Drawing.Color.White
         Me.CuiButton1.HoverBackground = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -132,6 +133,7 @@ Partial Class StudentsList
         Me.CuiButton2.CheckedImageTint = System.Drawing.Color.White
         Me.CuiButton2.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.CuiButton2.Content = "Search"
+        Me.CuiButton2.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton2.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CuiButton2.ForeColor = System.Drawing.Color.White
         Me.CuiButton2.HoverBackground = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -333,6 +335,7 @@ Partial Class StudentsList
         Me.CuiButton3.CheckedImageTint = System.Drawing.Color.White
         Me.CuiButton3.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.CuiButton3.Content = "Generate QR Codes"
+        Me.CuiButton3.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton3.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CuiButton3.ForeColor = System.Drawing.Color.White
         Me.CuiButton3.HoverBackground = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))

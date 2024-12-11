@@ -187,6 +187,12 @@
     <Compile Include="Components\FormSettingsForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Components\FormUpdateMiscellaneousFee.Designer.vb">
+      <DependentUpon>FormUpdateMiscellaneousFee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\FormUpdateMiscellaneousFee.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Components\QRCodeListViewer.Designer.vb">
       <DependentUpon>QRCodeListViewer.vb</DependentUpon>
     </Compile>
@@ -344,6 +350,9 @@
     <EmbeddedResource Include="Components\FormSettingsForm.resx">
       <DependentUpon>FormSettingsForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\FormUpdateMiscellaneousFee.resx">
+      <DependentUpon>FormUpdateMiscellaneousFee.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\QRCodeListViewer.resx">
       <DependentUpon>QRCodeListViewer.vb</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +417,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <Content Include="Reports\TuitionStudentSummary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\UnpaidMisc.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Students\NewStudentForm.resx">
