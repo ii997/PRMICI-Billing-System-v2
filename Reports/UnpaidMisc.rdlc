@@ -528,7 +528,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Unpaid Miscellaneous</Value>
+                                    <Value>Miscellaneous</Value>
                                     <Style>
                                       <FontFamily>poppins</FontFamily>
                                       <FontSize>11pt</FontSize>

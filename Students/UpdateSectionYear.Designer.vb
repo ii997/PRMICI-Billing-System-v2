@@ -77,6 +77,7 @@ Partial Class UpdateSectionYear
         Me.CuiButton2.CheckedImageTint = System.Drawing.Color.White
         Me.CuiButton2.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.CuiButton2.Content = "Update Section & Year"
+        Me.CuiButton2.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton2.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CuiButton2.ForeColor = System.Drawing.Color.White
         Me.CuiButton2.HoverBackground = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(193, Byte), Integer))
@@ -127,7 +128,7 @@ Partial Class UpdateSectionYear
         Me.txtId.AutoSize = True
         Me.txtId.Font = New System.Drawing.Font("Poppins SemiBold", 11.25!, System.Drawing.FontStyle.Bold)
         Me.txtId.ForeColor = System.Drawing.Color.White
-        Me.txtId.Location = New System.Drawing.Point(143, 50)
+        Me.txtId.Location = New System.Drawing.Point(115, 165)
         Me.txtId.Name = "txtId"
         Me.txtId.Size = New System.Drawing.Size(69, 26)
         Me.txtId.TabIndex = 27
@@ -173,11 +174,11 @@ Partial Class UpdateSectionYear
         Me.ClientSize = New System.Drawing.Size(424, 225)
         Me.Controls.Add(Me.Guna2ComboBox2)
         Me.Controls.Add(Me.Guna2ComboBox1)
-        Me.Controls.Add(Me.txtId)
         Me.Controls.Add(Me.CuiButton2)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.txtId)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "UpdateSectionYear"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
