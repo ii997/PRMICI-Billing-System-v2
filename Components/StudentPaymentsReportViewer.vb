@@ -81,18 +81,19 @@ WHERE  mp.studentId = @studentId AND mp.paymentDate BETWEEN @startDate AND @endD
             cn.Open()
 
             Dim query As String = $"SELECT 
-    m.*, 
-    COALESCE(SUM(mp.amount), 0) AS totalPayments
+    m.*,
+    COALESCE(SUM(mp.amount), 0) AS totalPayments,
+    (m.amount - COALESCE(SUM(mp.amount), 0)) AS balance
 FROM 
     miscellaneous m
 LEFT JOIN 
-    misc_payments mp ON mp.miscId = m.id AND mp.studentId = @studentId  -- Filter for the specific student
+    misc_payments mp ON mp.miscId = m.id AND mp.studentId = @studentId
 LEFT JOIN 
     school_year sy ON mp.schoolYearId = sy.id
 WHERE 
-    (sy.isActive = 1 OR sy.isActive IS NULL)  -- Only active school years, or allow for NULL if applicable
+    (sy.isActive = 1 OR sy.isActive IS NULL)
 GROUP BY 
-    m.id;
+    m.id
 "
             Dim cmd As New MySqlCommand(query, cn)
             cmd.Parameters.AddWithValue("@studentId", StudentsList.DataGridView1.CurrentRow.Cells(0).Value)

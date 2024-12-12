@@ -179,8 +179,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox93</rd:DefaultName>
-            <Top>2.82709in</Top>
-            <Left>0.26667in</Left>
+            <Top>3.0257in</Top>
+            <Left>0.25632in</Left>
             <Height>0.29167in</Height>
             <Width>7.48819in</Width>
             <ZIndex>5</ZIndex>
@@ -699,8 +699,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.03195in</Top>
-            <Left>0.26667in</Left>
+            <Top>2.23056in</Top>
+            <Left>0.25632in</Left>
             <Height>0.78125in</Height>
             <Width>7.48819in</Width>
             <ZIndex>12</ZIndex>
@@ -710,6 +710,48 @@
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox101">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>As of </Value>
+                    <Style>
+                      <FontFamily>Poppins SemiBold</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!pDate.Value</Value>
+                    <Style>
+                      <FontFamily>Poppins SemiBold</FontFamily>
+                      <Format>MMMM yyyy</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox93</rd:DefaultName>
+            <Top>1.91806in</Top>
+            <Left>0.25632in</Left>
+            <Height>0.3125in</Height>
+            <Width>7.48819in</Width>
+            <ZIndex>13</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>0.23958in</Top>
@@ -778,6 +820,10 @@
         <Field Name="total_balance">
           <DataField>total_balance</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="pDate">
+          <DataField>pDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

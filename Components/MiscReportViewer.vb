@@ -24,7 +24,8 @@ Public Class ReportViewer
           COUNT(mp.id) as payment_count,
           SUM(m.amount) as total_misc_amount,
           SUM(mp.amount) as total_paid_amount,
-          SUM(mp.balance) as total_balance
+          SUM(mp.balance) as total_balance,
+         mp.paymentDate as pDate
 FROM      misc_payments mp 
 INNER JOIN miscellaneous m ON mp.miscId = m.id 
 INNER JOIN school_year sy ON mp.schoolYearId = sy.id 
@@ -33,7 +34,8 @@ INNER JOIN sections ss ON s.classSectionId = ss.id
 INNER JOIN years y ON s.yearId = y.id
 WHERE     sy.isActive = 1
 AND      mp.paymentDate BETWEEN @startDate AND @endDate
-GROUP BY  s.name         
+GROUP BY  s.name
+        
 ORDER BY  s.name"
 
             Dim cmd As New MySqlCommand(query, cn)
