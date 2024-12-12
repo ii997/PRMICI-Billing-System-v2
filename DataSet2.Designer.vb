@@ -4056,6 +4056,8 @@ Partial Public Class DataSet2
         
         Private columntotalPayments As Global.System.Data.DataColumn
         
+        Private columnbalance As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -4124,6 +4126,14 @@ Partial Public Class DataSet2
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property balanceColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnbalance
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4160,9 +4170,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddUnpaidMiscsRow(ByVal misc As String, ByVal amount As Double, ByVal totalPayments As Double) As UnpaidMiscsRow
+        Public Overloads Function AddUnpaidMiscsRow(ByVal misc As String, ByVal amount As Double, ByVal totalPayments As Double, ByVal balance As Double) As UnpaidMiscsRow
             Dim rowUnpaidMiscsRow As UnpaidMiscsRow = CType(Me.NewRow,UnpaidMiscsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, misc, amount, totalPayments}
+            Dim columnValuesArray() As Object = New Object() {Nothing, misc, amount, totalPayments, balance}
             rowUnpaidMiscsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUnpaidMiscsRow)
             Return rowUnpaidMiscsRow
@@ -4195,6 +4205,7 @@ Partial Public Class DataSet2
             Me.columnmisc = MyBase.Columns("misc")
             Me.columnamount = MyBase.Columns("amount")
             Me.columntotalPayments = MyBase.Columns("totalPayments")
+            Me.columnbalance = MyBase.Columns("balance")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4208,6 +4219,8 @@ Partial Public Class DataSet2
             MyBase.Columns.Add(Me.columnamount)
             Me.columntotalPayments = New Global.System.Data.DataColumn("totalPayments", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntotalPayments)
+            Me.columnbalance = New Global.System.Data.DataColumn("balance", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnbalance)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
@@ -6501,6 +6514,21 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property balance() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableUnpaidMiscs.balanceColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'balance' in table 'UnpaidMiscs' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUnpaidMiscs.balanceColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IstotalPaymentsNull() As Boolean
             Return Me.IsNull(Me.tableUnpaidMiscs.totalPaymentsColumn)
         End Function
@@ -6509,6 +6537,18 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SettotalPaymentsNull()
             Me(Me.tableUnpaidMiscs.totalPaymentsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsbalanceNull() As Boolean
+            Return Me.IsNull(Me.tableUnpaidMiscs.balanceColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetbalanceNull()
+            Me(Me.tableUnpaidMiscs.balanceColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -11537,6 +11577,7 @@ Namespace DataSet2TableAdapters
             tableMapping.ColumnMappings.Add("misc", "misc")
             tableMapping.ColumnMappings.Add("amount", "amount")
             tableMapping.ColumnMappings.Add("totalPayments", "totalPayments")
+            tableMapping.ColumnMappings.Add("balance", "balance")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -11553,12 +11594,11 @@ Namespace DataSet2TableAdapters
             Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(0) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    m.*, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    COALESCE(SUM(mp.amount), 0) AS totalPayments"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
-                "miscellaneous m"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"LEFT JOIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    misc_payments mp ON mp.miscId = m.id AND mp.stu"& _ 
-                "dentId = @studentId  -- Filter for the specific student"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"LEFT JOIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    school_"& _ 
-                "year sy ON mp.schoolYearId = sy.id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    (sy.isActive = 1 OR sy.isActive "& _ 
-                "IS NULL)  -- Only active school years, or allow for NULL if applicable"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY"& _ 
-                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    m.id"
+            Me._commandCollection(0).CommandText = "SELECT "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    m.*,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    COALESCE(SUM(mp.amount), 0) AS totalPayments,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    (m.amou"& _ 
+                "nt - COALESCE(SUM(mp.amount), 0)) AS balance"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    miscellaneous m"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"LEFT J"& _ 
+                "OIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    misc_payments mp ON mp.miscId = m.id AND mp.studentId = @studentId"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"LE"& _ 
+                "FT JOIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    school_year sy ON mp.schoolYearId = sy.id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    (sy.isActiv"& _ 
+                "e = 1 OR sy.isActive IS NULL)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    m.id"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@studentId"

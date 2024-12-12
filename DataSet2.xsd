@@ -517,20 +517,21 @@ WHERE        sy.isActive = 1 AND mp.paymentDate BETWEEN @startDate AND @endDate<
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UnpaidMiscsTableAdapter" GeneratorDataComponentClassName="UnpaidMiscsTableAdapter" Name="UnpaidMiscs" UserDataComponentName="UnpaidMiscsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="db_prmici_billingConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="db_prmici_billingConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT 
-    m.*, 
-    COALESCE(SUM(mp.amount), 0) AS totalPayments
+    m.*,
+    COALESCE(SUM(mp.amount), 0) AS totalPayments,
+    (m.amount - COALESCE(SUM(mp.amount), 0)) AS balance
 FROM 
     miscellaneous m
 LEFT JOIN 
-    misc_payments mp ON mp.miscId = m.id AND mp.studentId = @studentId  -- Filter for the specific student
+    misc_payments mp ON mp.miscId = m.id AND mp.studentId = @studentId
 LEFT JOIN 
     school_year sy ON mp.schoolYearId = sy.id
 WHERE 
-    (sy.isActive = 1 OR sy.isActive IS NULL)  -- Only active school years, or allow for NULL if applicable
+    (sy.isActive = 1 OR sy.isActive IS NULL)
 GROUP BY 
     m.id</CommandText>
                     <Parameters>
@@ -545,6 +546,7 @@ GROUP BY
               <Mapping SourceColumn="misc" DataSetColumn="misc" />
               <Mapping SourceColumn="amount" DataSetColumn="amount" />
               <Mapping SourceColumn="totalPayments" DataSetColumn="totalPayments" />
+              <Mapping SourceColumn="balance" DataSetColumn="balance" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -678,7 +680,7 @@ ORDER BY  s.name, m.misc</CommandText>
   <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="misc_payments" msprop:Generator_TableClassName="misc_paymentsDataTable" msprop:Generator_TableVarName="tablemisc_payments" msprop:Generator_RowChangedName="misc_paymentsRowChanged" msprop:Generator_TablePropName="misc_payments" msprop:Generator_RowDeletingName="misc_paymentsRowDeleting" msprop:Generator_RowChangingName="misc_paymentsRowChanging" msprop:Generator_RowEvHandlerName="misc_paymentsRowChangeEventHandler" msprop:Generator_RowDeletedName="misc_paymentsRowDeleted" msprop:Generator_RowClassName="misc_paymentsRow" msprop:Generator_UserTableName="misc_payments" msprop:Generator_RowEvArgName="misc_paymentsRowChangeEvent">
+        <xs:element name="misc_payments" msprop:Generator_TableClassName="misc_paymentsDataTable" msprop:Generator_TableVarName="tablemisc_payments" msprop:Generator_TablePropName="misc_payments" msprop:Generator_RowDeletingName="misc_paymentsRowDeleting" msprop:Generator_RowChangingName="misc_paymentsRowChanging" msprop:Generator_RowEvHandlerName="misc_paymentsRowChangeEventHandler" msprop:Generator_RowDeletedName="misc_paymentsRowDeleted" msprop:Generator_UserTableName="misc_payments" msprop:Generator_RowChangedName="misc_paymentsRowChanged" msprop:Generator_RowEvArgName="misc_paymentsRowChangeEvent" msprop:Generator_RowClassName="misc_paymentsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -691,7 +693,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="years" msprop:Generator_TableClassName="yearsDataTable" msprop:Generator_TableVarName="tableyears" msprop:Generator_RowChangedName="yearsRowChanged" msprop:Generator_TablePropName="years" msprop:Generator_RowDeletingName="yearsRowDeleting" msprop:Generator_RowChangingName="yearsRowChanging" msprop:Generator_RowEvHandlerName="yearsRowChangeEventHandler" msprop:Generator_RowDeletedName="yearsRowDeleted" msprop:Generator_RowClassName="yearsRow" msprop:Generator_UserTableName="years" msprop:Generator_RowEvArgName="yearsRowChangeEvent">
+        <xs:element name="years" msprop:Generator_TableClassName="yearsDataTable" msprop:Generator_TableVarName="tableyears" msprop:Generator_TablePropName="years" msprop:Generator_RowDeletingName="yearsRowDeleting" msprop:Generator_RowChangingName="yearsRowChanging" msprop:Generator_RowEvHandlerName="yearsRowChangeEventHandler" msprop:Generator_RowDeletedName="yearsRowDeleted" msprop:Generator_UserTableName="years" msprop:Generator_RowChangedName="yearsRowChanged" msprop:Generator_RowEvArgName="yearsRowChangeEvent" msprop:Generator_RowClassName="yearsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -705,7 +707,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="miscellaneous" msprop:Generator_TableClassName="miscellaneousDataTable" msprop:Generator_TableVarName="tablemiscellaneous" msprop:Generator_RowChangedName="miscellaneousRowChanged" msprop:Generator_TablePropName="miscellaneous" msprop:Generator_RowDeletingName="miscellaneousRowDeleting" msprop:Generator_RowChangingName="miscellaneousRowChanging" msprop:Generator_RowEvHandlerName="miscellaneousRowChangeEventHandler" msprop:Generator_RowDeletedName="miscellaneousRowDeleted" msprop:Generator_RowClassName="miscellaneousRow" msprop:Generator_UserTableName="miscellaneous" msprop:Generator_RowEvArgName="miscellaneousRowChangeEvent">
+        <xs:element name="miscellaneous" msprop:Generator_TableClassName="miscellaneousDataTable" msprop:Generator_TableVarName="tablemiscellaneous" msprop:Generator_TablePropName="miscellaneous" msprop:Generator_RowDeletingName="miscellaneousRowDeleting" msprop:Generator_RowChangingName="miscellaneousRowChanging" msprop:Generator_RowEvHandlerName="miscellaneousRowChangeEventHandler" msprop:Generator_RowDeletedName="miscellaneousRowDeleted" msprop:Generator_UserTableName="miscellaneous" msprop:Generator_RowChangedName="miscellaneousRowChanged" msprop:Generator_RowEvArgName="miscellaneousRowChangeEvent" msprop:Generator_RowClassName="miscellaneousRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -720,7 +722,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="school_year" msprop:Generator_TableClassName="school_yearDataTable" msprop:Generator_TableVarName="tableschool_year" msprop:Generator_RowChangedName="school_yearRowChanged" msprop:Generator_TablePropName="school_year" msprop:Generator_RowDeletingName="school_yearRowDeleting" msprop:Generator_RowChangingName="school_yearRowChanging" msprop:Generator_RowEvHandlerName="school_yearRowChangeEventHandler" msprop:Generator_RowDeletedName="school_yearRowDeleted" msprop:Generator_RowClassName="school_yearRow" msprop:Generator_UserTableName="school_year" msprop:Generator_RowEvArgName="school_yearRowChangeEvent">
+        <xs:element name="school_year" msprop:Generator_TableClassName="school_yearDataTable" msprop:Generator_TableVarName="tableschool_year" msprop:Generator_TablePropName="school_year" msprop:Generator_RowDeletingName="school_yearRowDeleting" msprop:Generator_RowChangingName="school_yearRowChanging" msprop:Generator_RowEvHandlerName="school_yearRowChangeEventHandler" msprop:Generator_RowDeletedName="school_yearRowDeleted" msprop:Generator_UserTableName="school_year" msprop:Generator_RowChangedName="school_yearRowChanged" msprop:Generator_RowEvArgName="school_yearRowChangeEvent" msprop:Generator_RowClassName="school_yearRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -735,7 +737,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sections" msprop:Generator_TableClassName="sectionsDataTable" msprop:Generator_TableVarName="tablesections" msprop:Generator_RowChangedName="sectionsRowChanged" msprop:Generator_TablePropName="sections" msprop:Generator_RowDeletingName="sectionsRowDeleting" msprop:Generator_RowChangingName="sectionsRowChanging" msprop:Generator_RowEvHandlerName="sectionsRowChangeEventHandler" msprop:Generator_RowDeletedName="sectionsRowDeleted" msprop:Generator_RowClassName="sectionsRow" msprop:Generator_UserTableName="sections" msprop:Generator_RowEvArgName="sectionsRowChangeEvent">
+        <xs:element name="sections" msprop:Generator_TableClassName="sectionsDataTable" msprop:Generator_TableVarName="tablesections" msprop:Generator_TablePropName="sections" msprop:Generator_RowDeletingName="sectionsRowDeleting" msprop:Generator_RowChangingName="sectionsRowChanging" msprop:Generator_RowEvHandlerName="sectionsRowChangeEventHandler" msprop:Generator_RowDeletedName="sectionsRowDeleted" msprop:Generator_UserTableName="sections" msprop:Generator_RowChangedName="sectionsRowChanged" msprop:Generator_RowEvArgName="sectionsRowChangeEvent" msprop:Generator_RowClassName="sectionsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -749,7 +751,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="students" msprop:Generator_TableClassName="studentsDataTable" msprop:Generator_TableVarName="tablestudents" msprop:Generator_RowChangedName="studentsRowChanged" msprop:Generator_TablePropName="students" msprop:Generator_RowDeletingName="studentsRowDeleting" msprop:Generator_RowChangingName="studentsRowChanging" msprop:Generator_RowEvHandlerName="studentsRowChangeEventHandler" msprop:Generator_RowDeletedName="studentsRowDeleted" msprop:Generator_RowClassName="studentsRow" msprop:Generator_UserTableName="students" msprop:Generator_RowEvArgName="studentsRowChangeEvent">
+        <xs:element name="students" msprop:Generator_TableClassName="studentsDataTable" msprop:Generator_TableVarName="tablestudents" msprop:Generator_TablePropName="students" msprop:Generator_RowDeletingName="studentsRowDeleting" msprop:Generator_RowChangingName="studentsRowChanging" msprop:Generator_RowEvHandlerName="studentsRowChangeEventHandler" msprop:Generator_RowDeletedName="studentsRowDeleted" msprop:Generator_UserTableName="students" msprop:Generator_RowChangedName="studentsRowChanged" msprop:Generator_RowEvArgName="studentsRowChangeEvent" msprop:Generator_RowClassName="studentsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -782,7 +784,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tuition" msprop:Generator_TableClassName="tuitionDataTable" msprop:Generator_TableVarName="tabletuition" msprop:Generator_RowChangedName="tuitionRowChanged" msprop:Generator_TablePropName="tuition" msprop:Generator_RowDeletingName="tuitionRowDeleting" msprop:Generator_RowChangingName="tuitionRowChanging" msprop:Generator_RowEvHandlerName="tuitionRowChangeEventHandler" msprop:Generator_RowDeletedName="tuitionRowDeleted" msprop:Generator_RowClassName="tuitionRow" msprop:Generator_UserTableName="tuition" msprop:Generator_RowEvArgName="tuitionRowChangeEvent">
+        <xs:element name="tuition" msprop:Generator_TableClassName="tuitionDataTable" msprop:Generator_TableVarName="tabletuition" msprop:Generator_TablePropName="tuition" msprop:Generator_RowDeletingName="tuitionRowDeleting" msprop:Generator_RowChangingName="tuitionRowChanging" msprop:Generator_RowEvHandlerName="tuitionRowChangeEventHandler" msprop:Generator_RowDeletedName="tuitionRowDeleted" msprop:Generator_UserTableName="tuition" msprop:Generator_RowChangedName="tuitionRowChanged" msprop:Generator_RowEvArgName="tuitionRowChangeEvent" msprop:Generator_RowClassName="tuitionRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -794,7 +796,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_RowClassName="usersRow" msprop:Generator_UserTableName="users" msprop:Generator_RowEvArgName="usersRowChangeEvent">
+        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_UserTableName="users" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_RowEvArgName="usersRowChangeEvent" msprop:Generator_RowClassName="usersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -815,7 +817,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MiscReport" msprop:Generator_TableClassName="MiscReportDataTable" msprop:Generator_TableVarName="tableMiscReport" msprop:Generator_RowChangedName="MiscReportRowChanged" msprop:Generator_TablePropName="MiscReport" msprop:Generator_RowDeletingName="MiscReportRowDeleting" msprop:Generator_RowChangingName="MiscReportRowChanging" msprop:Generator_RowEvHandlerName="MiscReportRowChangeEventHandler" msprop:Generator_RowDeletedName="MiscReportRowDeleted" msprop:Generator_RowClassName="MiscReportRow" msprop:Generator_UserTableName="MiscReport" msprop:Generator_RowEvArgName="MiscReportRowChangeEvent">
+        <xs:element name="MiscReport" msprop:Generator_TableClassName="MiscReportDataTable" msprop:Generator_TableVarName="tableMiscReport" msprop:Generator_TablePropName="MiscReport" msprop:Generator_RowDeletingName="MiscReportRowDeleting" msprop:Generator_RowChangingName="MiscReportRowChanging" msprop:Generator_RowEvHandlerName="MiscReportRowChangeEventHandler" msprop:Generator_RowDeletedName="MiscReportRowDeleted" msprop:Generator_UserTableName="MiscReport" msprop:Generator_RowChangedName="MiscReportRowChanged" msprop:Generator_RowEvArgName="MiscReportRowChangeEvent" msprop:Generator_RowClassName="MiscReportRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -862,7 +864,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TuitionsReport" msprop:Generator_TableClassName="TuitionsReportDataTable" msprop:Generator_TableVarName="tableTuitionsReport" msprop:Generator_RowChangedName="TuitionsReportRowChanged" msprop:Generator_TablePropName="TuitionsReport" msprop:Generator_RowDeletingName="TuitionsReportRowDeleting" msprop:Generator_RowChangingName="TuitionsReportRowChanging" msprop:Generator_RowEvHandlerName="TuitionsReportRowChangeEventHandler" msprop:Generator_RowDeletedName="TuitionsReportRowDeleted" msprop:Generator_RowClassName="TuitionsReportRow" msprop:Generator_UserTableName="TuitionsReport" msprop:Generator_RowEvArgName="TuitionsReportRowChangeEvent">
+        <xs:element name="TuitionsReport" msprop:Generator_TableClassName="TuitionsReportDataTable" msprop:Generator_TableVarName="tableTuitionsReport" msprop:Generator_TablePropName="TuitionsReport" msprop:Generator_RowDeletingName="TuitionsReportRowDeleting" msprop:Generator_RowChangingName="TuitionsReportRowChanging" msprop:Generator_RowEvHandlerName="TuitionsReportRowChangeEventHandler" msprop:Generator_RowDeletedName="TuitionsReportRowDeleted" msprop:Generator_UserTableName="TuitionsReport" msprop:Generator_RowChangedName="TuitionsReportRowChanged" msprop:Generator_RowEvArgName="TuitionsReportRowChangeEvent" msprop:Generator_RowClassName="TuitionsReportRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -897,7 +899,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="UnpaidMiscs" msprop:Generator_TableClassName="UnpaidMiscsDataTable" msprop:Generator_TableVarName="tableUnpaidMiscs" msprop:Generator_RowChangedName="UnpaidMiscsRowChanged" msprop:Generator_TablePropName="UnpaidMiscs" msprop:Generator_RowDeletingName="UnpaidMiscsRowDeleting" msprop:Generator_RowChangingName="UnpaidMiscsRowChanging" msprop:Generator_RowEvHandlerName="UnpaidMiscsRowChangeEventHandler" msprop:Generator_RowDeletedName="UnpaidMiscsRowDeleted" msprop:Generator_RowClassName="UnpaidMiscsRow" msprop:Generator_UserTableName="UnpaidMiscs" msprop:Generator_RowEvArgName="UnpaidMiscsRowChangeEvent">
+        <xs:element name="UnpaidMiscs" msprop:Generator_TableClassName="UnpaidMiscsDataTable" msprop:Generator_TableVarName="tableUnpaidMiscs" msprop:Generator_TablePropName="UnpaidMiscs" msprop:Generator_RowDeletingName="UnpaidMiscsRowDeleting" msprop:Generator_RowChangingName="UnpaidMiscsRowChanging" msprop:Generator_RowEvHandlerName="UnpaidMiscsRowChangeEventHandler" msprop:Generator_RowDeletedName="UnpaidMiscsRowDeleted" msprop:Generator_UserTableName="UnpaidMiscs" msprop:Generator_RowChangedName="UnpaidMiscsRowChanged" msprop:Generator_RowEvArgName="UnpaidMiscsRowChangeEvent" msprop:Generator_RowClassName="UnpaidMiscsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -910,10 +912,11 @@ ORDER BY  s.name, m.misc</CommandText>
               </xs:element>
               <xs:element name="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" msprop:Generator_UserColumnName="amount" type="xs:double" />
               <xs:element name="totalPayments" msprop:Generator_ColumnVarNameInTable="columntotalPayments" msprop:Generator_ColumnPropNameInRow="totalPayments" msprop:Generator_ColumnPropNameInTable="totalPaymentsColumn" msprop:Generator_UserColumnName="totalPayments" type="xs:double" minOccurs="0" />
+              <xs:element name="balance" msprop:Generator_ColumnVarNameInTable="columnbalance" msprop:Generator_ColumnPropNameInRow="balance" msprop:Generator_ColumnPropNameInTable="balanceColumn" msprop:Generator_UserColumnName="balance" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StudentTuitionsSummary" msprop:Generator_TableClassName="StudentTuitionsSummaryDataTable" msprop:Generator_TableVarName="tableStudentTuitionsSummary" msprop:Generator_RowChangedName="StudentTuitionsSummaryRowChanged" msprop:Generator_TablePropName="StudentTuitionsSummary" msprop:Generator_RowDeletingName="StudentTuitionsSummaryRowDeleting" msprop:Generator_RowChangingName="StudentTuitionsSummaryRowChanging" msprop:Generator_RowEvHandlerName="StudentTuitionsSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="StudentTuitionsSummaryRowDeleted" msprop:Generator_RowClassName="StudentTuitionsSummaryRow" msprop:Generator_UserTableName="StudentTuitionsSummary" msprop:Generator_RowEvArgName="StudentTuitionsSummaryRowChangeEvent">
+        <xs:element name="StudentTuitionsSummary" msprop:Generator_TableClassName="StudentTuitionsSummaryDataTable" msprop:Generator_TableVarName="tableStudentTuitionsSummary" msprop:Generator_TablePropName="StudentTuitionsSummary" msprop:Generator_RowDeletingName="StudentTuitionsSummaryRowDeleting" msprop:Generator_RowChangingName="StudentTuitionsSummaryRowChanging" msprop:Generator_RowEvHandlerName="StudentTuitionsSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="StudentTuitionsSummaryRowDeleted" msprop:Generator_UserTableName="StudentTuitionsSummary" msprop:Generator_RowChangedName="StudentTuitionsSummaryRowChanged" msprop:Generator_RowEvArgName="StudentTuitionsSummaryRowChangeEvent" msprop:Generator_RowClassName="StudentTuitionsSummaryRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -952,7 +955,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StudentMiscsSummary" msprop:Generator_TableClassName="StudentMiscsSummaryDataTable" msprop:Generator_TableVarName="tableStudentMiscsSummary" msprop:Generator_RowChangedName="StudentMiscsSummaryRowChanged" msprop:Generator_TablePropName="StudentMiscsSummary" msprop:Generator_RowDeletingName="StudentMiscsSummaryRowDeleting" msprop:Generator_RowChangingName="StudentMiscsSummaryRowChanging" msprop:Generator_RowEvHandlerName="StudentMiscsSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="StudentMiscsSummaryRowDeleted" msprop:Generator_RowClassName="StudentMiscsSummaryRow" msprop:Generator_UserTableName="StudentMiscsSummary" msprop:Generator_RowEvArgName="StudentMiscsSummaryRowChangeEvent">
+        <xs:element name="StudentMiscsSummary" msprop:Generator_TableClassName="StudentMiscsSummaryDataTable" msprop:Generator_TableVarName="tableStudentMiscsSummary" msprop:Generator_TablePropName="StudentMiscsSummary" msprop:Generator_RowDeletingName="StudentMiscsSummaryRowDeleting" msprop:Generator_RowChangingName="StudentMiscsSummaryRowChanging" msprop:Generator_RowEvHandlerName="StudentMiscsSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="StudentMiscsSummaryRowDeleted" msprop:Generator_UserTableName="StudentMiscsSummary" msprop:Generator_RowChangedName="StudentMiscsSummaryRowChanged" msprop:Generator_RowEvArgName="StudentMiscsSummaryRowChangeEvent" msprop:Generator_RowClassName="StudentMiscsSummaryRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -999,7 +1002,7 @@ ORDER BY  s.name, m.misc</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">

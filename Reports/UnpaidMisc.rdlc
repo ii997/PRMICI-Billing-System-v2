@@ -9,11 +9,18 @@
       </ConnectionProperties>
       <rd:DataSourceID>e35079ab-8011-430c-a2fb-df65bdb920d7</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="DataSet2">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>3490e62a-07ea-453c-bae6-8b4f2f0d5111</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>DataSet1</DataSourceName>
+        <DataSourceName>DataSet2</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -33,14 +40,18 @@
           <DataField>totalPayments</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
+        <Field Name="balance">
+          <DataField>balance</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Marshmellow\source\repos\PRMICI Billing System v2\DataSet1.xsd</rd:SchemaPath>
-        <rd:TableName>DataTable3</rd:TableName>
+        <rd:DataSetName>DataSet2</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Marshmellow\source\repos\PRMICI Billing System v2\DataSet2.xsd</rd:SchemaPath>
+        <rd:TableName>UnpaidMiscs</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>DataTable3TableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>UnpaidMiscsTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
