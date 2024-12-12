@@ -28,6 +28,7 @@ Partial Class ReportViewer
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'ReportViewer1
@@ -35,10 +36,10 @@ Partial Class ReportViewer
         Me.ReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 38)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 61)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(826, 685)
+        Me.ReportViewer1.Size = New System.Drawing.Size(840, 662)
         Me.ReportViewer1.TabIndex = 37
         '
         'DateTimePicker1
@@ -57,26 +58,38 @@ Partial Class ReportViewer
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(610, 10)
+        Me.Button1.Location = New System.Drawing.Point(610, 11)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(122, 22)
         Me.Button1.TabIndex = 40
-        Me.Button1.Text = "Filter Data"
+        Me.Button1.Text = "Generate"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(424, 11)
+        Me.ComboBox1.Items.AddRange(New Object() {"All"})
+        Me.ComboBox1.Location = New System.Drawing.Point(424, 12)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(180, 21)
         Me.ComboBox1.TabIndex = 41
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(12, 38)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(128, 17)
+        Me.CheckBox1.TabIndex = 42
+        Me.CheckBox1.Text = "Do not use Misc Filter"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'ReportViewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(826, 723)
+        Me.ClientSize = New System.Drawing.Size(840, 723)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DateTimePicker2)
@@ -87,6 +100,7 @@ Partial Class ReportViewer
         Me.Text = "Miscs Report Viewer"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -95,4 +109,5 @@ Partial Class ReportViewer
     Friend WithEvents DateTimePicker2 As DateTimePicker
     Friend WithEvents Button1 As Button
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

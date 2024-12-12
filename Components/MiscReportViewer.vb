@@ -8,7 +8,7 @@ Public Class ReportViewer
 
         Try
             With ReportViewer1.LocalReport
-                .ReportPath = $"{Application.StartupPath}\Reports\MiscsReport.rdlc"
+                .ReportPath = $"{Application.StartupPath}\Reports\MiscOverallReport.rdlc"
                 .DataSources.Clear()
             End With
 
@@ -17,28 +17,36 @@ Public Class ReportViewer
 
             cn.Open()
 
-            Dim query As String = "SELECT        mp.id, mp.studentId, s.name, ss.classSection, y.year, m.misc, m.amount AS misc_amount, mp.amount, mp.balance, mp.paymentDate, sy.schoolYear
-FROM            misc_payments mp INNER JOIN
-                         miscellaneous m ON mp.miscId = m.id INNER JOIN
-                         school_year sy ON mp.schoolYearId = sy.id INNER JOIN
-                         students s ON mp.studentId = s.id INNER JOIN
-                         sections ss ON s.classSectionId = ss.id INNER JOIN
-                         years y ON s.yearId = y.id
-WHERE        (sy.isActive = 1)  
-AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate AND m.misc LIKE @misc"
+            Dim query As String = "SELECT    s.name, 
+          ss.classSection, 
+          y.year, 
+          m.misc,
+          COUNT(mp.id) as payment_count,
+          SUM(m.amount) as total_misc_amount,
+          SUM(mp.amount) as total_paid_amount,
+          SUM(mp.balance) as total_balance
+FROM      misc_payments mp 
+INNER JOIN miscellaneous m ON mp.miscId = m.id 
+INNER JOIN school_year sy ON mp.schoolYearId = sy.id 
+INNER JOIN students s ON mp.studentId = s.id 
+INNER JOIN sections ss ON s.classSectionId = ss.id 
+INNER JOIN years y ON s.yearId = y.id
+WHERE     sy.isActive = 1
+AND      mp.paymentDate BETWEEN @startDate AND @endDate
+GROUP BY  s.name         
+ORDER BY  s.name"
 
             Dim cmd As New MySqlCommand(query, cn)
-            cmd.Parameters.AddWithValue("@misc", "%" & ComboBox1.Text & "%")
             cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@endDate", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
 
             da.SelectCommand = cmd
-            da.Fill(ds.Tables("MiscReport"))
+            da.Fill(ds.Tables("DataTable1"))
 
             cn.Close()
 
 
-            rptDS = New ReportDataSource("DataSet1", ds.Tables("MiscReport"))
+            rptDS = New ReportDataSource("DataSet1", ds.Tables("DataTable1"))
             ReportViewer1.LocalReport.DataSources.Add(rptDS)
             ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
             ReportViewer1.ZoomMode = ZoomMode.Percent
@@ -50,7 +58,11 @@ AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate AND m.misc LIKE @misc"
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        LoadReport()
+        If CheckBox1.Checked = True Then
+            LoadReport()
+        Else
+            LoadFilteredMiscReport()
+        End If
     End Sub
 
     Private Sub ReportViewer_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
@@ -99,6 +111,53 @@ AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate AND m.misc LIKE @misc"
             cn.Close()
         End Try
 
+    End Sub
+
+    Sub LoadFilteredMiscReport()
+        Dim rptDS As ReportDataSource
+        Me.ReportViewer1.RefreshReport()
+
+        Try
+            With ReportViewer1.LocalReport
+                .ReportPath = $"{Application.StartupPath}\Reports\MiscsReport.rdlc"
+                .DataSources.Clear()
+            End With
+
+            Dim ds As New DataSet2
+            Dim da As New MySqlDataAdapter
+
+            cn.Open()
+
+            Dim query As String = "SELECT        mp.id, mp.studentId, s.name, ss.classSection, y.year, m.misc, m.amount AS misc_amount, mp.amount, mp.balance, mp.paymentDate, sy.schoolYear
+FROM            misc_payments mp INNER JOIN
+                         miscellaneous m ON mp.miscId = m.id INNER JOIN
+                         school_year sy ON mp.schoolYearId = sy.id INNER JOIN
+                         students s ON mp.studentId = s.id INNER JOIN
+                         sections ss ON s.classSectionId = ss.id INNER JOIN
+                         years y ON s.yearId = y.id
+WHERE        (sy.isActive = 1)  
+AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate AND m.misc LIKE @misc"
+
+            Dim cmd As New MySqlCommand(query, cn)
+            cmd.Parameters.AddWithValue("@misc", "%" & ComboBox1.Text & "%")
+            cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
+            cmd.Parameters.AddWithValue("@endDate", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
+
+            da.SelectCommand = cmd
+            da.Fill(ds.Tables("MiscReport"))
+
+            cn.Close()
+
+
+            rptDS = New ReportDataSource("DataSet1", ds.Tables("MiscReport"))
+            ReportViewer1.LocalReport.DataSources.Add(rptDS)
+            ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+            ReportViewer1.ZoomMode = ZoomMode.Percent
+            ReportViewer1.ZoomPercent = 100
+        Catch ex As Exception
+            cn.Close()
+            MsgBox(ex.Message, vbCritical, "Error!")
+        End Try
     End Sub
 
 End Class
