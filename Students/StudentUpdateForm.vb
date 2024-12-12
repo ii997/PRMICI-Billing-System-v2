@@ -31,14 +31,15 @@ Public Class StudentUpdateForm
         End Try
     End Sub
 
-    Private Sub UpdateStudentInformation(ByVal name As String, bdate As Date, address As String)
+    Private Sub UpdateStudentInformation(ByVal name As String, bdate As Date, address As String, age As Integer)
         Try
             If MsgBox("Are you sure you want to update this student?", vbYesNo + vbQuestion) = vbYes Then
                 cn.Open()
-                Using cm As New MySqlCommand("UPDATE students SET name =@name, birthdate=@bdate, address=@address WHERE id = @id", cn)
+                Using cm As New MySqlCommand("UPDATE students SET name =@name, birthdate=@bdate, age=@age, address=@address WHERE id = @id", cn)
                     With cm
                         .Parameters.AddWithValue("@name", name)
                         .Parameters.AddWithValue("@bdate", bdate)
+                        .Parameters.AddWithValue("@age", age)
                         .Parameters.AddWithValue("@address", address)
                         .Parameters.AddWithValue("@id", CInt(txtId.Text))
                         .ExecuteNonQuery()
@@ -67,7 +68,7 @@ Public Class StudentUpdateForm
     End Sub
 
     Private Sub CuiButton2_Click(sender As Object, e As EventArgs) Handles CuiButton2.Click
-        UpdateStudentInformation(CuiTextBox22.Content.Trim(), CuiDateTimePicker1.Value.Date, CuiTextBox24.Content.Trim())
+        UpdateStudentInformation(CuiTextBox22.Content.Trim(), CuiDateTimePicker1.Value.Date, CuiTextBox24.Content.Trim(), CuiTextBox23.Content.Trim())
     End Sub
 
     Private Sub CuiDateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles CuiDateTimePicker1.ValueChanged
