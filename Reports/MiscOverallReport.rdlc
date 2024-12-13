@@ -727,7 +727,7 @@
                     <Value>=Fields!pDate.Value</Value>
                     <Style>
                       <FontFamily>Poppins SemiBold</FontFamily>
-                      <Format>MMMM yyyy</Format>
+                      <Format>MMMM</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
