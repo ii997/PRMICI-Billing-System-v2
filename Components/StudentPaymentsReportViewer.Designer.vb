@@ -73,7 +73,7 @@ Partial Class StudentPaymentsReportViewer
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Tuitions", "Miscellaneous", "Unpaid Miscellaneous"})
+        Me.ComboBox1.Items.AddRange(New Object() {"Tuitions", "Miscellaneous"})
         Me.ComboBox1.Location = New System.Drawing.Point(84, 10)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(175, 21)

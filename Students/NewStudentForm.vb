@@ -38,7 +38,7 @@ Public Class NewStudentForm
                    studid:=Guna2TextBox1.Text.Trim,
                name:=CuiTextBox22.Content.Trim,
                birthdate:=CuiDateTimePicker1.Value.Date.ToString("yyyy-MM-dd"),
-           age:=CuiTextBox23.Content.Trim,
+           age:=Guna2TextBox2.Text.Trim,
                address:=CuiTextBox24.Content.Trim,
                sectionId:=CuiComboBox1.SelectedItem.Split("-"c)(0),
                yearId:=CuiComboBox2.SelectedItem.Split("-"c)(0),
@@ -63,6 +63,6 @@ Public Class NewStudentForm
         Dim age As Integer = today.Year - birthDate.Year
 
         ' Display the age
-        CuiTextBox23.Content = age.ToString()
+        Guna2TextBox2.Text = age.ToString()
     End Sub
 End Class

@@ -179,7 +179,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox93</rd:DefaultName>
-            <Top>3.13889in</Top>
+            <Top>3.21874in</Top>
             <Left>0.20833in</Left>
             <Height>0.29167in</Height>
             <Width>7.63194in</Width>
@@ -710,7 +710,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.39931in</Top>
+            <Top>2.47916in</Top>
             <Left>0.20833in</Left>
             <Height>0.73958in</Height>
             <Width>7.48404in</Width>
@@ -751,8 +751,52 @@
             <Top>1.92708in</Top>
             <Left>0.20833in</Left>
             <Height>0.3125in</Height>
-            <Width>7.48404in</Width>
+            <Width>4.24446in</Width>
             <ZIndex>13</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox104">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>School Year: </Value>
+                    <Style>
+                      <FontFamily>Poppins SemiBold</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Medium</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!schoolYear.Value</Value>
+                    <Style>
+                      <FontFamily>Poppins SemiBold</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Medium</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox93</rd:DefaultName>
+            <Top>2.16666in</Top>
+            <Left>0.20833in</Left>
+            <Height>0.3125in</Height>
+            <Width>7.48404in</Width>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -792,11 +836,18 @@
       </ConnectionProperties>
       <rd:DataSourceID>bfc2ea9f-07bc-4fc8-aa96-9ff25fe45cbc</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="DataSet2">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>7dcee0ff-4060-4d0b-a480-020d1e8506f3</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>DataSet1</DataSourceName>
+        <DataSourceName>DataSet2</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -860,14 +911,18 @@
           <DataField>schoolYearId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="schoolYear">
+          <DataField>schoolYear</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Marshmellow\source\repos\PRMICI Billing System v2\DataSet1.xsd</rd:SchemaPath>
-        <rd:TableName>DataTable2</rd:TableName>
+        <rd:DataSetName>DataSet2</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Marshmellow\source\repos\PRMICI Billing System v2\DataSet2.xsd</rd:SchemaPath>
+        <rd:TableName>StudentTuitionsSummary</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>DataTable2TableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>StudentTuitionsSummaryTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

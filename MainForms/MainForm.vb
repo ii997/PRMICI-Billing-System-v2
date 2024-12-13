@@ -1,6 +1,11 @@
 ﻿Public Class MainForm
     Private Sub MainForm_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        Form1.Show()
+        If MsgBox("Are you sure you want to logout?", vbYesNo + vbQuestion) = vbYes Then
+            cn.Close()
+            MsgBox("Successfully logged out!", vbInformation, "Logged out!")
+            Me.Dispose()
+            Form1.Show()
+        End If
     End Sub
 
     Private Sub CuiButton1_Click(sender As Object, e As EventArgs) Handles CuiButton1.Click

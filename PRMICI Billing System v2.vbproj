@@ -416,9 +416,6 @@
     <EmbeddedResource Include="Payment\StudentPaymentInfo.resx">
       <DependentUpon>StudentPaymentInfo.vb</DependentUpon>
     </EmbeddedResource>
-    <Content Include="Reports\StudentSummary.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Reports\TuitionsReport.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -434,7 +431,7 @@
     <Content Include="Reports\TuitionStudentSummary.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Reports\UnpaidMisc.rdlc">
+    <Content Include="Reports\MiscStudentSummaryReport.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Students\NewStudentForm.resx">

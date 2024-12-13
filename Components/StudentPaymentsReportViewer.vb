@@ -12,8 +12,6 @@ Public Class StudentPaymentsReportViewer
         Else
             If ComboBox1.SelectedIndex = 0 Then
                 LoadTuitionsSummary()
-            ElseIf ComboBox1.SelectedIndex = 1 Then
-                LoadReport()
             Else
                 LoadUnpaidMisc()
             End If
@@ -71,7 +69,7 @@ WHERE  mp.studentId = @studentId AND mp.paymentDate BETWEEN @startDate AND @endD
 
         Try
             With ReportViewer1.LocalReport
-                .ReportPath = $"{Application.StartupPath}\Reports\UnpaidMisc.rdlc"
+                .ReportPath = $"{Application.StartupPath}\Reports\MiscStudentSummaryReport.rdlc"
                 .DataSources.Clear()
             End With
 
@@ -81,22 +79,35 @@ WHERE  mp.studentId = @studentId AND mp.paymentDate BETWEEN @startDate AND @endD
             cn.Open()
 
             Dim query As String = $"SELECT 
-    m.*,
-    COALESCE(SUM(mp.amount), 0) AS totalPayments,
-    (m.amount - COALESCE(SUM(mp.amount), 0)) AS balance
+    m.id,
+    s.name,
+    m.misc,                               -- Assuming m.misc is a valid column
+    m.amount,                             
+    COALESCE(SUM(COALESCE(mp.amount, 0)), 0) AS totalPayments,
+    (m.amount - COALESCE(SUM(COALESCE(mp.amount, 0)), 0)) AS balance,
+    GROUP_CONCAT(DISTINCT mp.paymentDate ORDER BY mp.paymentDate ASC) AS paymentDates,
+    GROUP_CONCAT(DISTINCT sy.schoolYear ORDER BY sy.schoolYear ASC) AS schoolYears
 FROM 
     miscellaneous m
 LEFT JOIN 
-    misc_payments mp ON mp.miscId = m.id AND mp.studentId = @studentId
+    misc_payments mp 
+    ON mp.miscId = m.id 
+    AND mp.studentId = @studentId
+    AND mp.paymentDate BETWEEN @startDate AND @endDate   -- Filter by date range
 LEFT JOIN 
-    school_year sy ON mp.schoolYearId = sy.id
+    school_year sy 
+    ON mp.schoolYearId = sy.id
+    LEFT JOIN students s ON mp.studentId = s.id
 WHERE 
     (sy.isActive = 1 OR sy.isActive IS NULL)
 GROUP BY 
-    m.id
+    m.id, m.misc, m.amount;
+
 "
             Dim cmd As New MySqlCommand(query, cn)
             cmd.Parameters.AddWithValue("@studentId", StudentsList.DataGridView1.CurrentRow.Cells(0).Value)
+            cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
+            cmd.Parameters.AddWithValue("@endDate", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
             da.SelectCommand = cmd
             da.Fill(ds.Tables("UnpaidMiscs"))
             cn.Close()
@@ -129,7 +140,7 @@ GROUP BY
 
             cn.Open()
 
-            Dim query As String = $"SELECT        s.id, s.studentID, s.name, s.birthdate, s.age, s.address, s.classSectionId, s.yearId, s.qrCode, t.id AS Expr1, t.studentId AS Expr2, t.amountPaid, t.balance, t.paymentDate, t.schoolYearId
+            Dim query As String = $"SELECT        s.id, s.studentID, s.name, s.birthdate, s.age, s.address, s.classSectionId, s.yearId, s.qrCode, t.id AS Expr1, t.studentId AS Expr2, t.amountPaid, t.balance, t.paymentDate, t.schoolYearId, sy.schoolYear
 FROM            tuition t INNER JOIN
                          years y ON t.schoolYearId = y.id INNER JOIN
                          students s ON t.studentId = s.id INNER JOIN

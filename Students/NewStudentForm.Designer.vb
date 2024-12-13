@@ -36,7 +36,6 @@ Partial Class NewStudentForm
         Me.CuiDateTimePicker1 = New CuoreUI.Controls.cuiDateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.CuiTextBox23 = New CuoreUI.Controls.cuiTextBox2()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.CuiTextBox24 = New CuoreUI.Controls.cuiTextBox2()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -45,6 +44,7 @@ Partial Class NewStudentForm
         Me.CuiComboBox2 = New CuoreUI.Controls.cuiComboBox()
         Me.CuiButton2 = New CuoreUI.Controls.cuiButton()
         Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -172,6 +172,7 @@ Partial Class NewStudentForm
         Me.CuiTextBox22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CuiTextBox22.ForeColor = System.Drawing.Color.White
         Me.CuiTextBox22.Location = New System.Drawing.Point(24, 148)
+        Me.CuiTextBox22.Margin = New System.Windows.Forms.Padding(4)
         Me.CuiTextBox22.Multiline = False
         Me.CuiTextBox22.Name = "CuiTextBox22"
         Me.CuiTextBox22.Padding = New System.Windows.Forms.Padding(15, 11, 15, 0)
@@ -243,36 +244,12 @@ Partial Class NewStudentForm
         Me.Label6.TabIndex = 9
         Me.Label6.Text = "Age"
         '
-        'CuiTextBox23
-        '
-        Me.CuiTextBox23.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.CuiTextBox23.BorderColor = System.Drawing.Color.White
-        Me.CuiTextBox23.BorderFocusColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CuiTextBox23.BorderSize = 1
-        Me.CuiTextBox23.Content = ""
-        Me.CuiTextBox23.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CuiTextBox23.Enabled = False
-        Me.CuiTextBox23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CuiTextBox23.ForeColor = System.Drawing.Color.White
-        Me.CuiTextBox23.Location = New System.Drawing.Point(24, 266)
-        Me.CuiTextBox23.Multiline = False
-        Me.CuiTextBox23.Name = "CuiTextBox23"
-        Me.CuiTextBox23.Padding = New System.Windows.Forms.Padding(15, 11, 15, 0)
-        Me.CuiTextBox23.PasswordChar = False
-        Me.CuiTextBox23.PlaceholderColor = System.Drawing.Color.DimGray
-        Me.CuiTextBox23.PlaceholderText = ""
-        Me.CuiTextBox23.Rounding = 8
-        Me.CuiTextBox23.Size = New System.Drawing.Size(354, 36)
-        Me.CuiTextBox23.TabIndex = 8
-        Me.CuiTextBox23.TextOffset = New System.Drawing.Size(0, 0)
-        Me.CuiTextBox23.UnderlinedStyle = False
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Poppins SemiBold", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(24, 305)
+        Me.Label7.Location = New System.Drawing.Point(24, 310)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(74, 26)
         Me.Label7.TabIndex = 11
@@ -288,7 +265,8 @@ Partial Class NewStudentForm
         Me.CuiTextBox24.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.CuiTextBox24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CuiTextBox24.ForeColor = System.Drawing.Color.White
-        Me.CuiTextBox24.Location = New System.Drawing.Point(24, 331)
+        Me.CuiTextBox24.Location = New System.Drawing.Point(24, 340)
+        Me.CuiTextBox24.Margin = New System.Windows.Forms.Padding(4)
         Me.CuiTextBox24.Multiline = False
         Me.CuiTextBox24.Name = "CuiTextBox24"
         Me.CuiTextBox24.Padding = New System.Windows.Forms.Padding(15, 11, 15, 0)
@@ -306,7 +284,7 @@ Partial Class NewStudentForm
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Poppins SemiBold", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(24, 370)
+        Me.Label9.Location = New System.Drawing.Point(24, 380)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(69, 26)
         Me.Label9.TabIndex = 15
@@ -317,7 +295,7 @@ Partial Class NewStudentForm
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Poppins SemiBold", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(210, 371)
+        Me.Label10.Location = New System.Drawing.Point(210, 381)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(47, 26)
         Me.Label10.TabIndex = 17
@@ -338,7 +316,8 @@ Partial Class NewStudentForm
         Me.CuiComboBox1.Font = New System.Drawing.Font("Poppins", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CuiComboBox1.ForeColor = System.Drawing.SystemColors.Control
         Me.CuiComboBox1.Items = New String(-1) {}
-        Me.CuiComboBox1.Location = New System.Drawing.Point(24, 396)
+        Me.CuiComboBox1.Location = New System.Drawing.Point(24, 406)
+        Me.CuiComboBox1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.CuiComboBox1.Name = "CuiComboBox1"
         Me.CuiComboBox1.OutlineColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.CuiComboBox1.OutlineThickness = 2.0!
@@ -361,7 +340,8 @@ Partial Class NewStudentForm
         Me.CuiComboBox2.Font = New System.Drawing.Font("Poppins", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CuiComboBox2.ForeColor = System.Drawing.SystemColors.Control
         Me.CuiComboBox2.Items = New String(-1) {}
-        Me.CuiComboBox2.Location = New System.Drawing.Point(209, 396)
+        Me.CuiComboBox2.Location = New System.Drawing.Point(209, 406)
+        Me.CuiComboBox2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.CuiComboBox2.Name = "CuiComboBox2"
         Me.CuiComboBox2.OutlineColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.CuiComboBox2.OutlineThickness = 2.0!
@@ -388,7 +368,7 @@ Partial Class NewStudentForm
         Me.CuiButton2.ImageExpand = New System.Drawing.Point(0, 0)
         Me.CuiButton2.ImageOffset = New System.Drawing.Point(0, 0)
         Me.CuiButton2.ImageTint = System.Drawing.Color.White
-        Me.CuiButton2.Location = New System.Drawing.Point(24, 437)
+        Me.CuiButton2.Location = New System.Drawing.Point(24, 447)
         Me.CuiButton2.Name = "CuiButton2"
         Me.CuiButton2.NormalBackground = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(13, Byte), Integer), CType(CType(78, Byte), Integer))
         Me.CuiButton2.NormalOutline = System.Drawing.Color.Empty
@@ -426,12 +406,39 @@ Partial Class NewStudentForm
         Me.Guna2TextBox1.Size = New System.Drawing.Size(354, 36)
         Me.Guna2TextBox1.TabIndex = 6
         '
+        'Guna2TextBox2
+        '
+        Me.Guna2TextBox2.BorderRadius = 8
+        Me.Guna2TextBox2.BorderThickness = 2
+        Me.Guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox2.DefaultText = ""
+        Me.Guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.White
+        Me.Guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.Guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.White
+        Me.Guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Guna2TextBox2.Enabled = False
+        Me.Guna2TextBox2.FillColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.Guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox2.Font = New System.Drawing.Font("Poppins", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TextBox2.ForeColor = System.Drawing.Color.White
+        Me.Guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox2.Location = New System.Drawing.Point(24, 270)
+        Me.Guna2TextBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Guna2TextBox2.MaxLength = 9
+        Me.Guna2TextBox2.Name = "Guna2TextBox2"
+        Me.Guna2TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox2.PlaceholderText = ""
+        Me.Guna2TextBox2.SelectedText = ""
+        Me.Guna2TextBox2.Size = New System.Drawing.Size(354, 36)
+        Me.Guna2TextBox2.TabIndex = 20
+        '
         'NewStudentForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(909, 508)
+        Me.Controls.Add(Me.Guna2TextBox2)
         Me.Controls.Add(Me.Guna2TextBox1)
         Me.Controls.Add(Me.CuiButton2)
         Me.Controls.Add(Me.CuiComboBox2)
@@ -441,7 +448,6 @@ Partial Class NewStudentForm
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.CuiTextBox24)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.CuiTextBox23)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.CuiDateTimePicker1)
         Me.Controls.Add(Me.Label4)
@@ -474,7 +480,6 @@ Partial Class NewStudentForm
     Friend WithEvents CuiDateTimePicker1 As CuoreUI.Controls.cuiDateTimePicker
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents CuiTextBox23 As CuoreUI.Controls.cuiTextBox2
     Friend WithEvents Label7 As Label
     Friend WithEvents CuiTextBox24 As CuoreUI.Controls.cuiTextBox2
     Friend WithEvents Label9 As Label
@@ -485,4 +490,5 @@ Partial Class NewStudentForm
     Friend WithEvents Label8 As Label
     Friend WithEvents CuiButton2 As CuoreUI.Controls.cuiButton
     Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
 End Class

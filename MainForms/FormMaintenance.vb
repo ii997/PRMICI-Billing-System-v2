@@ -110,14 +110,18 @@ Public Class FormMaintenance
     End Sub
 
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
-        Dim NewTuitionData As String = $"C:\Users\Kyra Erika\Downloads\PRMICI Billing System v2\PRMICI Billing System v2\TuitionData.txt"
-        If File.Exists(NewTuitionData) = True Then
-            Dim objWriter As New StreamWriter(NewTuitionData, False)
-            objWriter.WriteLine(tbtuitionfee.Text)
-            objWriter.Close()
+        If String.IsNullOrEmpty(tbtuitionfee.Text.Trim) Then
+            MsgBox("Tuition Fee data cannot be empty!", vbExclamation, "Empty Field!")
+        Else
+            Dim NewTuitionData As String = $"C:\Users\Marshmellow\source\repos\PRMICI Billing System v2\TuitionData.txt"
+            If File.Exists(NewTuitionData) = True Then
+                Dim objWriter As New StreamWriter(NewTuitionData, False)
+                objWriter.WriteLine(tbtuitionfee.Text)
+                objWriter.Close()
+            End If
+            MsgBox("Successfully updated tuition fee!", vbInformation, "Success!")
+            LoadTuition()
         End If
-        MsgBox("Successfully updated tuition fee!", vbInformation, "Success!")
-        LoadTuition()
     End Sub
 
     Private Sub FormMaintenance_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed

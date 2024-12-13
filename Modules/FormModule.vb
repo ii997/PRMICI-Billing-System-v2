@@ -10,7 +10,7 @@ Module FormModule
 
             Using dr As MySqlDataReader = cm.ExecuteReader()
                 If dr.Read() Then
-                    MessageBox.Show("Login successful", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Successfully logged-in!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     ClearField()
                     Form1.Hide()
                     Task.Delay(1000)

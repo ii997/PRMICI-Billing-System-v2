@@ -94,7 +94,7 @@ Public Class FormUpdateMiscellaneousFee
 
                 Dim rowsAffected As Integer = cm.ExecuteNonQuery()
                 If rowsAffected > 0 Then
-                    MsgBox("Data updated successfully for ID: " & id, vbInformation)
+                    MsgBox("Miscellaneous fee updated successfully", vbInformation, "Fee Updated!")
                 Else
                     MsgBox("No rows updated. Please check if the ID exists.", vbExclamation)
                 End If

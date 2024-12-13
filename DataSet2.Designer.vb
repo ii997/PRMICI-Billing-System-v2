@@ -4050,13 +4050,19 @@ Partial Public Class DataSet2
         
         Private columnid As Global.System.Data.DataColumn
         
-        Private columnmisc As Global.System.Data.DataColumn
-        
         Private columnamount As Global.System.Data.DataColumn
         
         Private columntotalPayments As Global.System.Data.DataColumn
         
         Private columnbalance As Global.System.Data.DataColumn
+        
+        Private columnpaymentDates As Global.System.Data.DataColumn
+        
+        Private columnschoolYears As Global.System.Data.DataColumn
+        
+        Private columnmisc As Global.System.Data.DataColumn
+        
+        Private columnname As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -4103,14 +4109,6 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property miscColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnmisc
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property amountColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnamount
@@ -4130,6 +4128,38 @@ Partial Public Class DataSet2
         Public ReadOnly Property balanceColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnbalance
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property paymentDatesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpaymentDates
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property schoolYearsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnschoolYears
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property miscColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmisc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnname
             End Get
         End Property
         
@@ -4170,9 +4200,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddUnpaidMiscsRow(ByVal misc As String, ByVal amount As Double, ByVal totalPayments As Double, ByVal balance As Double) As UnpaidMiscsRow
+        Public Overloads Function AddUnpaidMiscsRow(ByVal amount As Double, ByVal totalPayments As Double, ByVal balance As Double, ByVal paymentDates As String, ByVal schoolYears As String, ByVal misc As String, ByVal name As String) As UnpaidMiscsRow
             Dim rowUnpaidMiscsRow As UnpaidMiscsRow = CType(Me.NewRow,UnpaidMiscsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, misc, amount, totalPayments, balance}
+            Dim columnValuesArray() As Object = New Object() {Nothing, amount, totalPayments, balance, paymentDates, schoolYears, misc, name}
             rowUnpaidMiscsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUnpaidMiscsRow)
             Return rowUnpaidMiscsRow
@@ -4202,10 +4232,13 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnid = MyBase.Columns("id")
-            Me.columnmisc = MyBase.Columns("misc")
             Me.columnamount = MyBase.Columns("amount")
             Me.columntotalPayments = MyBase.Columns("totalPayments")
             Me.columnbalance = MyBase.Columns("balance")
+            Me.columnpaymentDates = MyBase.Columns("paymentDates")
+            Me.columnschoolYears = MyBase.Columns("schoolYears")
+            Me.columnmisc = MyBase.Columns("misc")
+            Me.columnname = MyBase.Columns("name")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4213,23 +4246,32 @@ Partial Public Class DataSet2
         Private Sub InitClass()
             Me.columnid = New Global.System.Data.DataColumn("id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnid)
-            Me.columnmisc = New Global.System.Data.DataColumn("misc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnmisc)
             Me.columnamount = New Global.System.Data.DataColumn("amount", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnamount)
             Me.columntotalPayments = New Global.System.Data.DataColumn("totalPayments", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntotalPayments)
             Me.columnbalance = New Global.System.Data.DataColumn("balance", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnbalance)
+            Me.columnpaymentDates = New Global.System.Data.DataColumn("paymentDates", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpaymentDates)
+            Me.columnschoolYears = New Global.System.Data.DataColumn("schoolYears", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnschoolYears)
+            Me.columnmisc = New Global.System.Data.DataColumn("misc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmisc)
+            Me.columnname = New Global.System.Data.DataColumn("name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnname)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
             Me.columnid.AutoIncrementStep = -1
             Me.columnid.AllowDBNull = false
             Me.columnid.Unique = true
+            Me.columnamount.AllowDBNull = false
+            Me.columnpaymentDates.MaxLength = 4194304
+            Me.columnschoolYears.MaxLength = 4194304
             Me.columnmisc.AllowDBNull = false
             Me.columnmisc.MaxLength = 20
-            Me.columnamount.AllowDBNull = false
+            Me.columnname.MaxLength = 65535
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4397,6 +4439,8 @@ Partial Public Class DataSet2
         
         Private columnschoolYearId As Global.System.Data.DataColumn
         
+        Private columnschoolYear As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -4553,6 +4597,14 @@ Partial Public Class DataSet2
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property schoolYearColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnschoolYear
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4589,9 +4641,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddStudentTuitionsSummaryRow(ByVal studentID As String, ByVal name As String, ByVal birthdate As Date, ByVal age As Integer, ByVal address As String, ByVal classSectionId As Integer, ByVal yearId As Integer, ByVal qrCode() As Byte, ByVal Expr2 As Integer, ByVal amountPaid As Double, ByVal balance As Double, ByVal paymentDate As Date, ByVal schoolYearId As Integer) As StudentTuitionsSummaryRow
+        Public Overloads Function AddStudentTuitionsSummaryRow(ByVal studentID As String, ByVal name As String, ByVal birthdate As Date, ByVal age As Integer, ByVal address As String, ByVal classSectionId As Integer, ByVal yearId As Integer, ByVal qrCode() As Byte, ByVal Expr2 As Integer, ByVal amountPaid As Double, ByVal balance As Double, ByVal paymentDate As Date, ByVal schoolYearId As Integer, ByVal schoolYear As String) As StudentTuitionsSummaryRow
             Dim rowStudentTuitionsSummaryRow As StudentTuitionsSummaryRow = CType(Me.NewRow,StudentTuitionsSummaryRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, studentID, name, birthdate, age, address, classSectionId, yearId, qrCode, Nothing, Expr2, amountPaid, balance, paymentDate, schoolYearId}
+            Dim columnValuesArray() As Object = New Object() {Nothing, studentID, name, birthdate, age, address, classSectionId, yearId, qrCode, Nothing, Expr2, amountPaid, balance, paymentDate, schoolYearId, schoolYear}
             rowStudentTuitionsSummaryRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowStudentTuitionsSummaryRow)
             Return rowStudentTuitionsSummaryRow
@@ -4635,6 +4687,7 @@ Partial Public Class DataSet2
             Me.columnbalance = MyBase.Columns("balance")
             Me.columnpaymentDate = MyBase.Columns("paymentDate")
             Me.columnschoolYearId = MyBase.Columns("schoolYearId")
+            Me.columnschoolYear = MyBase.Columns("schoolYear")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4670,6 +4723,8 @@ Partial Public Class DataSet2
             MyBase.Columns.Add(Me.columnpaymentDate)
             Me.columnschoolYearId = New Global.System.Data.DataColumn("schoolYearId", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnschoolYearId)
+            Me.columnschoolYear = New Global.System.Data.DataColumn("schoolYear", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnschoolYear)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid, Me.columnExpr1}, true))
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
@@ -4693,6 +4748,8 @@ Partial Public Class DataSet2
             Me.columnbalance.AllowDBNull = false
             Me.columnpaymentDate.AllowDBNull = false
             Me.columnschoolYearId.AllowDBNull = false
+            Me.columnschoolYear.AllowDBNull = false
+            Me.columnschoolYear.MaxLength = 10
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6490,17 +6547,6 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property misc() As String
-            Get
-                Return CType(Me(Me.tableUnpaidMiscs.miscColumn),String)
-            End Get
-            Set
-                Me(Me.tableUnpaidMiscs.miscColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property amount() As Double
             Get
                 Return CType(Me(Me.tableUnpaidMiscs.amountColumn),Double)
@@ -6542,6 +6588,62 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property paymentDates() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUnpaidMiscs.paymentDatesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'paymentDates' in table 'UnpaidMiscs' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUnpaidMiscs.paymentDatesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property schoolYears() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUnpaidMiscs.schoolYearsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'schoolYears' in table 'UnpaidMiscs' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUnpaidMiscs.schoolYearsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property misc() As String
+            Get
+                Return CType(Me(Me.tableUnpaidMiscs.miscColumn),String)
+            End Get
+            Set
+                Me(Me.tableUnpaidMiscs.miscColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUnpaidMiscs.nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'name' in table 'UnpaidMiscs' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUnpaidMiscs.nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IstotalPaymentsNull() As Boolean
             Return Me.IsNull(Me.tableUnpaidMiscs.totalPaymentsColumn)
         End Function
@@ -6562,6 +6664,42 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetbalanceNull()
             Me(Me.tableUnpaidMiscs.balanceColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IspaymentDatesNull() As Boolean
+            Return Me.IsNull(Me.tableUnpaidMiscs.paymentDatesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetpaymentDatesNull()
+            Me(Me.tableUnpaidMiscs.paymentDatesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsschoolYearsNull() As Boolean
+            Return Me.IsNull(Me.tableUnpaidMiscs.schoolYearsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetschoolYearsNull()
+            Me(Me.tableUnpaidMiscs.schoolYearsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsnameNull() As Boolean
+            Return Me.IsNull(Me.tableUnpaidMiscs.nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetnameNull()
+            Me(Me.tableUnpaidMiscs.nameColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -6750,6 +6888,17 @@ Partial Public Class DataSet2
             End Get
             Set
                 Me(Me.tableStudentTuitionsSummary.schoolYearIdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property schoolYear() As String
+            Get
+                Return CType(Me(Me.tableStudentTuitionsSummary.schoolYearColumn),String)
+            End Get
+            Set
+                Me(Me.tableStudentTuitionsSummary.schoolYearColumn) = value
             End Set
         End Property
         
@@ -11614,10 +11763,13 @@ Namespace DataSet2TableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "UnpaidMiscs"
             tableMapping.ColumnMappings.Add("id", "id")
-            tableMapping.ColumnMappings.Add("misc", "misc")
             tableMapping.ColumnMappings.Add("amount", "amount")
             tableMapping.ColumnMappings.Add("totalPayments", "totalPayments")
             tableMapping.ColumnMappings.Add("balance", "balance")
+            tableMapping.ColumnMappings.Add("paymentDates", "paymentDates")
+            tableMapping.ColumnMappings.Add("schoolYears", "schoolYears")
+            tableMapping.ColumnMappings.Add("misc", "misc")
+            tableMapping.ColumnMappings.Add("name", "name")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -11634,28 +11786,24 @@ Namespace DataSet2TableAdapters
             Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(0) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    m.*,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    COALESCE(SUM(mp.amount), 0) AS totalPayments,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    (m.amou"& _ 
-                "nt - COALESCE(SUM(mp.amount), 0)) AS balance"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    miscellaneous m"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"LEFT J"& _ 
-                "OIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    misc_payments mp ON mp.miscId = m.id AND mp.studentId = @studentId"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"LE"& _ 
-                "FT JOIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    school_year sy ON mp.schoolYearId = sy.id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    (sy.isActiv"& _ 
-                "e = 1 OR sy.isActive IS NULL)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    m.id"
+            Me._commandCollection(0).CommandText = "SELECT "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    m.id,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    s.name,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"m.misc,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      m.amount,       -- Replace with"& _ 
+                " actual column names from your miscellaneous table"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    COALESCE(SUM(COALESCE(mp"& _ 
+                ".amount, 0)), 0) AS totalPayments,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    (m.amount - COALESCE(SUM(COALESCE(mp.amo"& _ 
+                "unt, 0)), 0)) AS balance,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    GROUP_CONCAT(mp.paymentDate) AS paymentDates,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "  GROUP_CONCAT(sy.schoolYear) AS schoolYears"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    miscellaneous m"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"LEFT J"& _ 
+                "OIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    misc_payments mp ON mp.miscId = m.id  AND mp.studentId = 37 "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"LEFT JOI"& _ 
+                "N "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    school_year sy ON mp.schoolYearId = sy.id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    LEFT JOIN students s ON m"& _ 
+                "p.studentId = s.id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    (sy.isActive = 1 OR sy.isActive IS NULL)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP "& _ 
+                "BY "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    m.id, mp.studentId"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@studentId"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "studentId"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._commandCollection(0).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.UnpaidMiscsDataTable, ByVal studentId As Integer) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.UnpaidMiscsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(studentId,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -11667,9 +11815,8 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal studentId As Integer) As DataSet2.UnpaidMiscsDataTable
+        Public Overloads Overridable Function GetData() As DataSet2.UnpaidMiscsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(studentId,Integer)
             Dim dataTable As DataSet2.UnpaidMiscsDataTable = New DataSet2.UnpaidMiscsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -11818,6 +11965,7 @@ Namespace DataSet2TableAdapters
             tableMapping.ColumnMappings.Add("balance", "balance")
             tableMapping.ColumnMappings.Add("paymentDate", "paymentDate")
             tableMapping.ColumnMappings.Add("schoolYearId", "schoolYearId")
+            tableMapping.ColumnMappings.Add("schoolYear", "schoolYear")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -11836,12 +11984,12 @@ Namespace DataSet2TableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        s.id, s.studentID, s.name, s.birthdate, s.age, s.address, s.classSe"& _ 
                 "ctionId, s.yearId, s.qrCode, t.id AS Expr1, t.studentId AS Expr2, t.amountPaid, "& _ 
-                "t.balance, t.paymentDate, t.schoolYearId"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tuition t INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                         years y ON t.schoolYearId = y.id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
-                "               students s ON t.studentId = s.id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
-                "     sections sc ON s.classSectionId = sc.id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
-                "  school_year sy ON t.schoolYearId = sy.id WHERE t.studentId = @studentId AND t."& _ 
-                "paymentDate BETWEEN @startDate AND @endDate AND sy.isActive = 1"
+                "t.balance, t.paymentDate, t.schoolYearId, sy.schoolYear"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tuition"& _ 
+                " t INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         years y ON t.schoolYearId = y.id INNER J"& _ 
+                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         students s ON t.studentId = s.id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                    sections sc ON s.classSectionId = sc.id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 school_year sy ON t.schoolYearId = sy.id WHERE t.studentId = @s"& _ 
+                "tudentId AND t.paymentDate BETWEEN @startDate AND @endDate AND sy.isActive = 1"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@studentId"
