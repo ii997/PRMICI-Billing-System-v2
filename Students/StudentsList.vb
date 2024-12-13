@@ -18,7 +18,7 @@ Public Class StudentsList
     End Sub
 
     Private Sub EditStudentInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditStudentInformationToolStripMenuItem.Click
-        StudentUpdateForm.CuiTextBox21.Enabled = False
+        StudentUpdateForm.Guna2TextBox1.Enabled = False
         StudentUpdateForm.RetrieveStudentdata(DataGridView1.CurrentRow.Cells(0).Value.ToString())
         StudentUpdateForm.ShowDialog()
     End Sub
