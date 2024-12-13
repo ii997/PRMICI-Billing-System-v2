@@ -19,7 +19,7 @@ Module globalVariables
 
     Sub LoadTuition()
         Dim line As String
-        Dim FilePath As String = $"C:\Users\Kyra Erika\source\repos\PRMICI-Billing-System-v2\TuitionData.txt"
+        Dim FilePath As String = $"C:\Users\Marshmellow\source\repos\PRMICI Billing System v2\TuitionData.txt"
         ' Create new StreamReader instance with Using block.
         Using reader As New StreamReader(FilePath)
             ' Read one line from file

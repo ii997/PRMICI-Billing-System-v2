@@ -113,7 +113,7 @@ Public Class FormMaintenance
         If String.IsNullOrEmpty(tbtuitionfee.Text.Trim) Then
             MsgBox("Tuition Fee data cannot be empty!", vbExclamation, "Empty Field!")
         Else
-            Dim NewTuitionData As String = $"C:\Users\Kyra Erika\source\repos\PRMICI-Billing-System-v2\TuitionData.txt"
+            Dim NewTuitionData As String = $"C:\Users\Marshmellow\source\repos\PRMICI Billing System v2\TuitionData.txt"
             If File.Exists(NewTuitionData) = True Then
                 Dim objWriter As New StreamWriter(NewTuitionData, False)
                 objWriter.WriteLine(tbtuitionfee.Text)
