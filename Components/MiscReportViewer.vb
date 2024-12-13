@@ -37,8 +37,7 @@ WHERE     sy.isActive = 1
 AND      mp.paymentDate BETWEEN @startDate AND @endDate
 GROUP BY  s.name, 
           ss.classSection, 
-          y.year, 
-          m.misc
+          y.year
 ORDER BY  s.name, m.misc"
 
             Dim cmd As New MySqlCommand(query, cn)

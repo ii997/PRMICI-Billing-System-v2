@@ -26,17 +26,17 @@ Partial Class StudentUpdateForm
         Me.Label7 = New System.Windows.Forms.Label()
         Me.CuiTextBox24 = New CuoreUI.Controls.cuiTextBox2()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.CuiTextBox23 = New CuoreUI.Controls.cuiTextBox2()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.CuiDateTimePicker1 = New CuoreUI.Controls.cuiDateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.CuiTextBox22 = New CuoreUI.Controls.cuiTextBox2()
-        Me.CuiTextBox21 = New CuoreUI.Controls.cuiTextBox2()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtId = New System.Windows.Forms.Label()
+        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -118,31 +118,6 @@ Partial Class StudentUpdateForm
         Me.Label6.TabIndex = 30
         Me.Label6.Text = "Age"
         '
-        'CuiTextBox23
-        '
-        Me.CuiTextBox23.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.CuiTextBox23.BorderColor = System.Drawing.Color.White
-        Me.CuiTextBox23.BorderFocusColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CuiTextBox23.BorderSize = 1
-        Me.CuiTextBox23.Content = ""
-        Me.CuiTextBox23.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CuiTextBox23.Enabled = False
-        Me.CuiTextBox23.Font = New System.Drawing.Font("Poppins", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CuiTextBox23.ForeColor = System.Drawing.Color.White
-        Me.CuiTextBox23.Location = New System.Drawing.Point(36, 278)
-        Me.CuiTextBox23.Margin = New System.Windows.Forms.Padding(4)
-        Me.CuiTextBox23.Multiline = False
-        Me.CuiTextBox23.Name = "CuiTextBox23"
-        Me.CuiTextBox23.Padding = New System.Windows.Forms.Padding(18, 8, 18, 0)
-        Me.CuiTextBox23.PasswordChar = False
-        Me.CuiTextBox23.PlaceholderColor = System.Drawing.Color.DimGray
-        Me.CuiTextBox23.PlaceholderText = ""
-        Me.CuiTextBox23.Rounding = 8
-        Me.CuiTextBox23.Size = New System.Drawing.Size(354, 35)
-        Me.CuiTextBox23.TabIndex = 29
-        Me.CuiTextBox23.TextOffset = New System.Drawing.Size(0, 0)
-        Me.CuiTextBox23.UnderlinedStyle = False
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -204,31 +179,6 @@ Partial Class StudentUpdateForm
         Me.CuiTextBox22.TextOffset = New System.Drawing.Size(0, 0)
         Me.CuiTextBox22.UnderlinedStyle = False
         '
-        'CuiTextBox21
-        '
-        Me.CuiTextBox21.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.CuiTextBox21.BorderColor = System.Drawing.Color.White
-        Me.CuiTextBox21.BorderFocusColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CuiTextBox21.BorderSize = 1
-        Me.CuiTextBox21.Content = ""
-        Me.CuiTextBox21.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CuiTextBox21.Enabled = False
-        Me.CuiTextBox21.Font = New System.Drawing.Font("Poppins", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CuiTextBox21.ForeColor = System.Drawing.Color.White
-        Me.CuiTextBox21.Location = New System.Drawing.Point(36, 91)
-        Me.CuiTextBox21.Margin = New System.Windows.Forms.Padding(4)
-        Me.CuiTextBox21.Multiline = False
-        Me.CuiTextBox21.Name = "CuiTextBox21"
-        Me.CuiTextBox21.Padding = New System.Windows.Forms.Padding(18, 8, 18, 0)
-        Me.CuiTextBox21.PasswordChar = False
-        Me.CuiTextBox21.PlaceholderColor = System.Drawing.Color.DimGray
-        Me.CuiTextBox21.PlaceholderText = ""
-        Me.CuiTextBox21.Rounding = 8
-        Me.CuiTextBox21.Size = New System.Drawing.Size(354, 35)
-        Me.CuiTextBox21.TabIndex = 22
-        Me.CuiTextBox21.TextOffset = New System.Drawing.Size(0, 0)
-        Me.CuiTextBox21.UnderlinedStyle = False
-        '
         'Label8
         '
         Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -287,23 +237,69 @@ Partial Class StudentUpdateForm
         Me.txtId.TabIndex = 33
         Me.txtId.Text = "Student ID"
         '
+        'Guna2TextBox1
+        '
+        Me.Guna2TextBox1.BorderRadius = 8
+        Me.Guna2TextBox1.BorderThickness = 2
+        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox1.DefaultText = ""
+        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.White
+        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.White
+        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox1.Enabled = False
+        Me.Guna2TextBox1.FillColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox1.Location = New System.Drawing.Point(36, 90)
+        Me.Guna2TextBox1.Name = "Guna2TextBox1"
+        Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox1.PlaceholderText = ""
+        Me.Guna2TextBox1.SelectedText = ""
+        Me.Guna2TextBox1.Size = New System.Drawing.Size(354, 35)
+        Me.Guna2TextBox1.TabIndex = 34
+        '
+        'Guna2TextBox2
+        '
+        Me.Guna2TextBox2.BorderRadius = 8
+        Me.Guna2TextBox2.BorderThickness = 2
+        Me.Guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox2.DefaultText = ""
+        Me.Guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.White
+        Me.Guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.Guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.White
+        Me.Guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox2.Enabled = False
+        Me.Guna2TextBox2.FillColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.Guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox2.Location = New System.Drawing.Point(36, 279)
+        Me.Guna2TextBox2.Name = "Guna2TextBox2"
+        Me.Guna2TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox2.PlaceholderText = ""
+        Me.Guna2TextBox2.SelectedText = ""
+        Me.Guna2TextBox2.Size = New System.Drawing.Size(354, 35)
+        Me.Guna2TextBox2.TabIndex = 35
+        '
         'StudentUpdateForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(426, 460)
+        Me.Controls.Add(Me.Guna2TextBox2)
+        Me.Controls.Add(Me.Guna2TextBox1)
         Me.Controls.Add(Me.CuiButton2)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txtId)
         Me.Controls.Add(Me.CuiTextBox24)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.CuiTextBox23)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.CuiDateTimePicker1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.CuiTextBox22)
-        Me.Controls.Add(Me.CuiTextBox21)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -321,15 +317,15 @@ Partial Class StudentUpdateForm
     Friend WithEvents Label7 As Label
     Friend WithEvents CuiTextBox24 As CuoreUI.Controls.cuiTextBox2
     Friend WithEvents Label6 As Label
-    Friend WithEvents CuiTextBox23 As CuoreUI.Controls.cuiTextBox2
     Friend WithEvents Label5 As Label
     Friend WithEvents CuiDateTimePicker1 As CuoreUI.Controls.cuiDateTimePicker
     Friend WithEvents Label4 As Label
     Friend WithEvents CuiTextBox22 As CuoreUI.Controls.cuiTextBox2
-    Friend WithEvents CuiTextBox21 As CuoreUI.Controls.cuiTextBox2
     Friend WithEvents Label8 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txtId As Label
+    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
 End Class
