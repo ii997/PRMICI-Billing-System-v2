@@ -975,7 +975,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>S.Y : </Value>
+                    <Value>Month : </Value>
                     <Style>
                       <FontFamily>Poppins SemiBold</FontFamily>
                       <FontWeight>Medium</FontWeight>
@@ -986,7 +986,7 @@
                     <Style>
                       <FontFamily>Poppins SemiBold</FontFamily>
                       <FontWeight>Medium</FontWeight>
-                      <Format>MMMM yyyy</Format>
+                      <Format>MMMM</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
