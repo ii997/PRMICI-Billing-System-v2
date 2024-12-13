@@ -5313,6 +5313,8 @@ Partial Public Class DataSet2
         
         Private columnpDate As Global.System.Data.DataColumn
         
+        Private columnsYear As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -5421,6 +5423,14 @@ Partial Public Class DataSet2
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property sYearColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsYear
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5457,9 +5467,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDataTable1Row(ByVal name As String, ByVal classSection As String, ByVal year As String, ByVal misc As String, ByVal payment_count As Long, ByVal total_misc_amount As Double, ByVal total_paid_amount As Double, ByVal total_balance As Double, ByVal pDate As Date) As DataTable1Row
+        Public Overloads Function AddDataTable1Row(ByVal name As String, ByVal classSection As String, ByVal year As String, ByVal misc As String, ByVal payment_count As Long, ByVal total_misc_amount As Double, ByVal total_paid_amount As Double, ByVal total_balance As Double, ByVal pDate As Date, ByVal sYear As String) As DataTable1Row
             Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
-            Dim columnValuesArray() As Object = New Object() {name, classSection, year, misc, payment_count, total_misc_amount, total_paid_amount, total_balance, pDate}
+            Dim columnValuesArray() As Object = New Object() {name, classSection, year, misc, payment_count, total_misc_amount, total_paid_amount, total_balance, pDate, sYear}
             rowDataTable1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTable1Row)
             Return rowDataTable1Row
@@ -5491,6 +5501,7 @@ Partial Public Class DataSet2
             Me.columntotal_paid_amount = MyBase.Columns("total_paid_amount")
             Me.columntotal_balance = MyBase.Columns("total_balance")
             Me.columnpDate = MyBase.Columns("pDate")
+            Me.columnsYear = MyBase.Columns("sYear")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5514,6 +5525,8 @@ Partial Public Class DataSet2
             MyBase.Columns.Add(Me.columntotal_balance)
             Me.columnpDate = New Global.System.Data.DataColumn("pDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnpDate)
+            Me.columnsYear = New Global.System.Data.DataColumn("sYear", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsYear)
             Me.columnname.AllowDBNull = false
             Me.columnname.MaxLength = 65535
             Me.columnclassSection.AllowDBNull = false
@@ -5523,6 +5536,8 @@ Partial Public Class DataSet2
             Me.columnmisc.AllowDBNull = false
             Me.columnmisc.MaxLength = 20
             Me.columnpayment_count.AllowDBNull = false
+            Me.columnsYear.AllowDBNull = false
+            Me.columnsYear.MaxLength = 10
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7207,6 +7222,17 @@ Partial Public Class DataSet2
             End Get
             Set
                 Me(Me.tableDataTable1.pDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property sYear() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.sYearColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.sYearColumn) = value
             End Set
         End Property
         
@@ -12415,6 +12441,7 @@ Namespace DataSet2TableAdapters
             tableMapping.ColumnMappings.Add("total_paid_amount", "total_paid_amount")
             tableMapping.ColumnMappings.Add("total_balance", "total_balance")
             tableMapping.ColumnMappings.Add("pDate", "pDate")
+            tableMapping.ColumnMappings.Add("sYear", "sYear")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -12434,13 +12461,14 @@ Namespace DataSet2TableAdapters
             Me._commandCollection(0).CommandText = "SELECT    s.name, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          ss.classSection, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          y.year, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          m."& _ 
                 "misc,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          COUNT(mp.id) as payment_count,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          SUM(m.amount) as tota"& _ 
                 "l_misc_amount,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          SUM(mp.amount) as total_paid_amount,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          SUM(mp"& _ 
-                ".balance) as total_balance,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         mp.paymentDate as pDate"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM      misc_pa"& _ 
-                "yments mp "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN miscellaneous m ON mp.miscId = m.id "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN school_y"& _ 
-                "ear sy ON mp.schoolYearId = sy.id "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN students s ON mp.studentId = s.id"& _ 
-                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN sections ss ON s.classSectionId = ss.id "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN years y ON s."& _ 
-                "yearId = y.id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     sy.isActive = 1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND      mp.paymentDate BETWEEN @start"& _ 
-                "Date AND @endDate"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY  s.name, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          ss.classSection, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          y."& _ 
-                "year, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          m.misc"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY  s.name, m.misc"
+                ".balance) as total_balance,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         mp.paymentDate as pDate,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         sy.scho"& _ 
+                "olYear as sYear"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM      misc_payments mp "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN miscellaneous m ON mp.m"& _ 
+                "iscId = m.id "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN school_year sy ON mp.schoolYearId = sy.id "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN"& _ 
+                " students s ON mp.studentId = s.id "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN sections ss ON s.classSectionId "& _ 
+                "= ss.id "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN years y ON s.yearId = y.id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     sy.isActive = 1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND "& _ 
+                "     mp.paymentDate BETWEEN @startDate AND @endDate"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY  s.name, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "   ss.classSection, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          y.year, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          m.misc"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY  s.name, m."& _ 
+                "misc"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@startDate"

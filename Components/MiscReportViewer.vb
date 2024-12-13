@@ -25,7 +25,8 @@ Public Class ReportViewer
           SUM(m.amount) as total_misc_amount,
           SUM(mp.amount) as total_paid_amount,
           SUM(mp.balance) as total_balance,
-         mp.paymentDate as pDate
+         mp.paymentDate as pDate,
+         sy.schoolYear as sYear
 FROM      misc_payments mp 
 INNER JOIN miscellaneous m ON mp.miscId = m.id 
 INNER JOIN school_year sy ON mp.schoolYearId = sy.id 
@@ -34,9 +35,11 @@ INNER JOIN sections ss ON s.classSectionId = ss.id
 INNER JOIN years y ON s.yearId = y.id
 WHERE     sy.isActive = 1
 AND      mp.paymentDate BETWEEN @startDate AND @endDate
-GROUP BY  s.name
-        
-ORDER BY  s.name"
+GROUP BY  s.name, 
+          ss.classSection, 
+          y.year, 
+          m.misc
+ORDER BY  s.name, m.misc"
 
             Dim cmd As New MySqlCommand(query, cn)
             cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))

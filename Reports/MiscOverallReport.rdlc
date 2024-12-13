@@ -740,8 +740,50 @@
             <Top>1.91806in</Top>
             <Left>0.25632in</Left>
             <Height>0.3125in</Height>
-            <Width>7.48819in</Width>
+            <Width>3.14444in</Width>
             <ZIndex>13</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox102">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>School Year: </Value>
+                    <Style>
+                      <FontFamily>Poppins SemiBold</FontFamily>
+                      <FontWeight>Medium</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!sYear.Value</Value>
+                    <Style>
+                      <FontFamily>Poppins SemiBold</FontFamily>
+                      <FontWeight>Medium</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox93</rd:DefaultName>
+            <Top>1.91806in</Top>
+            <Left>4.0084in</Left>
+            <Height>0.3125in</Height>
+            <Width>3.73611in</Width>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -824,6 +866,10 @@
         <Field Name="pDate">
           <DataField>pDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="sYear">
+          <DataField>sYear</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

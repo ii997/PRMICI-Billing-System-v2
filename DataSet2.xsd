@@ -648,7 +648,8 @@ WHERE  mp.studentId = @studentId AND mp.paymentDate  BETWEEN @startDate AND @end
           SUM(m.amount) as total_misc_amount,
           SUM(mp.amount) as total_paid_amount,
           SUM(mp.balance) as total_balance,
-         mp.paymentDate as pDate
+         mp.paymentDate as pDate,
+         sy.schoolYear as sYear
 FROM      misc_payments mp 
 INNER JOIN miscellaneous m ON mp.miscId = m.id 
 INNER JOIN school_year sy ON mp.schoolYearId = sy.id 
@@ -680,6 +681,7 @@ ORDER BY  s.name, m.misc</CommandText>
               <Mapping SourceColumn="total_paid_amount" DataSetColumn="total_paid_amount" />
               <Mapping SourceColumn="total_balance" DataSetColumn="total_balance" />
               <Mapping SourceColumn="pDate" DataSetColumn="pDate" />
+              <Mapping SourceColumn="sYear" DataSetColumn="sYear" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1077,6 +1079,13 @@ ORDER BY  s.name, m.misc</CommandText>
               <xs:element name="total_paid_amount" msprop:Generator_ColumnVarNameInTable="columntotal_paid_amount" msprop:Generator_ColumnPropNameInRow="total_paid_amount" msprop:Generator_ColumnPropNameInTable="total_paid_amountColumn" msprop:Generator_UserColumnName="total_paid_amount" type="xs:double" minOccurs="0" />
               <xs:element name="total_balance" msprop:Generator_ColumnVarNameInTable="columntotal_balance" msprop:Generator_ColumnPropNameInRow="total_balance" msprop:Generator_ColumnPropNameInTable="total_balanceColumn" msprop:Generator_UserColumnName="total_balance" type="xs:double" minOccurs="0" />
               <xs:element name="pDate" msprop:Generator_ColumnVarNameInTable="columnpDate" msprop:Generator_ColumnPropNameInRow="pDate" msprop:Generator_ColumnPropNameInTable="pDateColumn" msprop:Generator_UserColumnName="pDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="sYear" msprop:Generator_ColumnVarNameInTable="columnsYear" msprop:Generator_ColumnPropNameInRow="sYear" msprop:Generator_ColumnPropNameInTable="sYearColumn" msprop:Generator_UserColumnName="sYear">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
