@@ -12,8 +12,42 @@ Public Class NewMiscPayment
     End Sub
 
     Private Sub CuiButton1_Click(sender As Object, e As EventArgs) Handles CuiButton1.Click
+        If String.IsNullOrWhiteSpace(tbamount.Text) Then
+            MsgBox("Please input an amount!", vbExclamation, "Empty Amount!")
+            Return
+        End If
 
-        CreateNewPayment(miscId:=miscId, studentId:=CInt(StudentPaymentInfo.txtId.Text), amount:=CInt(tbamount.Text), paymentDate:=Date.Now.ToString("yyyy-MM-dd"))
+        If Not IsNumeric(tbamount.Text) Then
+            MsgBox("Please input a valid numeric amount!", vbExclamation, "Invalid Amount!")
+            Return
+        End If
+
+        Dim inputAmount As Integer = CInt(tbamount.Text)
+        Dim requiredAmount As Integer = CInt(TextBox1.Text)
+
+        If inputAmount > requiredAmount Then
+            MsgBox("The amount exceeds the required payment. Please input the exact amount.", vbExclamation, "Error!")
+            Return
+        End If
+
+        If requiredAmount = 0 Then
+            MsgBox("Miscellaneous fee is already paid", vbInformation, "Paid")
+            Return
+        End If
+
+        If MsgBox("Are you sure you want to process this payment?", vbYesNo + vbQuestion) = vbYes Then
+            ' Proceed with payment creation
+            CreateNewPayment(
+                miscId:=miscId,
+                studentId:=CInt(StudentPaymentInfo.txtId.Text),
+                amount:=inputAmount,
+                paymentDate:=Date.Now.ToString("yyyy-MM-dd")
+            )
+        Else
+            Return
+        End If
+
+
     End Sub
 
     Private Sub NewMiscPayment_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed

@@ -62,12 +62,24 @@ ORDER BY  s.name, m.misc"
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If CheckBox1.Checked = True Then
+        If CheckBox1.Checked Then
+            Dim startMonth As Integer = DateTimePicker1.Value.Month
+            Dim endMonth As Integer = DateTimePicker2.Value.Month
+
+            ' Validate that the selected dates are within the same month
+            If startMonth <> endMonth Then
+                MsgBox("Invalid date range. Both dates must fall within the same month.", vbExclamation, "Range Error!")
+                Return
+            End If
+
+            ' Proceed to load the report
             LoadReport()
         Else
+            ' Load a filtered miscellaneous report
             LoadFilteredMiscReport()
         End If
     End Sub
+
 
     Private Sub ReportViewer_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Dispose()
