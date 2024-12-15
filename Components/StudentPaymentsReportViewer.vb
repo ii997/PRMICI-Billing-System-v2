@@ -81,25 +81,27 @@ WHERE  mp.studentId = @studentId AND mp.paymentDate BETWEEN @startDate AND @endD
             Dim query As String = $"SELECT 
     m.id,
     s.name,
-    m.misc,                               -- Assuming m.misc is a valid column
-    m.amount,                             
+    sy.schoolYear,
+    m.misc,
+    m.amount,
     COALESCE(SUM(COALESCE(mp.amount, 0)), 0) AS totalPayments,
     (m.amount - COALESCE(SUM(COALESCE(mp.amount, 0)), 0)) AS balance,
-    GROUP_CONCAT(DISTINCT mp.paymentDate ORDER BY mp.paymentDate ASC) AS paymentDates,
-    GROUP_CONCAT(DISTINCT sy.schoolYear ORDER BY sy.schoolYear ASC) AS schoolYears
+    GROUP_CONCAT(mp.paymentDate) AS paymentDates,
+    GROUP_CONCAT(msy.schoolYear) AS paymentSchoolYears
 FROM 
     miscellaneous m
+CROSS JOIN 
+    (SELECT id, name FROM students WHERE id = @studentId) s
+CROSS JOIN 
+    (SELECT id, schoolYear FROM school_year WHERE isActive = 1) sy
 LEFT JOIN 
     misc_payments mp 
     ON mp.miscId = m.id 
-    AND mp.studentId = @studentId
-    AND mp.paymentDate BETWEEN @startDate AND @endDate   -- Filter by date range
+    AND mp.studentId = s.id
+    AND mp.paymentDate BETWEEN @startDate AND @endDate
 LEFT JOIN 
-    school_year sy 
-    ON mp.schoolYearId = sy.id
-    LEFT JOIN students s ON mp.studentId = s.id
-WHERE 
-    (sy.isActive = 1 OR sy.isActive IS NULL)
+    school_year msy 
+    ON mp.schoolYearId = msy.id
 GROUP BY 
     m.id, m.misc, m.amount;
 

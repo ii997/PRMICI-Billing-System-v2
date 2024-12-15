@@ -44,16 +44,20 @@
           <DataField>paymentDates</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="schoolYears">
-          <DataField>schoolYears</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="misc">
           <DataField>misc</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="name">
           <DataField>name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="schoolYear">
+          <DataField>schoolYear</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="paymentSchoolYears">
+          <DataField>paymentSchoolYears</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -581,7 +585,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=IIF(IsNothing(Fields!schoolYears.Value) OR CInt(Fields!totalPayments.Value) = 0, 
+                                      <Value>=IIF(IsNothing(Fields!schoolYear.Value) OR CInt(Fields!totalPayments.Value) = 0, 
     "--", 
     Join(
         Split(Fields!paymentDates.Value, ","),
@@ -955,7 +959,6 @@
                                       <PaddingBottom>2pt</PaddingBottom>
                                     </Style>
                                   </Textbox>
-                                  <rd:Selected>true</rd:Selected>
                                 </CellContents>
                               </TablixHeader>
                               <TablixMembers>
@@ -1070,7 +1073,7 @@
                 <Top>1.87987in</Top>
                 <Left>0.25626in</Left>
                 <Height>0.75in</Height>
-                <Width>7.4948in</Width>
+                <Width>7.49479in</Width>
                 <ZIndex>10</ZIndex>
                 <Style>
                   <Border>
@@ -1093,7 +1096,7 @@
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=Fields!schoolYears.Value</Value>
+                        <Value>=Fields!schoolYear.Value</Value>
                         <Style>
                           <FontFamily>poppins</FontFamily>
                           <FontWeight>Bold</FontWeight>
