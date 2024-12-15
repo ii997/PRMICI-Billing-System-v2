@@ -46,9 +46,10 @@ Partial Class NewTuitionPayment
         Me.txtTuitionFee.AutoSize = True
         Me.txtTuitionFee.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.txtTuitionFee.ForeColor = System.Drawing.Color.White
-        Me.txtTuitionFee.Location = New System.Drawing.Point(196, 52)
+        Me.txtTuitionFee.Location = New System.Drawing.Point(261, 64)
+        Me.txtTuitionFee.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.txtTuitionFee.Name = "txtTuitionFee"
-        Me.txtTuitionFee.Size = New System.Drawing.Size(18, 23)
+        Me.txtTuitionFee.Size = New System.Drawing.Size(22, 28)
         Me.txtTuitionFee.TabIndex = 0
         Me.txtTuitionFee.Text = "0"
         '
@@ -62,16 +63,16 @@ Partial Class NewTuitionPayment
         Me.CuiTextBox21.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.CuiTextBox21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CuiTextBox21.ForeColor = System.Drawing.Color.Gray
-        Me.CuiTextBox21.Location = New System.Drawing.Point(41, 205)
-        Me.CuiTextBox21.Margin = New System.Windows.Forms.Padding(4)
+        Me.CuiTextBox21.Location = New System.Drawing.Point(55, 252)
+        Me.CuiTextBox21.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.CuiTextBox21.Multiline = False
         Me.CuiTextBox21.Name = "CuiTextBox21"
-        Me.CuiTextBox21.Padding = New System.Windows.Forms.Padding(15, 12, 15, 0)
+        Me.CuiTextBox21.Padding = New System.Windows.Forms.Padding(18, 15, 18, 0)
         Me.CuiTextBox21.PasswordChar = False
         Me.CuiTextBox21.PlaceholderColor = System.Drawing.Color.DimGray
         Me.CuiTextBox21.PlaceholderText = ""
         Me.CuiTextBox21.Rounding = 8
-        Me.CuiTextBox21.Size = New System.Drawing.Size(242, 39)
+        Me.CuiTextBox21.Size = New System.Drawing.Size(323, 48)
         Me.CuiTextBox21.TabIndex = 1
         Me.CuiTextBox21.TextOffset = New System.Drawing.Size(0, 0)
         Me.CuiTextBox21.UnderlinedStyle = False
@@ -81,9 +82,10 @@ Partial Class NewTuitionPayment
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(41, 182)
+        Me.Label2.Location = New System.Drawing.Point(55, 224)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(111, 23)
+        Me.Label2.Size = New System.Drawing.Size(137, 28)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Cash Tendered"
         '
@@ -92,9 +94,10 @@ Partial Class NewTuitionPayment
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(41, 128)
+        Me.Label3.Location = New System.Drawing.Point(55, 158)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(67, 23)
+        Me.Label3.Size = New System.Drawing.Size(83, 28)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Balance:"
         '
@@ -103,9 +106,10 @@ Partial Class NewTuitionPayment
         Me.txtBalance.AutoSize = True
         Me.txtBalance.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.txtBalance.ForeColor = System.Drawing.Color.White
-        Me.txtBalance.Location = New System.Drawing.Point(196, 128)
+        Me.txtBalance.Location = New System.Drawing.Point(261, 158)
+        Me.txtBalance.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.txtBalance.Name = "txtBalance"
-        Me.txtBalance.Size = New System.Drawing.Size(18, 23)
+        Me.txtBalance.Size = New System.Drawing.Size(22, 28)
         Me.txtBalance.TabIndex = 4
         Me.txtBalance.Text = "0"
         '
@@ -117,6 +121,7 @@ Partial Class NewTuitionPayment
         Me.CuiButton1.CheckedImageTint = System.Drawing.Color.White
         Me.CuiButton1.CheckedOutline = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.CuiButton1.Content = "Save Payment Info"
+        Me.CuiButton1.DialogResult = System.Windows.Forms.DialogResult.None
         Me.CuiButton1.Font = New System.Drawing.Font("Poppins", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CuiButton1.ForeColor = System.Drawing.Color.White
         Me.CuiButton1.HoverBackground = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(194, Byte), Integer))
@@ -127,7 +132,8 @@ Partial Class NewTuitionPayment
         Me.CuiButton1.ImageExpand = New System.Drawing.Point(0, 0)
         Me.CuiButton1.ImageOffset = New System.Drawing.Point(0, 0)
         Me.CuiButton1.ImageTint = System.Drawing.Color.White
-        Me.CuiButton1.Location = New System.Drawing.Point(41, 263)
+        Me.CuiButton1.Location = New System.Drawing.Point(55, 324)
+        Me.CuiButton1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CuiButton1.Name = "CuiButton1"
         Me.CuiButton1.NormalBackground = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
         Me.CuiButton1.NormalOutline = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -136,7 +142,7 @@ Partial Class NewTuitionPayment
         Me.CuiButton1.PressedImageTint = System.Drawing.Color.White
         Me.CuiButton1.PressedOutline = System.Drawing.Color.White
         Me.CuiButton1.Rounding = New System.Windows.Forms.Padding(8)
-        Me.CuiButton1.Size = New System.Drawing.Size(242, 39)
+        Me.CuiButton1.Size = New System.Drawing.Size(323, 48)
         Me.CuiButton1.TabIndex = 5
         Me.CuiButton1.TextOffset = New System.Drawing.Point(0, 0)
         '
@@ -145,9 +151,10 @@ Partial Class NewTuitionPayment
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(10, 8)
+        Me.Label5.Location = New System.Drawing.Point(13, 10)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(149, 23)
+        Me.Label5.Size = New System.Drawing.Size(184, 28)
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "New Tuition Payment"
         '
@@ -157,9 +164,10 @@ Partial Class NewTuitionPayment
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(597, 8)
+        Me.Label6.Location = New System.Drawing.Point(796, 10)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(17, 23)
+        Me.Label6.Size = New System.Drawing.Size(21, 28)
         Me.Label6.TabIndex = 8
         Me.Label6.Text = "x"
         '
@@ -168,9 +176,10 @@ Partial Class NewTuitionPayment
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(41, 52)
+        Me.Label7.Location = New System.Drawing.Point(55, 64)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(137, 23)
+        Me.Label7.Size = New System.Drawing.Size(170, 28)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "Current Tuition Fee:"
         '
@@ -179,9 +188,10 @@ Partial Class NewTuitionPayment
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(41, 75)
+        Me.Label8.Location = New System.Drawing.Point(55, 92)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(110, 23)
+        Me.Label8.Size = New System.Drawing.Size(135, 28)
         Me.Label8.TabIndex = 10
         Me.Label8.Text = "Current Month:"
         '
@@ -190,9 +200,10 @@ Partial Class NewTuitionPayment
         Me.txtMonth.AutoSize = True
         Me.txtMonth.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.txtMonth.ForeColor = System.Drawing.Color.White
-        Me.txtMonth.Location = New System.Drawing.Point(196, 75)
+        Me.txtMonth.Location = New System.Drawing.Point(261, 92)
+        Me.txtMonth.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.txtMonth.Name = "txtMonth"
-        Me.txtMonth.Size = New System.Drawing.Size(58, 23)
+        Me.txtMonth.Size = New System.Drawing.Size(68, 28)
         Me.txtMonth.TabIndex = 11
         Me.txtMonth.Text = "MMMM"
         '
@@ -201,9 +212,10 @@ Partial Class NewTuitionPayment
         Me.txtAmountPaid.AutoSize = True
         Me.txtAmountPaid.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.txtAmountPaid.ForeColor = System.Drawing.Color.White
-        Me.txtAmountPaid.Location = New System.Drawing.Point(196, 100)
+        Me.txtAmountPaid.Location = New System.Drawing.Point(261, 123)
+        Me.txtAmountPaid.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.txtAmountPaid.Name = "txtAmountPaid"
-        Me.txtAmountPaid.Size = New System.Drawing.Size(18, 23)
+        Me.txtAmountPaid.Size = New System.Drawing.Size(22, 28)
         Me.txtAmountPaid.TabIndex = 13
         Me.txtAmountPaid.Text = "0"
         '
@@ -212,9 +224,10 @@ Partial Class NewTuitionPayment
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(41, 100)
+        Me.Label9.Location = New System.Drawing.Point(55, 123)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(148, 23)
+        Me.Label9.Size = New System.Drawing.Size(181, 28)
         Me.Label9.TabIndex = 12
         Me.Label9.Text = "Recent Amount Paid:"
         '
@@ -223,9 +236,10 @@ Partial Class NewTuitionPayment
         Me.CuiPictureBox1.Content = Global.PRMICI_Billing_System_v2.My.Resources.Resources.image_removebg_preview_pzA2SrKPy_transformed
         Me.CuiPictureBox1.CornerRadius = 8
         Me.CuiPictureBox1.ImageTint = System.Drawing.Color.White
-        Me.CuiPictureBox1.Location = New System.Drawing.Point(349, 52)
+        Me.CuiPictureBox1.Location = New System.Drawing.Point(465, 64)
+        Me.CuiPictureBox1.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.CuiPictureBox1.Name = "CuiPictureBox1"
-        Me.CuiPictureBox1.Size = New System.Drawing.Size(220, 225)
+        Me.CuiPictureBox1.Size = New System.Drawing.Size(293, 277)
         Me.CuiPictureBox1.TabIndex = 14
         '
         'Label1
@@ -233,9 +247,10 @@ Partial Class NewTuitionPayment
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(413, 182)
+        Me.Label1.Location = New System.Drawing.Point(551, 224)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 23)
+        Me.Label1.Size = New System.Drawing.Size(68, 28)
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "MMMM"
         '
@@ -244,9 +259,10 @@ Partial Class NewTuitionPayment
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(361, 133)
+        Me.Label4.Location = New System.Drawing.Point(481, 164)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(142, 23)
+        Me.Label4.Size = New System.Drawing.Size(175, 28)
         Me.Label4.TabIndex = 17
         Me.Label4.Text = "Remaining Balance:"
         '
@@ -255,18 +271,19 @@ Partial Class NewTuitionPayment
         Me.txtRemaining.AutoSize = True
         Me.txtRemaining.Font = New System.Drawing.Font("Poppins SemiBold", 9.25!, System.Drawing.FontStyle.Bold)
         Me.txtRemaining.ForeColor = System.Drawing.Color.White
-        Me.txtRemaining.Location = New System.Drawing.Point(516, 133)
+        Me.txtRemaining.Location = New System.Drawing.Point(688, 164)
+        Me.txtRemaining.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.txtRemaining.Name = "txtRemaining"
-        Me.txtRemaining.Size = New System.Drawing.Size(18, 23)
+        Me.txtRemaining.Size = New System.Drawing.Size(22, 28)
         Me.txtRemaining.TabIndex = 16
         Me.txtRemaining.Text = "0"
         '
         'NewTuitionPayment
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(622, 328)
+        Me.ClientSize = New System.Drawing.Size(829, 404)
         Me.Controls.Add(Me.txtAmountPaid)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.txtMonth)
@@ -280,11 +297,12 @@ Partial Class NewTuitionPayment
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.CuiTextBox21)
         Me.Controls.Add(Me.txtTuitionFee)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.CuiPictureBox1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtRemaining)
+        Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "NewTuitionPayment"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "NewTuitionPayment"
