@@ -159,7 +159,7 @@ Module StudentModule
             ' Call the stored procedure
             Using cmd As New MySqlCommand("SearchStudentDetails", cn)
                 cmd.CommandType = CommandType.StoredProcedure
-                cmd.Parameters.AddWithValue("@search_input", searchInput)
+                cmd.Parameters.AddWithValue("@searchInput", searchInput)
 
 
 

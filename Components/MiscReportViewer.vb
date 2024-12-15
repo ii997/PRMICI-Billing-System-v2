@@ -17,29 +17,40 @@ Public Class ReportViewer
 
             cn.Open()
 
-            Dim query As String = "SELECT    s.name, 
-          ss.classSection, 
-          y.year, 
-          m.misc,
-          COUNT(mp.id) as payment_count,
-          SUM(m.amount) as total_misc_amount,
-          SUM(mp.amount) as total_paid_amount,
-          SUM(mp.balance) as total_balance,
-         mp.paymentDate as pDate,
-         sy.schoolYear as sYear
-FROM      misc_payments mp 
-INNER JOIN miscellaneous m ON mp.miscId = m.id 
-INNER JOIN school_year sy ON mp.schoolYearId = sy.id 
-INNER JOIN students s ON mp.studentId = s.id 
-INNER JOIN sections ss ON s.classSectionId = ss.id 
-INNER JOIN years y ON s.yearId = y.id
-WHERE     sy.isActive = 1
-AND      mp.paymentDate BETWEEN @startDate AND @endDate
-GROUP BY  s.name, 
+            Dim query As String = "SELECT 
+    s.name, 
+    ss.classSection, 
+    y.year, 
+    m.misc, 
+    COUNT(mp.id) AS payment_count,
+    SUM(m.amount) AS total_misc_amount,
+    SUM(mp.amount) AS total_paid_amount,
+    total_fees.total_fee_sum AS total_fee_sum, -- Total fee across all rows in the miscellaneous table
+    total_fees.total_fee_sum - SUM(mp.amount) AS total_balance, -- Deduct total paid from total fee
+    mp.paymentDate AS pDate,
+    sy.schoolYear AS sYear
+FROM 
+    misc_payments mp
+INNER JOIN 
+    miscellaneous m ON mp.miscId = m.id 
+INNER JOIN 
+    school_year sy ON mp.schoolYearId = sy.id 
+INNER JOIN 
+    students s ON mp.studentId = s.id 
+INNER JOIN 
+    sections ss ON s.classSectionId = ss.id 
+INNER JOIN 
+    years y ON s.yearId = y.id
+CROSS JOIN 
+    (SELECT SUM(amount) AS total_fee_sum FROM miscellaneous) total_fees -- Calculate total fee once and make it available to all rows
+WHERE 
+    sy.isActive = 1
+    AND mp.paymentDate BETWEEN @startDate AND @endDate
+GROUP BY 
+    s.name, 
           ss.classSection, 
           y.year
 ORDER BY  s.name, m.misc"
-
             Dim cmd As New MySqlCommand(query, cn)
             cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@endDate", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
