@@ -541,7 +541,6 @@
                                   <Style>
                                     <FontFamily>POPPins</FontFamily>
                                     <FontSize>9pt</FontSize>
-                                    <Format>N0</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -640,7 +639,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox190">
+                        <Textbox Name="Textbox2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -651,7 +650,6 @@
                                   <Style>
                                     <FontFamily>poppins semiBold</FontFamily>
                                     <FontWeight>Bold</FontWeight>
-                                    <Format>N0</Format>
                                     <Color>White</Color>
                                   </Style>
                                 </TextRun>
@@ -659,7 +657,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox190</rd:DefaultName>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -869,7 +867,11 @@
         </Field>
         <Field Name="sYear">
           <DataField>sYear</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="total_fee_sum">
+          <DataField>total_fee_sum</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

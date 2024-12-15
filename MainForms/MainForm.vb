@@ -118,7 +118,7 @@
             cn.Close()
             MsgBox("Successfully logged out!", vbInformation, "Logged out!")
             Me.Dispose()
-            Form1.ShowDialog()
+            Form1.Show()
         End If
     End Sub
 
