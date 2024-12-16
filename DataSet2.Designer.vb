@@ -3233,27 +3233,21 @@ Partial Public Class DataSet2
     Partial Public Class MiscReportDataTable
         Inherits Global.System.Data.TypedTableBase(Of MiscReportRow)
         
-        Private columnid As Global.System.Data.DataColumn
-        
-        Private columnstudentId As Global.System.Data.DataColumn
-        
-        Private columnname As Global.System.Data.DataColumn
-        
-        Private columnclassSection As Global.System.Data.DataColumn
-        
         Private columnyear As Global.System.Data.DataColumn
         
         Private columnmisc As Global.System.Data.DataColumn
         
-        Private columnmisc_amount As Global.System.Data.DataColumn
-        
-        Private columnamount As Global.System.Data.DataColumn
-        
-        Private columnbalance As Global.System.Data.DataColumn
-        
-        Private columnpaymentDate As Global.System.Data.DataColumn
-        
         Private columnschoolYear As Global.System.Data.DataColumn
+        
+        Private columntotal_payments As Global.System.Data.DataColumn
+        
+        Private columntotal_balance As Global.System.Data.DataColumn
+        
+        Private columnpayment_count As Global.System.Data.DataColumn
+        
+        Private columnearliest_payment_date As Global.System.Data.DataColumn
+        
+        Private columnlatest_payment_date As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -3292,38 +3286,6 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnid
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property studentIdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnstudentId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property nameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnname
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property classSectionColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnclassSection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property yearColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnyear
@@ -3340,41 +3302,49 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property misc_amountColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnmisc_amount
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property amountColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnamount
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property balanceColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnbalance
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property paymentDateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnpaymentDate
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property schoolYearColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnschoolYear
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property total_paymentsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntotal_payments
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property total_balanceColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntotal_balance
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property payment_countColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpayment_count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property earliest_payment_dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnearliest_payment_date
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property latest_payment_dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnlatest_payment_date
             End Get
         End Property
         
@@ -3415,18 +3385,12 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddMiscReportRow(ByVal studentId As Integer, ByVal name As String, ByVal classSection As String, ByVal year As String, ByVal misc As String, ByVal misc_amount As Double, ByVal amount As Double, ByVal balance As Double, ByVal paymentDate As Date, ByVal schoolYear As String) As MiscReportRow
+        Public Overloads Function AddMiscReportRow(ByVal year As String, ByVal misc As String, ByVal schoolYear As String, ByVal total_payments As Double, ByVal total_balance As Double, ByVal payment_count As Long, ByVal earliest_payment_date As Date, ByVal latest_payment_date As Date) As MiscReportRow
             Dim rowMiscReportRow As MiscReportRow = CType(Me.NewRow,MiscReportRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, studentId, name, classSection, year, misc, misc_amount, amount, balance, paymentDate, schoolYear}
+            Dim columnValuesArray() As Object = New Object() {year, misc, schoolYear, total_payments, total_balance, payment_count, earliest_payment_date, latest_payment_date}
             rowMiscReportRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowMiscReportRow)
             Return rowMiscReportRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByid(ByVal id As Integer) As MiscReportRow
-            Return CType(Me.Rows.Find(New Object() {id}),MiscReportRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3446,64 +3410,40 @@ Partial Public Class DataSet2
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnid = MyBase.Columns("id")
-            Me.columnstudentId = MyBase.Columns("studentId")
-            Me.columnname = MyBase.Columns("name")
-            Me.columnclassSection = MyBase.Columns("classSection")
             Me.columnyear = MyBase.Columns("year")
             Me.columnmisc = MyBase.Columns("misc")
-            Me.columnmisc_amount = MyBase.Columns("misc_amount")
-            Me.columnamount = MyBase.Columns("amount")
-            Me.columnbalance = MyBase.Columns("balance")
-            Me.columnpaymentDate = MyBase.Columns("paymentDate")
             Me.columnschoolYear = MyBase.Columns("schoolYear")
+            Me.columntotal_payments = MyBase.Columns("total_payments")
+            Me.columntotal_balance = MyBase.Columns("total_balance")
+            Me.columnpayment_count = MyBase.Columns("payment_count")
+            Me.columnearliest_payment_date = MyBase.Columns("earliest_payment_date")
+            Me.columnlatest_payment_date = MyBase.Columns("latest_payment_date")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnid = New Global.System.Data.DataColumn("id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnid)
-            Me.columnstudentId = New Global.System.Data.DataColumn("studentId", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnstudentId)
-            Me.columnname = New Global.System.Data.DataColumn("name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnname)
-            Me.columnclassSection = New Global.System.Data.DataColumn("classSection", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnclassSection)
             Me.columnyear = New Global.System.Data.DataColumn("year", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnyear)
             Me.columnmisc = New Global.System.Data.DataColumn("misc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnmisc)
-            Me.columnmisc_amount = New Global.System.Data.DataColumn("misc_amount", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnmisc_amount)
-            Me.columnamount = New Global.System.Data.DataColumn("amount", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnamount)
-            Me.columnbalance = New Global.System.Data.DataColumn("balance", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnbalance)
-            Me.columnpaymentDate = New Global.System.Data.DataColumn("paymentDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnpaymentDate)
             Me.columnschoolYear = New Global.System.Data.DataColumn("schoolYear", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnschoolYear)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
-            Me.columnid.AutoIncrement = true
-            Me.columnid.AutoIncrementSeed = -1
-            Me.columnid.AutoIncrementStep = -1
-            Me.columnid.AllowDBNull = false
-            Me.columnid.Unique = true
-            Me.columnstudentId.AllowDBNull = false
-            Me.columnname.AllowDBNull = false
-            Me.columnname.MaxLength = 65535
-            Me.columnclassSection.AllowDBNull = false
-            Me.columnclassSection.MaxLength = 65535
-            Me.columnyear.AllowDBNull = false
+            Me.columntotal_payments = New Global.System.Data.DataColumn("total_payments", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntotal_payments)
+            Me.columntotal_balance = New Global.System.Data.DataColumn("total_balance", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntotal_balance)
+            Me.columnpayment_count = New Global.System.Data.DataColumn("payment_count", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpayment_count)
+            Me.columnearliest_payment_date = New Global.System.Data.DataColumn("earliest_payment_date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnearliest_payment_date)
+            Me.columnlatest_payment_date = New Global.System.Data.DataColumn("latest_payment_date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnlatest_payment_date)
             Me.columnyear.MaxLength = 65535
             Me.columnmisc.AllowDBNull = false
             Me.columnmisc.MaxLength = 20
-            Me.columnmisc_amount.AllowDBNull = false
-            Me.columnamount.AllowDBNull = false
-            Me.columnbalance.AllowDBNull = false
-            Me.columnschoolYear.AllowDBNull = false
             Me.columnschoolYear.MaxLength = 10
+            Me.columnpayment_count.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6290,53 +6230,13 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property id() As Integer
-            Get
-                Return CType(Me(Me.tableMiscReport.idColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableMiscReport.idColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property studentId() As Integer
-            Get
-                Return CType(Me(Me.tableMiscReport.studentIdColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableMiscReport.studentIdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property name() As String
-            Get
-                Return CType(Me(Me.tableMiscReport.nameColumn),String)
-            End Get
-            Set
-                Me(Me.tableMiscReport.nameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property classSection() As String
-            Get
-                Return CType(Me(Me.tableMiscReport.classSectionColumn),String)
-            End Get
-            Set
-                Me(Me.tableMiscReport.classSectionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property year() As String
             Get
-                Return CType(Me(Me.tableMiscReport.yearColumn),String)
+                Try 
+                    Return CType(Me(Me.tableMiscReport.yearColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'year' in table 'MiscReport' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableMiscReport.yearColumn) = value
@@ -6356,57 +6256,13 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property misc_amount() As Double
-            Get
-                Return CType(Me(Me.tableMiscReport.misc_amountColumn),Double)
-            End Get
-            Set
-                Me(Me.tableMiscReport.misc_amountColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property amount() As Double
-            Get
-                Return CType(Me(Me.tableMiscReport.amountColumn),Double)
-            End Get
-            Set
-                Me(Me.tableMiscReport.amountColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property balance() As Double
-            Get
-                Return CType(Me(Me.tableMiscReport.balanceColumn),Double)
-            End Get
-            Set
-                Me(Me.tableMiscReport.balanceColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property paymentDate() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableMiscReport.paymentDateColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'paymentDate' in table 'MiscReport' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableMiscReport.paymentDateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property schoolYear() As String
             Get
-                Return CType(Me(Me.tableMiscReport.schoolYearColumn),String)
+                Try 
+                    Return CType(Me(Me.tableMiscReport.schoolYearColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'schoolYear' in table 'MiscReport' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableMiscReport.schoolYearColumn) = value
@@ -6415,14 +6271,145 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IspaymentDateNull() As Boolean
-            Return Me.IsNull(Me.tableMiscReport.paymentDateColumn)
+        Public Property total_payments() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableMiscReport.total_paymentsColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'total_payments' in table 'MiscReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMiscReport.total_paymentsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property total_balance() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableMiscReport.total_balanceColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'total_balance' in table 'MiscReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMiscReport.total_balanceColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property payment_count() As Long
+            Get
+                Return CType(Me(Me.tableMiscReport.payment_countColumn),Long)
+            End Get
+            Set
+                Me(Me.tableMiscReport.payment_countColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property earliest_payment_date() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableMiscReport.earliest_payment_dateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'earliest_payment_date' in table 'MiscReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMiscReport.earliest_payment_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property latest_payment_date() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableMiscReport.latest_payment_dateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'latest_payment_date' in table 'MiscReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableMiscReport.latest_payment_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsyearNull() As Boolean
+            Return Me.IsNull(Me.tableMiscReport.yearColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetpaymentDateNull()
-            Me(Me.tableMiscReport.paymentDateColumn) = Global.System.Convert.DBNull
+        Public Sub SetyearNull()
+            Me(Me.tableMiscReport.yearColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsschoolYearNull() As Boolean
+            Return Me.IsNull(Me.tableMiscReport.schoolYearColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetschoolYearNull()
+            Me(Me.tableMiscReport.schoolYearColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Istotal_paymentsNull() As Boolean
+            Return Me.IsNull(Me.tableMiscReport.total_paymentsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Settotal_paymentsNull()
+            Me(Me.tableMiscReport.total_paymentsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Istotal_balanceNull() As Boolean
+            Return Me.IsNull(Me.tableMiscReport.total_balanceColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Settotal_balanceNull()
+            Me(Me.tableMiscReport.total_balanceColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isearliest_payment_dateNull() As Boolean
+            Return Me.IsNull(Me.tableMiscReport.earliest_payment_dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setearliest_payment_dateNull()
+            Me(Me.tableMiscReport.earliest_payment_dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Islatest_payment_dateNull() As Boolean
+            Return Me.IsNull(Me.tableMiscReport.latest_payment_dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setlatest_payment_dateNull()
+            Me(Me.tableMiscReport.latest_payment_dateColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -11410,17 +11397,14 @@ Namespace DataSet2TableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "MiscReport"
-            tableMapping.ColumnMappings.Add("id", "id")
-            tableMapping.ColumnMappings.Add("studentId", "studentId")
-            tableMapping.ColumnMappings.Add("name", "name")
-            tableMapping.ColumnMappings.Add("classSection", "classSection")
             tableMapping.ColumnMappings.Add("year", "year")
             tableMapping.ColumnMappings.Add("misc", "misc")
-            tableMapping.ColumnMappings.Add("misc_amount", "misc_amount")
-            tableMapping.ColumnMappings.Add("amount", "amount")
-            tableMapping.ColumnMappings.Add("balance", "balance")
-            tableMapping.ColumnMappings.Add("paymentDate", "paymentDate")
             tableMapping.ColumnMappings.Add("schoolYear", "schoolYear")
+            tableMapping.ColumnMappings.Add("total_payments", "total_payments")
+            tableMapping.ColumnMappings.Add("total_balance", "total_balance")
+            tableMapping.ColumnMappings.Add("payment_count", "payment_count")
+            tableMapping.ColumnMappings.Add("earliest_payment_date", "earliest_payment_date")
+            tableMapping.ColumnMappings.Add("latest_payment_date", "latest_payment_date")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -11437,14 +11421,15 @@ Namespace DataSet2TableAdapters
             Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(0) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        mp.id, mp.studentId, s.name, ss.classSection, y.year, m.misc, m.amo"& _ 
-                "unt AS misc_amount, mp.amount, mp.balance, mp.paymentDate, sy.schoolYear"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
-                "          misc_payments mp INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         miscellaneous m "& _ 
-                "ON mp.miscId = m.id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         school_year sy ON mp.sc"& _ 
-                "hoolYearId = sy.id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         students s ON mp.student"& _ 
-                "Id = s.id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         sections ss ON s.classSectionId ="& _ 
-                " ss.id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         years y ON s.yearId = y.id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE   "& _ 
-                "     sy.isActive = 1 AND mp.paymentDate BETWEEN @startDate AND @endDate"
+            Me._commandCollection(0).CommandText = "SELECT "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    m.misc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    SUM(mp.amount) AS total_payments, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    SUM(mp.balance"& _ 
+                ") AS total_balance, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    COUNT(mp.id) AS payment_count, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    MAX(sy.schoolYear"& _ 
+                ") AS schoolYear, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    MAX(y.year) AS year,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    MIN(mp.paymentDate) AS earliest"& _ 
+                "_payment_date,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    MAX(mp.paymentDate) AS latest_payment_date"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    misc_"& _ 
+                "payments mp "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    miscellaneous m ON mp.miscId = m.id "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN "& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    school_year sy ON mp.schoolYearId = sy.id "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    students s ON"& _ 
+                " mp.studentId = s.id "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    sections ss ON s.classSectionId = ss.id "& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INNER JOIN "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    years y ON s.yearId = y.id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    sy.isActive = 1  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "  AND mp.paymentDate BETWEEN @startDate AND @endDate"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    AND m.misc LIKE @misc"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    m.misc"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@startDate"
@@ -11460,13 +11445,21 @@ Namespace DataSet2TableAdapters
             param.SourceColumn = "paymentDate"
             param.SourceVersion = Global.System.Data.DataRowVersion.Current
             Me._commandCollection(0).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@misc"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.Size = 20
+            param.IsNullable = true
+            param.SourceColumn = "misc"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Current
+            Me._commandCollection(0).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.MiscReportDataTable, ByVal startDate As Global.System.Nullable(Of Date), ByVal endDate As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.MiscReportDataTable, ByVal startDate As Global.System.Nullable(Of Date), ByVal endDate As Global.System.Nullable(Of Date), ByVal misc As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (startDate.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(startDate.Value,Date)
@@ -11477,6 +11470,11 @@ Namespace DataSet2TableAdapters
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(endDate.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (misc Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("misc")
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(misc,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -11489,7 +11487,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal startDate As Global.System.Nullable(Of Date), ByVal endDate As Global.System.Nullable(Of Date)) As DataSet2.MiscReportDataTable
+        Public Overloads Overridable Function GetData(ByVal startDate As Global.System.Nullable(Of Date), ByVal endDate As Global.System.Nullable(Of Date), ByVal misc As String) As DataSet2.MiscReportDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (startDate.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(startDate.Value,Date)
@@ -11500,6 +11498,11 @@ Namespace DataSet2TableAdapters
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(endDate.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (misc Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("misc")
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(misc,String)
             End If
             Dim dataTable As DataSet2.MiscReportDataTable = New DataSet2.MiscReportDataTable()
             Me.Adapter.Fill(dataTable)

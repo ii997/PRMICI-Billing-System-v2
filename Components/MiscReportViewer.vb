@@ -155,15 +155,33 @@ ORDER BY  s.name, m.misc"
 
             cn.Open()
 
-            Dim query As String = "SELECT        mp.id, mp.studentId, s.name, ss.classSection, y.year, m.misc, m.amount AS misc_amount, mp.amount, mp.balance, mp.paymentDate, sy.schoolYear
-FROM            misc_payments mp INNER JOIN
-                         miscellaneous m ON mp.miscId = m.id INNER JOIN
-                         school_year sy ON mp.schoolYearId = sy.id INNER JOIN
-                         students s ON mp.studentId = s.id INNER JOIN
-                         sections ss ON s.classSectionId = ss.id INNER JOIN
-                         years y ON s.yearId = y.id
-WHERE        (sy.isActive = 1)  
-AND DATE(mp.paymentDate) BETWEEN @startDate AND @endDate AND m.misc LIKE @misc"
+            Dim query As String = "SELECT 
+    m.misc, 
+    SUM(mp.amount) AS total_payments, 
+    SUM(mp.balance) AS total_balance, 
+    COUNT(mp.id) AS payment_count, 
+    MAX(sy.schoolYear) AS schoolYear, 
+    MAX(y.year) AS year,
+    MIN(mp.paymentDate) AS earliest_payment_date,
+    MAX(mp.paymentDate) AS latest_payment_date
+FROM 
+    misc_payments mp 
+INNER JOIN 
+    miscellaneous m ON mp.miscId = m.id 
+INNER JOIN 
+    school_year sy ON mp.schoolYearId = sy.id 
+INNER JOIN 
+    students s ON mp.studentId = s.id 
+INNER JOIN 
+    sections ss ON s.classSectionId = ss.id 
+INNER JOIN 
+    years y ON s.yearId = y.id
+WHERE 
+    sy.isActive = 1  
+    AND mp.paymentDate BETWEEN @startDate AND @endDate
+    AND m.misc LIKE @misc
+GROUP BY 
+    m.misc"
 
             Dim cmd As New MySqlCommand(query, cn)
             cmd.Parameters.AddWithValue("@misc", "%" & ComboBox1.Text & "%")
